@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" th:href="@{assets/css/index.css}" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<title>Employment & Training</title>
+</head>
+
+<body>
+	<div class="top-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="header-design">
+						<span class="social"><i class="fa fa-facebook-official" aria-hidden="true"></i></span>
+						<span class="social"><i class="fa fa-twitter" aria-hidden="true"></i></span>
+						<span class="social"><i class="fa fa-google-plus-square" aria-hidden="true"></i></span>
+						<span class="social"><i class="fa fa-instagram" aria-hidden="true"></i></span>
+						<span class="social"><i class="fa fa-youtube-play" aria-hidden="true"></i></span>
+					</div>
+				</div>
+				<div class="col-md-8">
+					<div class="side-header">
+						<div class="menus">
+							<span class="header-tp"><a href="#"><i class="fa fa-home"
+										aria-hidden="true"></i>Home</a></span>
+							<span class="header-tp"><a href="#"><i class="fa fa-arrow-circle-down"
+										aria-hidden="true"></i>Skip to Main Content</a></span>
+						</div>
+						<div class="font-increase">
+							<a id="abc" href="#" th:onclick="showbox()"><i class="fa fa-universal-access"
+									aria-hidden="true"></i></a>
+							<div id="xyz" class="access-type">
+								<span class="hidden-xss">A-</span>
+								<span class="hidden-xss">A</span>
+								<span class="hidden-xss">A+</span>
+							</div>
+						</div>
+						<div class="color-theme">
+							<span class="hidden-xs"><i class="fa fa-circle blue" aria-hidden="true"></i></span>
+							<span class="hidden-xs"><i class="fa fa-circle orange" aria-hidden="true"></i></span>
+							<span class="hidden-xs"><i class="fa fa-circle green" aria-hidden="true"></i></span>
+						</div>
+						<div class="language">
+							<span class="current-language">English <i class="fa fa-angle-down"
+									aria-hidden="true"></i></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- bottom header -->
+	<div class="bottom-header">
+		<nav class="navbar navbar-expand-lg navbar-light">
+			<div class="container">
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="#">Home</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								About Us
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="#">About DET</a>
+								<a class="dropdown-item" href="#">Office Setup</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Scheme
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="#">CTS</a>
+								<a class="dropdown-item" href="#">ATS</a>
+								<a class="dropdown-item" href="#">PPP</a>
+								<a class="dropdown-item" href="#">COE</a>
+								<a class="dropdown-item" href="#">MES</a>
+								<a class="dropdown-item" href="#">LWE</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								New Courses In CTS
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="#">List of CTS Courses</a>
+								<a class="dropdown-item" href="#">Employability Skills</a>
+								<a class="dropdown-item" href="#">Soft Skills</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Examination
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="#">Examination Centre</a>
+								<a class="dropdown-item" href="#">Upcoming Examination Programme</a>
+								<a class="dropdown-item" href="#">CTS Jan 2015 Schedule</a>
+								<a class="dropdown-item" href="#">Programme for CTS Sem Feb 2015</a>
+								<a class="dropdown-item" href="#">Results</a>
+								<a class="dropdown-item" href="#">Admit Card</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Documents
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="#">Acts</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Useful Links
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="#">DGE&T</a>
+								<a class="dropdown-item" href="#">Labour Department</a>
+								<a class="dropdown-item" href="#">Bihar Government</a>
+								<a class="dropdown-item" href="#">SDI</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Students Corner
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="#">Job Fair</a>
+								<a class="dropdown-item" href="#">Job opportunities</a>
+								<a class="dropdown-item" href="#">Job requirement</a>
+								<a class="dropdown-item" href="#">Certificate Verification</a>
+								<a class="dropdown-item" href="#">Certificate Download</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Login
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="#">Student Login</a>
+								<a class="dropdown-item" href="#">Authorised Login</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Contact Us
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="#">Officer's Details</a>
+								<a class="dropdown-item" href="#">Staff Details</a>
+								<a class="dropdown-item" href="#">ITI Details</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+
+	<!-- vertically banner -->
+	<div class="logo-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<img th:src="@{assets/images/ITI-logo.png}" alt="logo">
+				</div>
+				<div class="col-md-8">
+					<img th:src="@{assets/images/logo-text.png}" alt="logo" class="logo-text">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- colleges section end -->
+	<div class="submodules">
+		<div class="container">
+			<div class="row">
+				<!-- ... (rest of the existing content) ... -->
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer Section Starts here -->
+	<div class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="footer-col-inner">
+						<ul>
+							<li><a href="#">Tenders</a></li>
+							<li><a href="#">Notice Board</a></li>
+							<li><a href="#">New Initiatives</a></li>
+							<li><a href="#">Feedback</a></li>
+							<li><a href="#">Publication</a></li>
+							<li><a href="#">Portal User Manual</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="footer-map">
+						<iframe
+							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.8159001663366!2d85.12668811460449!3d25.61103308370547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed5840cec3ebbb%3A0x4bc12d802e73fe09!2sNiyojan+Bhawan%2C+Bailey+Road!5e0!3m2!1sen!2sin!4v1511164593345"
+							width="100%" height="200" frameborder="0" style="border:0" allowfullscreen=""></iframe>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="footer-col-inner">
+						<h3>Contact us</h3>
+						<p class="adr clearfix col-md-12 col-sm-4">
+							<i class="fa fa-map-marker pull-left"></i>
+							<span class="adr-group pull-left">
+								<span class="street-address">Niyojan Bhawan</span><br>
+								<span class="region">Near Income tax golamber, Bailey Rd,</span><br>
+								<span class="postal-code">Veerchand Patel Road Area, Patna, Bihar 800001</span>
+							</span>
+						</p>
+						<p class="tel col-md-12 col-sm-4"><i class="fa fa-phone"></i>0000-0000000</p>
+						<p class="email col-md-12 col-sm-4"><i class="fa fa-envelope"></i><a
+								href="#">helpdeskpolitechnic@gmail.com</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="copy-right-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-sm-12 col-xs-12">
+					<span class="ft-span">Copyright @ 2014 dethunar-bih.com | Website developed by </span><span class="ft-span
+            ">CMS Computers Limited</span>
+				</div>
+				<div class="col-md-4 col-sm-12 col-xs-12">
+					<div class="counter">
+						<a href="https://www.hitwebcounter.com" target="_blank">
+							<img src="https://hitwebcounter.com/counter/counter.php?page=11529217&style=0001&nbdigits=5&type=page&initCount=0"
+								title="Counter Widget" Alt="Visit counter For Websites" /></a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="copy-right-footer">
+			<div class="container">
+				<div class="row">
+					<!-- ... (rest of the existing content) ... -->
+				</div>
+			</div>
+		</div>
+
+		<!-- Option 1: Bootstrap Bundle with Popper -->
+		<script th:inline="javascript">
+        // ... (rest of the existing script content) ...
+		</script>
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+		<script th:inline="javascript">
+			let usersection = document.querySelector(".access-type");
+			let isShow = true;
+			$("#abc").click(function (e) {
+				// prevent click action
+				e.preventDefault();
+				// your code here
+				return false;
+			});
+			function showbox() {
+				if (isShow) {
+					document.getElementById("xyz").style.display = "none";
+					isShow = false;
+				} else {
+					document.getElementById("xyz").style.display = "block";
+					isShow = true;
+				}
+			}
+		</script>
+</body>
+
+</html>

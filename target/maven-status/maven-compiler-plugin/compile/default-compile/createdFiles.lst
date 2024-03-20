@@ -1,0 +1,7 @@
+cms\com\det\service\StudentService.class
+cms\com\det\controller\DETRegistrationController.class
+cms\com\det\dto\Student.class
+cms\com\det\repo\StudentRepo.class
+cms\com\det\ServletInitializer.class
+cms\com\det\service\StudentServiceImpl.class
+cms\com\det\DetRegistrationApplication.class

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Dashboard</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+	<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+	<link rel="stylesheet" th:href="@{/assets/css/style.css}">
+</head>
+
+<body>
+	<!-- partial:index.partial.html -->
+	<div class="main">
+		<div class="left">
+			<ul>
+				<li><a data-toggle="tab" href="#overview"><i class="fa fa-tachometer"
+							aria-hidden="true"></i>Dashboard</a></li>
+				<li><a data-toggle="tab" href="#performance"><i class="fa fa-university" aria-hidden="true"></i>
+						Institutional Profile</a></li>
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						<i class="fa fa-graduation-cap" aria-hidden="true"></i> Student Section <span
+							class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a data-toggle="tab" href="#subitem1">Student Admission Registration</a></li>
+						<li><a data-toggle="tab" href="#subitem2">Bulk Student Registration</a></li>
+						<li><a data-toggle="tab" href="#subitem2">Registered Student List</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						<i class="fa fa-info" aria-hidden="true"></i>Fee Details <span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a data-toggle="tab" href="#subitem3">Registration Fees</a></li>
+						<li><a data-toggle="tab" href="#subitem4">Examination Fees</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						<i class="fa fa-table fa-lg"></i> Examination <span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a data-toggle="tab" href="#subitem5">Create Admit Form</a></li>
+						<li><a data-toggle="tab" href="#subitem6">Download Admit Form</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						<i class="fa fa-check-square-o" aria-hidden="true"></i>C-Form <span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a data-toggle="tab" href="#subitem5">Create C-Form</a></li>
+						<li><a data-toggle="tab" href="#subitem6">Edit & View</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="right">
+			<div class="tab-content">
+				<!-- Overview -->
+				<div id="overview" class="tab-pane fade">
+					<div class="header">
+						<h4>Dashboard</h4>
+					</div>
+					<div class="content">
+						<h6>Logged in as:</h6>
+						<div class="row graph-cards">
+							<div class="col-md-4">
+								<div class="header"></div>
+							</div>
+							<div class="col-sm-8">
+								<div class="haeder"></div>
+								<div class="dateline">
+									<h2>DATELINE NOTIFICATION</h2>
+									<h4>Last Date of online registration/Application</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Performance -->
+				<div id="performance" class="tab-pane fade">
+					<div class="container">
+						<div class="tab-content">
+							<div id="tab1" class="tab-pane fade in active">
+								<!-- Content for academic details -->
+							</div>
+							<div id="tab2" class="tab-pane fade">
+								<!-- Content for personal details -->
+							</div>
+							<div id="tab3" class="tab-pane fade">
+								<h3>Tab 3</h3>
+								<p>Content for tab 3.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Analytics -->
+				<div id="analytics" class="tab-pane fade">
+					<h5>gft</h5>
+				</div>
+				<!-- Landing -->
+				<div id="landing" class="tab-pane fade">
+					<h6>gcvgcgb</h6>
+				</div>
+				<!-- Projects -->
+				<div id="projects" class="tab-pane fade">
+					<div class="header">
+						<h4>Welcome</h4>
+						<ul class="pull-right">
+							<li>
+								<div class="btn-group dropleft dropdown-user">
+									<i class="fa fa-user-o dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+										aria-expanded="false">
+									</i>
+									<ul class="dropdown-menu">
+										<li>
+											<a href="#">
+												<div class="alert-card">
+													<img src="https://bit.ly/2KkoqCO"
+														class="img-circle img-responvie" />
+													<p class="pull-right">
+														Someone mentioned you <br>
+														<small>You have recieved a mention on twitter, check it
+															out!</small>
+													</p>
+												</div>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<div class="alert-card">
+													<img src="https://bit.ly/2MH8Wue"
+														class="img-circle img-responvie" />
+													<p class="pull-right">
+														Someone mentioned you <br>
+														<small>You have recieved a mention on twitter, check it
+															out!</small>
+													</p>
+												</div>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<div class="alert-card">
+													<img src="https://bit.ly/2Km1kf6"
+														class="img-circle img-responvie" />
+													<p class="pull-right">
+														Someone mentioned you <br>
+														<small>You have recieved a mention on twitter, check it
+															out!</small>
+													</p>
+												</div>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<div class="btn-group dropleft dropdown-alert">
+									<i class="fa fa-bell-o dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+										aria-expanded="false">
+									</i>
+									<ul class="dropdown-menu">
+										<li>
+											<a href="#">
+												<div class="alert-card">
+													<i class="fa fa-check-circle fa-2x"></i>
+													<p class="pull-right">
+														Someone mentioned you <br>
+														<small>You have recieved a mention on twitter, check it
+															out!</small>
+													</p>
+												</div>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<div class="alert-card">
+													<i class="fa fa-calendar fa-2x"></i>
+													<p class="pull-right">
+														Someone mentioned you <br>
+														<small>You have recieved a mention on twitter, check it
+															out!</small>
+													</p>
+												</div>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<div class="alert-card">
+													<i class="fa fa-info-circle fa-2x"></i>
+													<p class="pull-right">
+														Someone mentioned you <br>
+														<small>You have recieved a mention on twitter, check it
+															out!</small>
+													</p>
+												</div>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<div class="btn-group dropleft dropdown-avatar">
+									<img src="https://bit.ly/2Km1kf6" class="img-circle img-responvie" /><i
+										class="fa fa-angle-down dropdown-toggle" data-toggle="dropdown"
+										aria-haspopup="true" aria-expanded="false"></i>
+									<ul class="dropdown-menu">
+										<li><a href="#">Edit Profile</a></li>
+										<li><a href="#">View Activity</a></li>
+										<li><a href="#">Manage Roles</a></li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- partial -->
+			<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js'></script>
+			<script src='https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+			<script th:src="@{/assets/js/script.js}"></script>
+		</div>
+	</div>
+</body>
+
+</html>
