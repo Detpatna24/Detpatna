@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<!-- Required meta tags -->
-	<meta charset="utf-8" />
+	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css}" />
@@ -12,6 +12,32 @@
 		th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css}" />
 	<title>Employment & Training</title>
 </head>
+<style>
+	
+	.digital-btn3 {
+		display: block;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		gap: 4px;
+	}
+
+	.digital-btn2 {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+	}
+
+	.digital-btn2 {
+
+		display: block;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		gap: 4px;
+	}
+</style>
 
 <body>
 	<div class="top-header">
@@ -32,10 +58,10 @@
 							<span class="header-tp"><a href="#"><i class="fa fa-home"
 										aria-hidden="true"></i>Home</a></span>
 							<span class="header-tp"><a href="#"><i class="fa fa-arrow-circle-down"
-										aria-hidden="true"></i>Skip to Main Content</a></span>
+										aria-hidden="true"></i> Skip to Main Content</a></span>
 						</div>
 						<div class="font-increase">
-							<a id="abc" href="#" th:onclick="showbox()"><i class="fa fa-universal-access"
+							<a id="abc" href="#" onclick="showbox()"><i class="fa fa-universal-access"
 									aria-hidden="true"></i></a>
 							<div id="xyz" class="access-type">
 								<span class="hidden-xss">A-</span>
@@ -68,20 +94,24 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-						<!-- Add Thymeleaf attribute th:href for dynamic URLs -->
-						<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="#">Home</a>
+						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About Us</a>
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								About Us
+							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item" href="#">About DET</a>
 								<a class="dropdown-item" href="#">Office Setup</a>
 							</div>
 						</li>
-						<!-- Add Thymeleaf attribute th:href for dynamic URLs -->
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Scheme</a>
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Scheme
+							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item" href="#">CTS</a>
 								<a class="dropdown-item" href="#">ATS</a>
@@ -91,20 +121,22 @@
 								<a class="dropdown-item" href="#">LWE</a>
 							</div>
 						</li>
-						<!-- Add Thymeleaf attribute th:href for dynamic URLs -->
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">New Courses In CTS</a>
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								New Courses In CTS
+							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item" href="#">List of CTS Courses</a>
 								<a class="dropdown-item" href="#">Employability Skills</a>
 								<a class="dropdown-item" href="#">Soft Skills</a>
 							</div>
 						</li>
-						<!-- Add Thymeleaf attribute th:href for dynamic URLs -->
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Examination</a>
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Examination
+							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item" href="#">Examination Centre</a>
 								<a class="dropdown-item" href="#">Upcoming Examination Programme</a>
@@ -114,18 +146,20 @@
 								<a class="dropdown-item" href="#">Admit Card</a>
 							</div>
 						</li>
-						<!-- Add Thymeleaf attribute th:href for dynamic URLs -->
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Documents</a>
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Documents
+							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item" href="#">Acts</a>
 							</div>
 						</li>
-						<!-- Add Thymeleaf attribute th:href for dynamic URLs -->
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Useful Links</a>
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Useful Links
+							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item" href="#">DGE&T</a>
 								<a class="dropdown-item" href="#">Labour Department</a>
@@ -133,10 +167,11 @@
 								<a class="dropdown-item" href="#">SDI</a>
 							</div>
 						</li>
-						<!-- Add Thymeleaf attribute th:href for dynamic URLs -->
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Students Corner</a>
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Students Corner
+							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item" href="#">Job Fair</a>
 								<a class="dropdown-item" href="#">Job opportunities</a>
@@ -145,19 +180,21 @@
 								<a class="dropdown-item" href="#">Certificate Download</a>
 							</div>
 						</li>
-						<!-- Add Thymeleaf attribute th:href for dynamic URLs -->
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login</a>
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Login
+							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item" href="#">Student Login</a>
 								<a class="dropdown-item" href="#">Authorised Login</a>
 							</div>
 						</li>
-						<!-- Add Thymeleaf attribute th:href for dynamic URLs -->
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contact Us</a>
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Contact Us
+							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item" href="#">Officer's Details</a>
 								<a class="dropdown-item" href="#">Staff Details</a>
@@ -169,34 +206,35 @@
 			</div>
 		</nav>
 	</div>
-	<!-- vertically banner -->
 	<div class="logo-section">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4">
-					<img th:src="@{/assets/images/ITI-logo.png}" alt="logo">
+					<img src="assets/images/ITI-logo.png" alt="logo">
 				</div>
 				<div class="col-md-8">
-					<img th:src="@{/assets/images/logo-text.png}" alt="logo" class="logo-text">
+					<img src="assets/images/logo-text.png" alt="logo" class="logo-text">
+					<img src="assets/images/kausal-logo-2.png" alt="logo" class="bihar-logo">
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- Bootstrap Carousel -->
+
 	<div class="banner">
+		<!-- Bootstrap Carousel -->
 		<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<img class="d-block w-100" th:src="@{/assets/images/slide-1.jpg}" alt="First slide">
+					<img class="d-block w-100" src="assets/images/slide-1.jpg" alt="First slide">
 				</div>
 				<div class="carousel-item">
-					<img class="d-block w-100" th:src="@{/assets/images/slide-2.jpg}" alt="Second slide">
+					<img class="d-block w-100" src="assets/images/slide-2.jpg" alt="Second slide">
 				</div>
 				<div class="carousel-item">
-					<img class="d-block w-100" th:src="@{/assets/images/slide-3.jpg}" alt="Third slide">
+					<img class="d-block w-100" src="assets/images/slide-3.jpg" alt="Third slide">
 				</div>
 				<div class="carousel-item">
-					<img class="d-block w-100" th:src="@{/assets/images/slide-4.jpg}" alt="Third slide">
+					<img class="d-block w-100" src="assets/images/slide-4.jpg" alt="Third slide">
 				</div>
 			</div>
 			<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -209,181 +247,192 @@
 			</a>
 		</div>
 	</div>
-	<!-- vertically banner end -->
-	<!-- minister-section start -->
-	<div class="minister">
+
+	<div class="features" id="features">
 		<div class="container">
-			<div class="row">
-				<div class="col-md-6">
-					<div class="noticeboard-sec">
+			<div class="box">
+				<div class="min-img">
+					<img src="assets/images/nitish-kumar.png" class="img-fluid" />
+				</div>
+			</div>
+			<div class="box quality">
+				<div class="imagebox">
+					<img src="assets/images/iti-management.png">
+				</div>
+				<div class="text">
+					<h3>ITI Management</h3>
+					<a href="itimodules.html" th:href="@{/itimodules.html}">Read More</a>
+				</div>
+			</div>
+			<div class="box time">
+				<div class="imagebox">
+					<img src="assets/images/employment.png">
+				</div>
+				<div class="text">
+					<h3>Employment</h3>
+					<a href="#" th:href="@{/employment}">Read More</a>
+				</div>
+			</div>
+			<div class="box passion">
+				<div class="imagebox">
+					<img src="assets/images/dashboard.png" th:src="@{/assets/images/dashboard.png}">
+				</div>
+				<div class="text">
+					<h3>Dashboard</h3>
+					<a href="#">Read More</a>
+				</div>
+			</div>
+			<div class="box">
+				<div class="min-img">
+					<img src="assets/images/Sri Arun Kumar Thakur.jpg" class="img-fluid"
+						th:src="@{/assets/images/Sri Arun Kumar Thakur.jpg}">
+				</div>
+			</div>
+		</div>
+		<div class="list-map-cl">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-2 iti">
+						<div class="list-govr">
+							<button type="button" class="btn btn-primary">List of ITI Colleges</button>
+						</div>
+						<div class="list-govr">
+							<button type="button" class="btn btn-primary">List of ITI Students</button>
+						</div>
+						<div class="list-govr">
+
+						</div>
+						<div class="list-govr">
+
+						</div>
+					</div>
+					<div class="col-md-8">
+						<div class="map-im">
+							<img src="assets/images/BiharDistricts_hi.svg" class="img-fluid"
+								th:src="@{/assets/images/BiharDistricts_hi.svg}">
+						</div>
+					</div>
+					<div class="col-md-2">
 						<div class="panel-notice">
 							<div class="panel-heading">
-								<h4>Important Notice</h4>
+								<h4>Notice Board</h4>
 							</div>
 							<div class="panel-body">
 								<ul>
-									<li class="list-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
-										tenetur excepturi consequuntur?</li>
-									<li class="list-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
-										tenetur excepturi consequuntur?</li>
-									<li class="list-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
-										tenetur excepturi consequuntur?</li>
-									<li class="list-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
-										tenetur excepturi consequuntur?</li>
-									<li class="list-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
-										tenetur excepturi consequuntur?</li>
-									<li class="list-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
-										tenetur excepturi consequuntur?</li>
+									<li class="list-item">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+										Fuga tenetur
+										excepturi consequuntur?
+									</li>
+									<li class="list-item">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+										Fuga tenetur
+										excepturi consequuntur?
+									</li>
 								</ul>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-6">
-					<div class="row">
-						<div class="col-md-6">
-							<div class="single-heart">
-								<div class="image">
-									<img th:src="@{/assets/images/nitish-kumar.png}" class="img-fluid thumbnail"
-										style="height: 263px;" />
-								</div>
-								<div class="image-cont">
-									<h6>Shri Nitish Kumar</h6>
-									<span>Honourable Chief Minister Bihar</span>
+			</div>
+		</div>
+		<!-- Footer Section Starts here -->
+		<!-- online services section start -->
+		<div class="online-services" style="padding: 50px 50px;">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="digital-ser" style="padding: 22px 200px;">
+							<h2 tabindex="0">Online services under Janhit Guarantee Act</h2>
+							<div class="acts">
+								<div class="row">
+									<div class="col-md-4">
+										<div class="digital-btn3" tabindex="0">
+											<a href="article/en/trainee-login-tutorial" title="Trainee Login Tutorial"
+												class="external">Trainee Login
+												Tutorial</a>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="digital-btn2" style="width: 400px;">
+											<a title="Verification of Marksheet and Certificate" data-toggle="modal"
+												data-target="#Verification-marks2" class="external"
+												tabindex="0">Verification of Marksheet and Certificate</a>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="digital-btn" tabindex="0"><a href="article/en/digilocker"
+												title="digilocker" class="external"> DigiLocker</a></div>
+									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col-md-6">
-							<div class="single-heart">
-								<div class="image">
-									<img th:src="@{/assets/images/Sri Arun Kumar Thakur.jpg}"
-										class="img-fluid thumbnail">
-								</div>
-								<div class="image-cont">
-									<h6>Sri Arun Kumar Thakur, IAS</h6>
-									<span>Director, Employment & Training, Bihar</span>
-								</div>
-							</div>
-						</div>
 					</div>
 				</div>
+
+
 			</div>
-		</div>
-	</div>
-	<!-- minister section end -->
-	<!-- Module Section Start -->
-	<div class="features" id="features">
-		<div class="container">
-			<div class="box quality">
-				<div class="image"></div>
-				<div class="text">
-					<h3>ITI Management</h3>
-					<!-- Add Thymeleaf attribute th:href for dynamic URLs -->
-					<a th:href="@{/itimodules}">Read More</a>
-				</div>
-			</div>
-			<div class="box time">
-				<div class="image"></div>
-				<div class="text">
-					<h3>Employment</h3>
-					<!-- Add Thymeleaf attribute th:href for dynamic URLs -->
-					<a th:href="@{/index}">Read More</a>
-				</div>
-			</div>
-			<div class="box passion">
-				<div class="image"></div>
-				<div class="text">
-					<h3>Dashboard</h3>
-					<!-- Add Thymeleaf attribute th:href for dynamic URLs -->
-					<a th:href="@{/index}">Read More</a>
-			</div>
-			</div>
-		</div>
-	</div>
-	<!-- Module Section End -->
-	<!-- colleges section start -->
-	<div class="colleges">
-		<div class="container">
+
+
 			<div class="row">
-				<div class="col-md-3">
-					<div class="lcl-list">
-						<img th:src="@{/assets/images/book-icon.png}" alt="icon-list">
-						<span class="icons">List of Government Training Institutes</span>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="lcl-list">
-						<img th:src="@{/assets/images/adm-icon.png}" alt="icon-list">
-						<span class="icons">List of Private Training Institutes</span>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="lcl-list">
-						<img th:src="@{/assets/images/edu-icon.png}" alt="icon-list">
-						<span class="icons">Trainee Login</span>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="lcl-list">
-						<img th:src="@{/assets/images/set-icon.png}" alt="icon-list">
-						<span class="icons">ITI Login</span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- colleges section end -->
-	<!-- counter section start -->
-	<div class="counter-ct">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-2">
-					<div class="counter-count">
-						<img th:src="@{/assets/images/ITI-logo.png}" alt="logo" />
-						<h2>304</h2>
-						<p>Government ITIs</p>
-					</div>
-				</div>
-				<div class="col-md-2">
-					<div class="counter-count">
-						<img th:src="@{/assets/images/ITI-logo.png}">
-						<h2>2932</h2>
-						<p>Private ITIs</p>
-					</div>
-				</div>
-				<div class="col-md-2">
-					<div class="counter-count">
-						<img th:src="@{/assets/images/icon-3.png}">
-						<h2>12</h2>
-						<p>Specific ITIs for Women</p>
-					</div>
-				</div>
-				<div class="col-md-2">
-					<div class="counter-count">
-						<img th:src="@{/assets/images/ITI-logo.png}">
-						<h2>172352</h2>
-						<p>Total seats available for admission in Government ITIs</p>
-					</div>
-				</div>
-				<div class="col-md-2">
-					<div class="counter-count">
-						<img th:src="@{/assets/images/ITI-logo.png}">
-						<h2>458243</h2>
-						<p>Total seats available for admission in Private ITIs</p>
-					</div>
-				</div>
-				<div class="col-md-2">
-					<div class="counter-count">
-						<img th:src="@{/assets/images/icon-2.png}">
-						<h2>80</h2>
-						<p>Total trades operated in ITIs</p>
-					</div>
+				<div class="exam-result" style="padding: 30px 20px;">
+					<ul>
+						<li class="blue" tabindex="0"><a title="Return of Original Marksheet and Certificate"
+								data-toggle="modal" data-target="#ReturnMarksCertificates" class="external">Return
+								of
+								Original Marksheet and Certificate<br /><span class="small">(मूल अंकपत्र एवं
+									प्रमाणपत्र
+									की वापसी)</span></a></li>
+						<li class="blue" tabindex="0"><a title="Approval of Medical Leave" data-toggle="modal"
+								data-target="#ApprovalForMedicalLeave" class="external">Approval of Medical
+								Leave <span class="small"> (चिकित्सा अवकाश हेतु स्वीकृति)</span></a></li>
+						<li class="blue" tabindex="0"><a title="Issuance of Marksheet" data-toggle="modal"
+								data-target="#IssuanceMarksheets" class="external">Issuance of
+								Marksheet<br /><span class="small">(अंकपत्र का निर्गमन)</span></a></li>
+						<li class="blue" tabindex="0"><a title="Issuance of Character Certificate" data-toggle="modal"
+								data-target="#IssuanceOfCharacterCertificate" class="external">Issuance of Character
+								Certificate<br /><span class="small">(चरित्र प्रमाणपत्र का निर्गमन )</span></a>
+						</li>
+						<li class="blue" tabindex="0"><a title="Issuance of Pass Certificate" data-toggle="modal"
+								data-target="#CertificateIssuance" class="external">Issuance
+								of Pass Certificate<br /><span class="small"><span>(उत्तीर्ण प्रमाणपत्र का
+										निर्गमन)</span></span></a></li>
+						<li class="blue" tabindex="0"><a title="Issuance of Transfer Certificate" data-toggle="modal"
+								data-target="#TransferCertificateIssuance" class="external">Issuance of Transfer
+								Certificate<br /><span class="small">
+									(स्थानांतरण प्रमाणपत्र का निर्गमन )</span></a></li>
+						<li class="blue" tabindex="0"><a title="Issuance of Duplicate Marksheet" data-toggle="modal"
+								data-target="#DuplicateIssueRelease" class="external">Issuance of Duplicate
+								Marksheet
+								<br /><span class="small">
+									(डुप्लीकेट अंकपत्र का निर्गमन)</span></a></li>
+						<li class="blue" tabindex="0"><a title="Issuance of Duplicate Certificate" data-toggle="modal"
+								data-target="#IssuanceOfDuplicateCertificate" class="external">Issuance of Duplicate
+								Certificate<br /><span class="small">(डुप्लीकेट प्रमाणपत्र का निर्गमन
+									)</span></a></li>
+						<li class="blue" tabindex="0"><a title="Issuance of Revised Marksheet" data-toggle="modal"
+								data-target="#RevisedIssueRelease" class="external">Issuance
+								of Revised Marksheet<br /> <span class="small">( पुनरीक्षित अंकपत्र का निर्गमन
+									)</span> </a></li>
+						<li class="blue" tabindex="0"><a title="Issuance of Revised Certificate" data-toggle="modal"
+								data-target="#RevisedCertificateIssuance" class="external">Issuance of Revised
+								Certificate<br /><span class="small">(पुनरीक्षित प्रमाणपत्र का निर्गमन
+									)</span></a></li>
+						<li class="blue" tabindex="0"><a title="Declaration of Scrutiny Result" data-toggle="modal"
+								data-target="#AnnouncementOfScrutinyResults" class="external">Declaration of
+								Scrutiny
+								Result<br /><span class="small">(
+									स्क्रूटनी परिणाम की घोषणा )</span></a></li>
+						<li class="blue" tabindex="0"><a title="Return of Caution Money" data-toggle="modal"
+								data-target="#ReturnOfCosmicMoney" class="external">Return of Caution
+								Money<br /><span class="small">( कॉशन मनी की वापसी )</span></a></li>
+					</ul>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- counter section end -->
-	<!-- Footer Section Starts here -->
+	</div>
+	</div>
+
+	<!-- online services section end -->
 	<div class="footer">
 		<div class="container">
 			<div class="row">
@@ -418,40 +467,58 @@
 							</span>
 						</p>
 						<p class="tel col-md-12 col-sm-4"><i class="fa fa-phone"></i>0000-0000000</p>
-						<p class="tel col-md-12 col-sm-4"><i class="fa fa-envelope"></i>info@example.com</p>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<div class="footer-col-inner">
-						<div class="social">
-							<ul>
-								<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
-							</ul>
-						</div>
+						<p class="email col-md-12 col-sm-4"><i class="fa fa-envelope"></i><a
+								href="mailto:helpdeskpolitechnic@gmail.com">helpdeskpolitechnic@gmail.com</a></p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- Footer Section Ends here -->
-	<!-- Optional JavaScript -->
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script th:src="@{https://code.jquery.com/jquery-3.2.1.slim.min.js}"
-		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-		crossorigin="anonymous"></script>
-	<script th:src="@{https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js}"
-		integrity="sha384-ZMP7rVo3TBv6DlM+axT6F9s6PWUqdz+x5AiB+J8DizQQUWNQZgj5dFf12JzQTE8e"
-		crossorigin="anonymous"></script>
-	<script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js}"
-		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-		crossorigin="anonymous"></script>
-	<script th:src="@{/assets/js/index.js}"></script>
+	</div>
+	<div class="copy-right-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-sm-12 col-xs-12">
+					<span class="ft-span">Copyright @ 2014 dethunar-bih.com | Website developed by </span><span
+						class="ft-span">CMS Computers Limited</span>
+				</div>
+				<div class="col-md-4 col-sm-12 col-xs-12">
+					<div class="counter">
+						<a href="https://www.hitwebcounter.com" target="_blank">
+							<img src="https://hitwebcounter.com/counter/counter.php?page=11529217&amp;style=0001&amp;nbdigits=5&amp;type=page&amp;initCount=0"
+								title="Counter Widget" alt="Visit counter For Websites" />
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Footer Section End here -->
+	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script th:inline="javascript">
+
+		let usersection = document.querySelector(".access-type");
+		let isShow = true;
+		$("#abc").click(function (e) {
+			// prevent click action
+			e.preventDefault();
+			// your code here
+			return false;
+		});
+		function showbox() {
+			if (isShow) {
+				document.getElementById("xyz").style.display = "none";
+				isShow = false;
+			} else {
+				document.getElementById("xyz").style.display = "block";
+				isShow = true;
+			}
+		}
+
+	</script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
 </body>
 
 </html>

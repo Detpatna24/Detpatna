@@ -47,11 +47,15 @@ public class DetmainController {
 		return "registration";
 	}
 
-	@GetMapping("/departmentalregistration")
-	public String departmentalregistration(Model model) {
+	@GetMapping("/pricipalregistration")
+	public String instituteregistration(Model model) {
 		Department department = new Department();
 		model.addAttribute("department", department);
-		return "departmental_registration";
+		return "/pricipal/pricipal_registration";
 	}
+
+
+//@GetMapping
+
 
 }

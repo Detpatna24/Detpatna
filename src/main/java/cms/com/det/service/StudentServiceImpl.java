@@ -1,5 +1,7 @@
 package cms.com.det.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,4 +26,12 @@ public class StudentServiceImpl  implements StudentService{
 		return null;
 	}
 
+	@Override
+	public List<Student> findbyid() {
+		// TODO Auto-generated method stub
+		return repo.findAll();
+	}
+
+	
+	
 }

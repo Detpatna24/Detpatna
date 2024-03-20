@@ -274,14 +274,15 @@ nav.navbar .dropdown-menu.show {
   .features .container .box {
     border: 1px solid #ccc;
     max-width: 400px;
-  }
+    box-shadow: 0px 0px 5px rgba(0,0,0,.2);
+}
   .features .container .image {
-    background-color: #777;
-    height: 128px;
+    /* background-color: #777;
+    height: 56px; */
     position: relative;
     overflow: hidden;
-    width: 280px;
-  }
+    width: 225px;
+}
   .features .container .box .image::before {
     content: "";
     position: absolute;
@@ -326,20 +327,7 @@ nav.navbar .dropdown-menu.show {
     width: fit-content;
     margin: 0 auto;
   }
-  .features .container .box .text h3::after {
-    content: "";
-    position: absolute;
-    height: 3px;
-    width: calc(100% - 30px);
-    left: 15px;
-    bottom: -10px;
-    background-color: red;
-  }
-  .features .container .quality .text h3::after {
-    background-color: rgb(244 64 54);
-  }
-  
-  .features .container .time .text h3::after {
+.features .container .time .text h3::after {
     background-color: rgb(0 150 136);
   }
   .features .container .passion .text h3::after {
@@ -358,44 +346,53 @@ nav.navbar .dropdown-menu.show {
     border: 3px solid;
     padding: 10px 30px;
     border-radius: 6px;
-    font-size: 20px;
+    font-size: 17px;
     font-weight: bold;
     transition: 0.3s;
     text-decoration: none;
     margin-top: 30px;
   }
   .features .container .quality a {
-    color: rgb(244 64 54);
-    border-color: rgb(244 64 54);
-    background: linear-gradient(to right, rgb(244 64 54) 50%, white 50%);
+    color: rgb(96 83 82);
+    border-color: rgb(84 78 78);
+    background: linear-gradient(to right, rgb(32 49 95) 50%, white 50%);
     background-size: 200% 100%;
     background-position: right bottom;
-  }
+    font-size: 17px;
+    padding: 2px 8px;
+}
   .features .container .quality:hover a {
     background-position: left bottom;
-    color: white;
+    color:#fff;
+    font-size: 17px;
   }
   .features .container .time a {
-    border-color: rgb(0 150 136);
-    background: linear-gradient(to right, rgb(0 150 136) 50%, white 50%);
+    color: rgb(96 83 82);
+    border-color: rgb(84 78 78);
+    background: linear-gradient(to right, rgb(32 49 95) 50%, white 50%);
     background-size: 200% 100%;
     background-position: right bottom;
-    color: rgb(0 150 136);
+    font-size: 17px;
+    padding: 2px 8px;
   }
   .features .container .time:hover a {
     background-position: left bottom;
     color: white;
+    font-size: 17px;
   }
   .features .container .passion a {
-    border-color: rgb(3 169 244);
-    background: linear-gradient(to right, rgb(3 169 244) 50%, white 50%);
+    color: rgb(96 83 82);
+    border-color: rgb(84 78 78);
+    background: linear-gradient(to right, rgb(32 49 95) 50%, white 50%);
     background-size: 200% 100%;
     background-position: right bottom;
-    color: rgb(3 169 244);
+    font-size: 17px;
+    padding: 2px 8px;
   }
   .features .container .passion:hover a {
     background-position: left bottom;
     color: white;
+    font-size: 17px;
   }
   .features h3.text-center {
     margin-bottom: 18px;
@@ -492,9 +489,10 @@ span.icons {
     text-align: center;
 }
 .panel-heading {
-    background: #DA895C;
-    padding: 3px 6px;
-    color: #fff;
+  background: #20315f;
+  padding: 3px 8px;
+  color: #fff;
+  margin-top: 10px;
 }
 .logo-section img {
     height: 60px;
@@ -558,5 +556,186 @@ form.reg-frm label {
     font-weight: 500;
     font-size: 13px;
 }
+.list-map-cl {
+  background: #ebebeb;
+}
+.min-img .img-fluid {
+  max-width: 100%;
+  height: auto;
+  height: 229px;
+  max-width: 200px;
+}
+/* online services css */
+.digital-ser {
+  padding: 18px 30px;
+  position: relative;
+  background: url(../images/online-sub-bg.jpg) no-repeat;
+  background-size: cover;
+  opacity: 0.8;
+  /* background-color: #2a2828; */
+  /* min-height: 479px; */
+}
+.digital-ser h2 {
+  line-height: 31px;
+  margin: 0px;
+  font-size: 1.8em;
+  color: #fff;
+  padding: 0px 0px 45px 0px;
+  background: url(../images/hd-arrow.png) left no-repeat;
+  font-weight: 600;
+}
+/* .digital-ser .digital-btn3 {
+  position: absolute;
+  bottom: 194px;
+  width: 83%;
+}
+.digital-ser .digital-btn2 {
+  position: absolute;
+  bottom: 96px;
+  width: 83%;
+}
+.digital-ser .digital-btn {
+  position: absolute;
+  bottom: 20px;
+  width: 83%;
+} */
+.digital-ser .digital-btn3 a {
+  cursor: pointer;
+  font-family: 'Arya', sans-serif;
+  color: #fff;
+  padding: 10px 10px;
+  border: 2px solid #fff;
+  display: flex;
+  font-size: 17px;
+  align-items: center;
+  background-color: #20315f;
+}
+.digital-ser .digital-btn2 a {
+  cursor: pointer;
+  font-family: 'Arya', sans-serif;
+  color: #fff;
+  padding: 10px 10px;
+  border: 2px solid #fff;
+  display: flex;
+  font-size: 17px;
+  align-items: center;
+  background-color: #20315f;
+}
+.digital-ser .digital-btn a {
+  font-family: 'Arya', sans-serif;
+  color: #fff;
+  padding: 9px 6px;
+  border: 2px solid #fff;
+  display: flex;
+  font-size: 17px;
+  align-items: center;
+  background-color: #20315f;
+}
+.digital-ser .digital-btn a img {
+  margin-right: 15px;
+}
+.exam-result {
+  background-color: #fff;
+  height: auto;
+  overflow: hidden;
+  margin-top: 30px;
+}
+img.bihar-logo {
+  position: absolute;
+  right: 0;
+}
+.exam-result ul li a {
+  font-weight: 600;
+  display: block;
+  padding: 15px 10px 0px 20px;
+  font-size: 1.06em;
+  transition-duration: .3s;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  color: #f7f9ff !important;
+}
+.ex
+.exam-result ul li a span {
+  display: block;
+  font-size: 0.8em;
+}
+.exam-result ul li {
+  position: relative;
+  float: left;
+  box-sizing: border-box;
+  border-top: 1px solid rgba(0, 0, 0, .1);
+  border-right: 1px solid rgba(0, 0, 0, .1);
+  border-bottom: 1px solid rgba(255, 255, 255, .8);
+  border-left: 1px solid rgba(255, 255, 255, .8);
+  width: 23.33%;
+  text-align: center;
+  min-height: 120px;
+  margin: 6px 9px;
+}
+.skyblue {
+  background: url(../images/bg-abstrack.png) left no-repeat;
+  background-color: #0072ce;
+}
+.yellow {
+  background: url(../images/bg-abstrack.png) left no-repeat;
+  background-color: #f2a900;
+}
+.gray {
+  background: url(../images/bg-abstrack.png) left no-repeat;
+  background-color: #575757;
+}
+.blue {
+  background: url(../images/bg-abstrack.png) left no-repeat;
+  background-color: #1b326c;
+}
+.white {
+  background: url(../images/bg-abstrack.png) left no-repeat;
+  background-color: #fff;
+}
+.darkbhue {
+  background: url(../images/bg-abstrack.png) left no-repeat;
+  background-color: #3279d0;
+}
+.skyblue {
+  background: url(../images/bg-abstrack.png) left no-repeat;
+  background-color: #0072ce;
+}
+.blue {
+  background: url(../images/bg-abstrack.png) left no-repeat;
+  background-color: #20315f;
+}
+.white {
+  background: url(../images/bg-abstrack.png) left no-repeat;
+  background-color: #fff;
+}
+.darkbhue {
+  background: url(../images/bg-abstrack.png) left no-repeat;
+  background-color: #3279d0;
+}
 
-/* sign-up page css */
+/* map css */
+.map-im img {
+  height: 500px;
+}
+.list-govr {
+  margin-top: 10px;
+}
+.list-govr button.btn.btn-primary {
+  background-color: #20315f;
+  border: 1px solid #20315f;
+}
+.online-services {
+  padding: 60px 0;
+}
+.imagebox {
+  width: 225px;
+  height: 60px;
+}
+.imagebox img{
+    width: 70px;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    top: 12px;
+}
