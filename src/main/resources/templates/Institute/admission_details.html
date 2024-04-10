@@ -9,14 +9,12 @@
 
 	<link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<link href="assets/css/customcss.css" rel="stylesheet" type="text/css">
-	<style class="cp-pen-styles">
-		@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700&subset=latin-ext");
-	</style>
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
-	<script src="assets/js/institutedashboard.js"></script>
-
-
+	
+	<style th:inline="text">
+		@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700&subset=latin-ext');
+	</style>
 </head>
 
 <body>
@@ -136,66 +134,62 @@
 			</div>
 		</main>
 	</div>
-	<script>
-		var Dashboard = function () {
-			var global = {
-				tooltipOptions: {
-					placement: "right"
-				},
-				menuClass: ".c-menu"
-			};
 
-			var menuChangeActive = function menuChangeActive(el) {
-				var hasSubmenu = $(el).hasClass("has-submenu");
-				$(global.menuClass + " .is-active").removeClass("is-active");
-				$(el).addClass("is-active");
+<script>
+	var Dashboard = function() {
+	var global = {
+		tooltipOptions: {
+			placement: "right"
+		},
+		menuClass: ".c-menu"
+	};
 
-				if (hasSubmenu) {
-					$(el).find(".c-menu__submenu").slideToggle();
-				}
-			};
+	var menuChangeActive = function menuChangeActive(el) {
+		var hasSubmenu = $(el).hasClass("has-submenu");
+		$(global.menuClass + " .is-active").removeClass("is-active");
+		$(el).addClass("is-active");
 
-			var sidebarChangeWidth = function sidebarChangeWidth() {
-				var $menuItemsTitle = $("li .menu-item__title");
+		// if (hasSubmenu) {
+		// 	$(el).find("ul").slideDown();
+		// }
+	};
 
-				$("div").toggleClass("sidebar-is-reduced sidebar-is-expanded");
-				$(".hamburger-toggle").toggleClass("is-opened");
+	var sidebarChangeWidth = function sidebarChangeWidth() {
+		var $menuItemsTitle = $("li .menu-item__title");
 
-				if ($("div").hasClass("sidebar-is-expanded")) {
-					$('[data-toggle="tooltip"]').tooltip("destroy");
-				} else {
-					$('[data-toggle="tooltip"]').tooltip(global.tooltipOptions);
-				}
-			};
+		$("div").toggleClass("sidebar-is-reduced sidebar-is-expanded");
+		$(".hamburger-toggle").toggleClass("is-opened");
 
-			return {
-				init: function init() {
-					$(".js-hamburger").on("click", sidebarChangeWidth);
-
-					$(".js-menu li").on("click", function (e) {
-						menuChangeActive(e.currentTarget);
-					});
-
-					$('[data-toggle="tooltip"]').tooltip(global.tooltipOptions);
-				}
-			};
-		}();
-
-		Dashboard.init();
-		let menus = document.getElementsByClassName("c-menu__item has-submenu");
-
-		for (let i = 0; i < menus.length; i++) {
-			menus[i].addEventListener("click", (e) => {
-				let menubar = menus[i].getElementsByClassName("c-menu__submenu u-list")[0];
-				if (menubar.style.display === "block" || menubar.style.display === "") {
-					menubar.style.display = "none";
-				} else {
-					menubar.style.display = "block";
-				}
-			});
+		if ($("div").hasClass("sidebar-is-expanded")) {
+			$('[data-toggle="tooltip"]').tooltip("destroy");
+		} else {
+			$('[data-toggle="tooltip"]').tooltip(global.tooltipOptions);
 		}
+	};
 
-	</script>
+	var bindEvents = function bindEvents() {
+		$(".js-menu li").on("click", function(e) {
+			menuChangeActive(e.currentTarget);
+		});
+
+		$(".js-hamburger").on("click", function() {
+			sidebarChangeWidth();
+		});
+
+		$('[data-toggle="tooltip"]').tooltip(global.tooltipOptions);
+	};
+
+	var init = function init() {
+		bindEvents();
+	};
+
+	return {
+		init: init
+	};
+}();
+
+Dashboard.init();
+	</script>	
 </body>
 
 </html>

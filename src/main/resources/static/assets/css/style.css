@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Jockey+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap')
 /* Color Variables */
 /* Styles */
 body {
@@ -6,6 +6,7 @@ body {
   font-family: "Roboto", sans-serif;
   letter-spacing: 1px;
 }
+
 
 .text-red {
   color: red !important;
@@ -61,19 +62,47 @@ body {
   background: #495871;
 }
 
+/* --------dropdown code here--------------
+ */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: transparent;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  border-radius: 4px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  display: block;
+  color: black;
+  padding: 6px 0;
+  text-decoration: none;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+button#yearButton {
+  text-align: left;
+}
+
 /* Left Menu */
 .left {
-  width: 57px;
+  width: 250px;
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
-  background: #354052;
+  background: #20315f;
   position: fixed;
   transition: all 0.5s;
 }
-.left:hover {
+/* .left:hover {
   width: 200px;
-}
+} */
 .left:hover ul li.menu-heading {
   opacity: 1;
 }
@@ -93,16 +122,17 @@ body {
 .left ul li a {
   display: flex;
   align-items: center;
-  background: #354052;
+  background: #20315f;
   color: white;
   padding: 15px 10px;
   font-size: 13px;
-  width: 200px;
+  width: 245px;
   border-bottom: 1px solid #2b3443;
 }
 .left ul li a:hover {
-  background: #2b3443;
-  text-decoration: none;
+    background: #3a508d;
+    text-decoration: none;
+    color: #fff;
 }
 .left ul li a:hover i.fa {
   color: #00b300;
@@ -124,11 +154,61 @@ body {
   border-bottom: 1px solid #2b3443;
   transition: all 0.5s;
 }
-
+span.logy {
+  position: absolute;
+  right: 95px;
+  bottom: -78px;
+  display: inline-block;
+  color: #fff;
+  /* top: -19px; */
+}
+.header h4 {
+  margin: 0;
+}
+.dateline h4 {
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+}
+.tab-content.tab-style {
+  margin-left: 290px;
+}
+.dateline h2 {
+  color: #fff;
+  font-family: 'roboto';
+}
+.dateline {
+  background: #273250;
+  width: 450px;
+  height: 400px;
+  padding: 3px 35px;
+  border-radius: 4px;
+  position: absolute;
+  right: -200px;
+}
+.content h6 {
+  margin-left: 249px;
+  background: #17181a;
+  padding: 18px 11px;
+  position: absolute;
+  font-size: 14px;
+  display: inline-block;
+  left: 1px;
+  /* top: -11px; */
+  width: 100%;
+  /* bottom: 0; */
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 0;
+  color: #fff;
+}
+.right {
+  width: 750px;
+}
 /* Right Content */
 .right {
-  transition: all 0.5s;
-  margin-left: 72px;
+  /* transition: all 0.5s; */
+  /* margin-left: 72px; */
   /* Overview */
   /* Performance */
   /* Analytics */
@@ -139,13 +219,6 @@ body {
   /* Invoices */
   /* Single Invoice */
   /* Browse */
-}
-.right #overview .header {
-  background: white;
-  display: block;
-  border: 1px solid #e6e6e6;
-  padding: 15px 30px;
-  margin-left: -15px;
 }
 .right #overview .header h4 {
   display: inline-block;
@@ -159,6 +232,12 @@ body {
 .right #overview .header ul li {
   display: inline-block;
   padding-left: 20px;
+}
+span.student-sec {
+  /* position: absolute; */
+  /* left: -1px; */
+  display: inline-block;
+  margin-left: -7px;
 }
 .right #overview .header ul li .btn-group i.fa-user-o,
 .right #overview .header ul li .btn-group i.fa-bell-o {
@@ -1906,6 +1985,10 @@ body {
   padding-right: 50px;
   margin-bottom: 40px;
 }
+.tab-content > .active {
+  display: block;
+  /* margin-left: 114px; */
+}
 .right
   #user-profile
   .content
@@ -2910,9 +2993,9 @@ body {
   vertical-align: middle;
 }
 
-.left:hover + .right {
+/* .left:hover + .right {
   margin-left: 215px;
-}
+} */
 
 .strike {
   color: #999999;
@@ -2987,10 +3070,8 @@ h2.scb {
 .nav-tabs {
   border-bottom: 1px solid #ddd;
   background: #354052;
- 
 }
-.nav-tabs>li>a {
-  
+.nav-tabs > li > a {
   color: #fff;
 }
 select#slct {
@@ -3005,9 +3086,12 @@ select#slct {
   background-image: none;
   border: 1px solid #ccc;
   border-radius: 4px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
-  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s,
+    -webkit-box-shadow ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
+
+
