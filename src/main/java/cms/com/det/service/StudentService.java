@@ -11,4 +11,5 @@ public interface StudentService {
 	Student LoginUser();
 
 	 List<Student>findbyid();
+	 
 }

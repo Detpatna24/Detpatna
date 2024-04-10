@@ -1,12 +1,16 @@
 package cms.com.det.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import cms.com.det.dto.Department;
 import cms.com.det.dto.Student;
@@ -51,11 +55,32 @@ public class DetmainController {
 	public String instituteregistration(Model model) {
 		Department department = new Department();
 		model.addAttribute("department", department);
-		return "/pricipal/pricipal_registration";
+		return "/employee/pricipal_registration";
 	}
 
+	@GetMapping("/datatable")
+	public ModelAndView datatable() {
+		int page = 1;
+		int size = 50;
+		{
+			ModelAndView modelAndView = new ModelAndView("student-table");
+			List<Student> students = studentservice.findbyid();
 
-//@GetMapping
+			modelAndView.addObject("currentPage", page);
+			modelAndView.addObject("pageSize", size);
 
+			modelAndView.addObject("students", students);
+			return modelAndView;
+		}
+
+	}
+
+	@Bean
+	public MessageSource messageSource() {
+		ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+		messageSource.setBasename("messages"); 
+		messageSource.setDefaultEncoding("UTF-8");
+		return messageSource;
+	}
 
 }

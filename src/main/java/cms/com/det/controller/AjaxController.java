@@ -1,17 +1,24 @@
 package cms.com.det.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import cms.com.det.dto.DashboardStudentFormData;
+import cms.com.det.service.DashboardService;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class AjaxController {
+	
+	@Autowired
+	DashboardService dashboardservice ;
 
 	@GetMapping("/generateOtp")
 	@ResponseBody
@@ -42,4 +49,6 @@ public class AjaxController {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid OTP");
 		}
 	}
+
+	
 }
