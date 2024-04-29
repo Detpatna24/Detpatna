@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Dashboard</title>
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/customcss.css" rel="stylesheet" type="text/css">
+	<style class="cp-pen-styles">
+		@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700&subset=latin-ext");
+	</style>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/popper.min.js"></script>
+
+</head>
+
+<body>
+	<div class="sidebar-is-reduced">
+		<header class="l-header">
+			<div class="l-header__inner clearfix">
+				<div class="logo-txt">
+					<h6>Directorate Of Employment & Training</h6>
+					<span>Labour Resources Department Govt. Of Bihar</span>
+					<span>(Govt. Of Bihar Undertaking)</span>
+				</div>
+				<div class="user-img">
+					<img th:src="@{/images/avatar.png}">
+				</div>
+			</div>
+		</header>
+		<div class="l-sidebar">
+			<div class="l-sidebar__content">
+				<nav class="c-menu js-menu">
+					<div class="c-header-icon js-hamburger">
+						<div class="hamburger-toggle"><span class="bar-top"></span><span class="bar-mid"></span><span
+								class="bar-bot"></span></div>
+					</div>
+					<ul class="u-list">
+						<li class="c-menu__item is-active" th:data-toggle="tooltip" th:title="Dashboard">
+							<a th:href="@{/institutedashboard}">
+								<div class="c-menu__item__inner">
+									<i class="fa fa-line-chart" aria-hidden="true"></i>
+									<div class="c-menu-item__title"><span>Dashboard</span></div>
+								</div>
+							</a>
+						</li>
+						<li class="c-menu__item" th:data-toggle="tooltip" title="Institutional Profile">
+							<a th:href="@{/institutionalprofile}">
+								<div class="c-menu__item__inner">
+									<i class="fa fa-university" aria-hidden="true"></i>
+									<div class="c-menu-item__title">
+										<span class="Profile">Institutional Profile</span>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li class="c-menu__item" th:data-toggle="tooltip" th:title="Admission">
+							<a th:href="@{/personaldetails}">
+								<div class="c-menu__item__inner">
+									<i class="fa fa-user-circle-o" aria-hidden="true"></i></i>
+									<div class="c-menu-item__title"><span class="Profile">Admission</span></div>
+								</div>
+							</a>
+						</li>
+						<li class="c-menu__item has-submenu" th:data-toggle="tooltip" title="Student Section">
+							<div class="c-menu__item__inner">
+								<i class="fa fa-money" aria-hidden="true"></i>
+								<div class="c-menu-item__title"><span>Fee Details</span></div>
+								<div class="c-menu-item__expand js-expand-submenu"><i class="fa fa-angle-down"></i>
+								</div>
+							</div>
+							<ul class="c-menu__submenu u-list">
+								<li>Registration Fees</li>
+								<li>Examination Fees</li>
+							</ul>
+						</li>
+						<li class="c-menu__item has-submenu" th:data-toggle="tooltip" title="Student Section">
+							<div class="c-menu__item__inner">
+								<i class="fa fa-table fa-lg"></i>
+								<div class="c-menu-item__title"><span>Examination</span></div>
+								<div class="c-menu-item__expand js-expand-submenu"><i class="fa fa-angle-down"></i>
+								</div>
+							</div>
+							<ul class="c-menu__submenu u-list">
+								<li>Create Admit Card</li>
+								<li>Download Admit Card</li>
+							</ul>
+						</li>
+						<li class="c-menu__item has-submenu" th:data-toggle="tooltip" title="Student Section">
+							<div class="c-menu__item__inner">
+								<i class="fa fa-check-square-o" aria-hidden="true"></i>
+								<div class="c-menu-item__title"><span>C-Form</span></div>
+								<div class="c-menu-item__expand js-expand-submenu"><i class="fa fa-angle-down"></i>
+								</div>
+							</div>
+							<ul class="c-menu__submenu u-list">
+								<li>Creat C-Form</li>
+								<li>Edit & View C-Form</li>
+							</ul>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<main class="l-main">
+			<div class="content-wrapper content-wrapper--with-bg">
+				<div class="page-content">
+					<nav class="tgl">
+						<ul class="tgl-list">
+							<li class="tgl-menu__item " data-toggle="tooltip" title="Dashboard">
+								<a href="#" onclick="redirectToPersonalDetails()">
+									<div class="c-menu__item__inner">
+										<div class="c-menu-item__title"><span>Personal Details</span></div>
+									</div>
+								</a>
+							</li>
+							<li class="tgl-menu__item is-active" data-toggle="tooltip" title="Dashboard">
+								<a href="#" onclick="redirectToAcademicDetails()">
+									<div class="c-menu__item__inner">
+										<div class="c-menu-item__title"><span>Academic Details</span></div>
+									</div>
+								</a>
+							</li>
+							<li class="tgl-menu__item" data-toggle="tooltip" title="">
+								<a href="#" onclick="redirectToAdmissionDetails()">
+									<div class="c-menu__item__inner">
+										<div class="c-menu-item__title"><span>Admission Details</span></div>
+									</div>
+								</a>
+							</li>
+							<li class="tgl-menu__item" data-toggle="tooltip" title="">
+								<a th:href="@{/upload}">
+									<div class="c-menu__item__inner">
+										<div class="c-menu-item__title"><span>Documents</span></div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</nav>
+
+					<div class="tab-content" id="myTabContent">
+						<div class="tab-pane fade show active" id="details" role="tabpanel">
+							<div class="accordian-st">
+								<div class="accordion" id="accordionExample">
+									<div class="accordion-item">
+										<h2 class="accordion-header" id="headingOne">
+											<button class="accordion-button" type="button" data-toggle="collapse"
+												data-target="#collapseOne" aria-expanded="true"
+												aria-controls="collapseOne">
+												Academic Details
+											</button>
+										</h2>
+										<div id="collapseOne" class="accordion-collapse collapse show"
+											aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+											<div class="accordion-body">
+												<div class="form-box">
+
+
+													<form id="academicdetailsForm" class="needs-validation"
+														novalidate="novalidate" th:action="@{/saveacademicdetails}"
+														method="post">
+														<input type="hidden" id="applicationNumber"
+															name="applicationNumber"
+															th:value="${param.applicationNumber}" />
+
+														<input type="hidden" id="registrationnumber" name="registrationnumber"
+										th:value="${param.registrationnumber}" />
+
+
+														<!-- <h4 class="principal">Personal Details</h4> -->
+														<div class="row abcde">
+															<div class="col-md-4">
+																<label for="validationCustom01">Apply For 8th Standard
+																	Yes/No</label>
+																<div class="domicile-row apply">
+																	<div class="form-check form-switch">
+																		<input class="form-check-input" type="checkbox"
+																			id="flexSwitchCheckDefault"
+																			th:field="${academicDetailsForm.applyFor8thStandard}" />
+																		<label class="form-check-label"
+																			for="flexSwitchCheckDefault"> Yes</label>
+																	</div>
+																	<div class="form-check form-switch">
+																		<input class="form-check-input" type="checkbox"
+																			id="flexSwitchCheckDefault"
+																			th:field="${academicDetailsForm.applyFor8thStandard}" />
+																		<label class="form-check-label"
+																			for="flexSwitchCheckDefault">No</label>
+																	</div>
+																</div>
+																<input type="text" class="form-control"
+																	id="validationCustom01"
+																	placeholder="Total Marked scored in 8th Class"
+																	th:field="${academicDetailsForm.totalMarksScored8th}"
+																	required>
+															</div>
+
+															<div class="col-md-4 spacademic">
+																<label for="validationCustom01"></label>
+																<input type="text" class="form-control"
+																	id="validationCustom01"
+																	placeholder="Out Of (Total Subject Marks)"
+																	th:field="${academicDetailsForm.totalSubjectMarks8th}">
+															</div>
+
+															<div class="col-md-4 spacademic">
+																<label for="validationCustom01"></label>
+																<input type="email" class="form-control"
+																	id="validationCustom01"
+																	placeholder="Marks Obtai8ned(%)" value="" required
+																	th:field="${academicDetailsForm.marksObtainedPercentage8th}">
+
+															</div>
+
+															<div class="col-md-4 mt-1 spacademic">
+																<div
+																	style="display: flex; align-items: center; margin-bottom: 20px;">
+																	<label for="validationCustom01">Apply for 10th
+																		Qualification Courses</label>
+																	<span style="flex-grow: 1;"></span>
+																	<!-- This creates a flexible space to push the switches to the end -->
+																</div>
+																<div class="domicile-row apply1"
+																	style="display: flex; justify-content: flex-end;">
+																	<div class="form-check form-switch"
+																		style="margin-left: 10px;">
+																		<input class="form-check-input" type="checkbox"
+																			id="flexSwitchCheckYes"
+																			th:checked="${academicDetailsForm.applyFor10thQualificationCourses}">
+																		<label class="form-check-label"
+																			for="flexSwitchCheckYes">Yes</label>
+																	</div>
+																	<div class="form-check form-switch"
+																		style="margin-left: 10px;">
+																		<input class="form-check-input" type="checkbox"
+																			id="flexSwitchCheckNo"
+																			th:checked="${academicDetailsForm.applyFor10thQualificationCourses}">
+																		<label class="form-check-label"
+																			for="flexSwitchCheckNo">No</label>
+																	</div>
+																</div>
+																<input type="text" class="form-control"
+																	id="validationCustom01"
+																	placeholder="Maths/Marks Scored (out of 100)"
+																	th:field="${academicDetailsForm.mathsMarksScored}"
+																	required>
+															</div>
+
+
+
+
+
+															<div class="col-md-4 spacademicd">
+
+																<label for="validationCustom01"></label>
+																<input type="text" class="form-control"
+																	id="validationCustom01"
+																	placeholder="Science/Physical Science/Major subject marks Scored(Out of 100)*"
+																	th:field="${academicDetailsForm.scienceMarksScored}"
+																	required>
+															</div>
+
+															<div class="col-md-4 spacademicd">
+																<label for="validationCustom01"></label>
+																<input type="text" class="form-control"
+																	id="validationCustom01"
+																	placeholder="Total Marks Scored"
+																	th:field="${academicDetailsForm.totalMarksScored10th}"
+																	required>
+															</div>
+
+															<div class="col-md-4">
+																<label for="validationCustom01"></label>
+																<input type="text" class="form-control"
+																	id="validationCustom01"
+																	placeholder="Out Of(Total Subject)"
+																	th:field="${academicDetailsForm.totalSubjectMarks10th}"
+																	required>
+															</div>
+
+															<div class="col-md-4">
+																<label for="validationCustom01"></label>
+																<input type="text" class="form-control"
+																	id="validationCustom01"
+																	placeholder="Marks Obtained(%)"
+																	th:field="${academicDetailsForm.marksObtainedPercentage10th}"
+																	required>
+															</div>
+
+															<div class="col-md-4  mt-1">
+																<label for="validationCustom01"></label>
+																<!-- <input type="text" class="form-control" id="validationCustom01" placeholder="" value="" required> -->
+															</div>
+															<div class="col-md-4 mt-1">
+																<label for="validationCustom01">Apply for
+																	Geo-informatics Assistant/Database system
+																	Assistant/Software testing assistant</label>
+																&nbsp;&nbsp;&nbsp;&nbsp;
+																<div class="domicile-row apply1">
+																	<div class="form-check form-switch">
+																		<input class="form-check-input" type="checkbox"
+																			id="applyForGeoInformaticsAssistant"
+																			th:field="${academicDetailsForm.applyForGeoInformaticsAssistant}">
+																		<label class="form-check-label"
+																			for="applyForGeoInformaticsAssistant">
+																			Yes</label>
+																	</div>
+																	<div class="form-check form-switch">
+																		<input class="form-check-input" type="checkbox"
+																			id="doNotApplyForGeoInformaticsAssistant"
+																			th:field="${academicDetailsForm.applyForGeoInformaticsAssistant}">
+																		<label class="form-check-label"
+																			for="doNotApplyForGeoInformaticsAssistant">No</label>
+																	</div>
+																</div>
+																<input type="text" class="form-control frm-swe-cls"
+																	id="validationCustom01"
+																	placeholder="12th standard/Maths/Marks Scored(Out of 100)"
+																	th:field="${academicDetailsForm.mathsMarksScored12th}"
+																	required>
+															</div>
+
+															<div class="col-md-4 spacademiced">
+
+																<label for="validationCustom01"></label>
+
+																<input type="text" class="form-control"
+																	id="validationCustom01"
+																	placeholder="12th Standard/Science/Physical Science/Marks Scored(Out Of 100)"
+																	th:field="${academicDetailsForm.scienceMarksScored12th}"
+																	required>
+															</div>
+
+															<div class="col-md-4 spacademiced">
+																<label for="validationCustom01"></label>
+																<input type="text" class="form-control"
+																	id="validationCustom01"
+																	placeholder="Total Marks Scored"
+																	th:field="${academicDetailsForm.totalMarksScored12th}"
+																	required>
+															</div>
+
+															<div class="col-md-4">
+																<label for="validationCustom01"></label>
+																<input type="text" class="form-control"
+																	id="validationCustom01"
+																	placeholder="12th Standard/Out Of(Total subject marks)"
+																	th:field="${academicDetailsForm.totalSubjectMarks12th}"
+																	required>
+															</div>
+
+															<div class="col-md-4">
+																<label for="validationCustom01"></label>
+																<input type="text" class="form-control"
+																	id="validationCustom01"
+																	placeholder="12th Standard/Marks Obtained(%)"
+																	th:field="${academicDetailsForm.marksObtainedPercentage12th}"
+																	required>
+															</div>
+
+
+														</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<input type="hidden" id="formAction" name="formAction" value="">
+
+					<div class="details-btn-sub">
+						<button type="submit" class="btn btn-primary draft" id="saveAsDraftButton"
+							onclick="setFormAction('draft')">Save as Draft</button>
+
+						<button type="button" class="btn btn-primary next" id="nextButton"
+							onclick="redirectToAdmissionDetails('next')">Next</button>
+
+						<button type="button" class="btn btn-primary drafts" id="prevButton"
+							onclick="redirectToPersonalDetails('previous')">Previous</button>
+
+					</div>
+
+
+
+
+				</div>
+				</form>
+			</div>
+	</div>
+	</div>
+	<div class="footer fixed-bottom">
+		<p>Copyright maintained by CMS Computers Limited</p>
+	</div>
+	</main>
+
+
+
+
+	<script>
+
+		var Dashboard = function () {
+			var global = {
+				tooltipOptions: {
+					placement: "right"
+				},
+				menuClass: ".c-menu"
+			};
+
+			var menuChangeActive = function menuChangeActive(el) {
+				var hasSubmenu = $(el).hasClass("has-submenu");
+				$(global.menuClass + " .is-active").removeClass("is-active");
+				$(el).addClass("is-active");
+
+				// if (hasSubmenu) {
+				// 	$(el).find("ul").slideDown();
+				// }
+			};
+
+			var sidebarChangeWidth = function sidebarChangeWidth() {
+				var $menuItemsTitle = $("li .menu-item__title");
+
+				$("div").toggleClass("sidebar-is-reduced sidebar-is-expanded");
+				$(".hamburger-toggle").toggleClass("is-opened");
+
+				if ($("div").hasClass("sidebar-is-expanded")) {
+					$('[data-toggle="tooltip"]').tooltip("destroy");
+				} else {
+					$('[data-toggle="tooltip"]').tooltip(global.tooltipOptions);
+				}
+			};
+
+			return {
+				init: function init() {
+					$(".js-hamburger").on("click", sidebarChangeWidth);
+
+					$(".js-menu li").on("click", function (e) {
+						menuChangeActive(e.currentTarget);
+					});
+
+					$('[data-toggle="tooltip"]').tooltip(global.tooltipOptions);
+				}
+			};
+		}();
+		Dashboard.init();
+		// document.querySelector(".c-menu__item.has-submenu").addEventListener("mouseover", (e) => {
+		//   let submenu = document.querySelector(".c-menu__submenu.u-list");
+		//   if (submenu.style.display === "block") {
+		//     submenu.style.display = "none";
+		//   } else {
+		//     submenu.style.display = "block";
+		//   }
+		// });
+		let menus = document.getElementsByClassName("c-menu__item has-submenu");
+
+		// Loop through each element in menus and add event listener
+		for (let i = 0; i < menus.length; i++) {
+			menus[i].addEventListener("click", (e) => {
+				let menubar = menus[i].getElementsByClassName("c-menu__submenu u-list")[0];
+				if (menubar.style.display === "block" || menubar.style.display === "") {
+					menubar.style.display = "none";
+				} else {
+					menubar.style.display = "block";
+				}
+			});
+		}
+
+		//# sourceURL=pen.js
+
+		function setFormAction(action) {
+			alert(action);
+			document.getElementById("formAction").value = action;
+			document.getElementById("academicdetailsForm").submit();
+		}
+
+
+
+
+
+
+
+		
+
+		function setFormActionAndRedirect(action) {
+			// Set the form action
+
+			var value = document.getElementById("applicationNumber").value;
+			var registrationnumber = document.getElementById("registrationnumber").value;
+		
+			alert(registrationnumber);
+		
+			if (value !== "") {
+				window.location.href = '/academicdetails?applicationNumber=' + value + '&registrationnumber=' + registrationnumber;
+			}
+			else {
+				window.location.href = '/academicdetails';
+			}
+
+
+
+		}
+
+		function redirectToAdmissionDetails() {
+			var value = document.getElementById("applicationNumber").value;
+			var registrationnumber = document.getElementById("registrationnumber").value;
+
+			//	alert(value);
+			if (value !== "") {
+				window.location.href = '/admissiondetails?applicationNumber=' + value + '&registrationnumber=' + registrationnumber;
+			}
+
+			else {
+				window.location.href = '/admissiondetails';
+			}
+		}
+
+
+
+
+		function redirectToAcademicDetails() {
+			var value = document.getElementById("applicationNumber").value;
+			var registrationnumber = document.getElementById("registrationnumber").value;
+
+			//	alert(value);
+			if (value !== "") {
+				window.location.href = '/academicdetails?applicationNumber=' + value + '&registrationnumber=' + registrationnumber;
+			}
+
+			else {
+				window.location.href = '/academicdetails';
+			}
+		}
+		function redirectToPersonalDetails() {
+			var value = document.getElementById("applicationNumber").value;
+			
+			var registrationnumber = document.getElementById("registrationnumber").value;
+			
+			if (value !== "") {
+				window.location.href = '/personaldetails?applicationNumber=' + value + '&registrationnumber=' + registrationnumber;
+			}
+
+			else {
+				window.location.href = '/personaldetails';
+			}
+
+
+
+		}
+
+
+
+
+	</script>
+</body>
+
+</html>

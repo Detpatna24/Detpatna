@@ -41,30 +41,36 @@
 								class="bar-bot"></span></div>
 					</div>
 					<ul class="u-list">
-						<li class="c-menu__item is-active" data-toggle="tooltip" title="Dashboard">
-							<a href=/institutedashboard>
+						<li class="c-menu__item is-active" th:data-toggle="tooltip" th:title="Dashboard">
+							<a th:href="@{/institutedashboard}">
+
 								<div class="c-menu__item__inner"><i class="fa fa-line-chart" aria-hidden="true"></i>
 									<div class="c-menu-item__title"><span>Dashboard</span></div>
 								</div>
 							</a>
 						</li>
-						<li class="c-menu__item" data-toggle="tooltip" title="Dashboard">
-							<a href=/institutionalprofile>
-								<div class="c-menu__item__inner"><i class="fa fa-university" aria-hidden="true"></i>
-									<div class="c-menu-item__title"><span class="Profile">Institutional Profile</span>
+						<li class="c-menu__item" th:data-toggle="tooltip" title="Institutional Profile">
+							<a th:href="@{/institutionalprofile}">
+
+								<div class="c-menu__item__inner">
+									<i class="fa fa-university" aria-hidden="true"></i>
+									<div class="c-menu-item__title">
+										<span class="Profile">Institutional Profile</span>
 									</div>
 								</div>
 							</a>
 						</li>
-						<li class="c-menu__item" data-toggle="tooltip" title="Dashboard">
-							<a href=/admissiondetails>
+
+						<li class="c-menu__item" th:data-toggle="tooltip" th:title="Admission">
+							<a th:href="@{/personaldetails}">
 								<div class="c-menu__item__inner"><i class="fa fa-user-circle-o"
 										aria-hidden="true"></i></i>
 									<div class="c-menu-item__title"><span class="Profile">Admission</span></div>
 								</div>
 							</a>
 						</li>
-						<li class="c-menu__item has-submenu" data-toggle="tooltip" title="Student Section">
+
+						<li class="c-menu__item has-submenu" th:data-toggle="tooltip" title="Student Section">
 							<div class="c-menu__item__inner"> <i class="fa fa-money" aria-hidden="true"></i>
 								<div class="c-menu-item__title"><span>Fee Details</span></div>
 								<div class="c-menu-item__expand js-expand-submenu"><i class="fa fa-angle-down"></i>
@@ -75,7 +81,7 @@
 								<li>Examination Fees</li>
 							</ul>
 						</li>
-						<li class="c-menu__item has-submenu" data-toggle="tooltip" title="Student Section">
+						<li class="c-menu__item has-submenu" th:data-toggle="tooltip" title="Student Section">
 							<div class="c-menu__item__inner"> <i class="fa fa-table fa-lg"></i>
 								<div class="c-menu-item__title"><span>Examination</span></div>
 								<div class="c-menu-item__expand js-expand-submenu"><i class="fa fa-angle-down"></i>
@@ -86,15 +92,15 @@
 								<li>Download Admit Card</li>
 							</ul>
 						</li>
-						<li class="c-menu__item has-submenu" data-toggle="tooltip" title="Student Section">
+						<li class="c-menu__item has-submenu" th:data-toggle="tooltip" title="Student Section">
 							<div class="c-menu__item__inner"><i class="fa fa-check-square-o" aria-hidden="true"></i>
 								<div class="c-menu-item__title"><span>C-Form</span></div>
 								<div class="c-menu-item__expand js-expand-submenu"><i class="fa fa-angle-down"></i>
 								</div>
 							</div>
 							<ul class="c-menu__submenu u-list">
-								<li>Create C-Form</li>
-								<li>Edit &amp; View C-Form</li>
+								<li>Creat C-Form</li>
+								<li>Edit & View C-Form</li>
 							</ul>
 						</li>
 					</ul>

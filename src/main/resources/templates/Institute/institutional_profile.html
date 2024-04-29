@@ -16,7 +16,7 @@
 	<script src="assets/js/bootstrap.min.js"></script>
 	<script src="assets/js/popper.min.js"></script>
 	<script src="assets/js/instituteprofile.js"></script>
-	
+
 
 </head>
 
@@ -43,14 +43,16 @@
 					</div>
 					<ul class="u-list">
 						<li class="c-menu__item is-active" th:data-toggle="tooltip" th:title="Dashboard">
-							<a href=/institutedashboard>
+							<a th:href="@{/institutedashboard}">
+
 								<div class="c-menu__item__inner"><i class="fa fa-line-chart" aria-hidden="true"></i>
 									<div class="c-menu-item__title"><span>Dashboard</span></div>
 								</div>
 							</a>
 						</li>
 						<li class="c-menu__item" th:data-toggle="tooltip" title="Institutional Profile">
-							<a href=/institutionalprofile>
+							<a th:href="@{/institutionalprofile}">
+
 								<div class="c-menu__item__inner">
 									<i class="fa fa-university" aria-hidden="true"></i>
 									<div class="c-menu-item__title">
@@ -61,7 +63,7 @@
 						</li>
 
 						<li class="c-menu__item" th:data-toggle="tooltip" th:title="Admission">
-							<a href=/admissiondetails>
+							<a th:href="@{/personaldetails}">
 								<div class="c-menu__item__inner"><i class="fa fa-user-circle-o"
 										aria-hidden="true"></i></i>
 									<div class="c-menu-item__title"><span class="Profile">Admission</span></div>
@@ -427,8 +429,8 @@
 		</main>
 	</div>
 
-<script>
-	
+	<script>
+
 		var Dashboard = function () {
 			var global = {
 				tooltipOptions: {
@@ -471,7 +473,7 @@
 		Dashboard.init();
 
 	</script>
-	
+
 </body>
 
 </html>
