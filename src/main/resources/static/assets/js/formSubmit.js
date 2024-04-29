@@ -1,7 +1,7 @@
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById("save-next-btn").addEventListener("click", function (event) {
+    document.getElementById("saveAsDraftButton").addEventListener("click", function (event) {
         event.preventDefault();
        var formData = {
 			studentName: $('input[name=studentName]').val(),
@@ -72,17 +72,17 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-function setMinorityCategory(category) {
-    document.querySelector('.btn.dropdown-toggle.minority').innerText = category;
-    document.querySelector('[th\\:field="*{dashboardstudentformdata.minorityCategory}"]').value = category;
-}
+//function setMinorityCategory(category) {
+//    document.querySelector('.btn.dropdown-toggle.minority').innerText = category;
+  //  document.querySelector('[th\\:field="*{dashboardstudentformdata.minorityCategory}"]').value = category;
+//}
 
-function setCategory(category) {
-    document.querySelector('.btn.dropdown-toggle.category').innerText = category;
-    document.querySelector('[th\\:field="*{dashboardstudentformdata.category}"]').value = category;
-}
+//function setCategory(category) {
+  //  document.querySelector('.btn.dropdown-toggle.category').innerText = category;
+    //document.querySelector('[th\\:field="*{dashboardstudentformdata.category}"]').value = category;
+//}
 
-function setEconomicallyWeakerSection(value) {
-    document.querySelector('.btn.dropdown-toggle.economically-weaker-section').innerText = value ? 'Yes' : 'No';
-    document.querySelector('[th\\:field="*{dashboardstudentformdata.economicallyWeakerSection}"]').value = value;
-}
+//function setEconomicallyWeakerSection(value) {
+  //  document.querySelector('.btn.dropdown-toggle.economically-weaker-section').innerText = value ? 'Yes' : 'No';
+    //document.querySelector('[th\\:field="*{dashboardstudentformdata.economicallyWeakerSection}"]').value = value;
+//}
