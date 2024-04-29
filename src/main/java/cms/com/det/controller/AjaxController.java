@@ -1,24 +1,27 @@
 package cms.com.det.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import cms.com.det.dto.DashboardStudentFormData;
-import cms.com.det.service.DashboardService;
+import cms.com.det.model.Block;
+import cms.com.det.service.BlockService;
+//import cms.com.det.service.DashboardService;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class AjaxController {
 	
 	@Autowired
-	DashboardService dashboardservice ;
+    private BlockService blockService;
 
 	@GetMapping("/generateOtp")
 	@ResponseBody
@@ -49,6 +52,17 @@ public class AjaxController {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid OTP");
 		}
 	}
+	
+	
+
+    @GetMapping("/blocks/{distt_name}")
+    @ResponseBody
+    public List<Block> getBlocksByDistrictName(@PathVariable String distt_name) {
+        // Your logic to fetch blocks by district name
+        List<Block> blocks = blockService.findByDistt_name(distt_name);
+        return blocks;
+    }
+
 
 	
 }

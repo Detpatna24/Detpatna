@@ -1,14 +1,18 @@
 package cms.com.det.service;
 
-import cms.com.det.dto.DashboardStudentFormData;
-import cms.com.det.dto.InstituteDashboard;
+import org.springframework.stereotype.Component;
 
+import cms.com.det.dto.DashboardStudentFormData;
+
+@Component
 public interface DashboardService {
 
-	DashboardStudentFormData register(DashboardStudentFormData dashboardstudentformdata);
+	
+	int save(DashboardStudentFormData dashboardstudentformdata);
 
-	//DashboardStudentFormData saveInstituteDashboard(InstituteDashboard instituteDashboard);
+	DashboardStudentFormData getFormDataByApplicationNumber(Integer applicationNumber);
+
+	void update(DashboardStudentFormData formData);
 
 	
-	 
 }
