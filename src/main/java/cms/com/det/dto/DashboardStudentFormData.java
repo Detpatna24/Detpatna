@@ -1,6 +1,7 @@
 package cms.com.det.dto;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -21,11 +22,11 @@ public class DashboardStudentFormData {
 	@Column(name = "applicationnumber")
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "det_dashboard_studentdata_seq")
     @SequenceGenerator(name="det_dashboard_studentdata_seq", sequenceName = "det_dashboard_studentdata_seq", allocationSize = 1)
-	private Long applicationnumber;
+	public Long applicationnumber;
 
 	
 	@Column(name = "registration_number")
-	private String studentid;
+	public String studentid;
 
 	public Long getapplicationnumber() {
 		return applicationnumber;
@@ -36,73 +37,98 @@ public class DashboardStudentFormData {
 	}
 
 	@Column(name = "student_name")
-	private String studentName;
+	public String studentName;
 
 	@Column(name = "student_middlename")
-	private String studentmiddleName;
+	public String studentmiddleName;
 
 	@Column(name = "student_lastName")
-	private String studentlastName;
+	public String studentlastName;
 
 	@Column(name = "student_fathername")
-	private String fatherName;
+	public String fatherName;
+
+	public LocalDateTime getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(LocalDateTime createdDate) {
+		this.createdDate = createdDate;
+	}
 
 	@Column(name = "student_mothername")
-	private String motherName;
+	public String motherName;
 
 	@Column(name = "student_dob")
-	private LocalDate dateOfBirth;
+	public LocalDate dateOfBirth;
 
 	@Column(name = "student_age")
-	private String age;
+	public String age;
 
 	@Column(name = "student_gender")
-	private String gender;
+	public String gender;
 
 	@Column(name = "student_minority_category")
-	private String minorityCategory;
+	public String minorityCategory;
 
 	@Column(name = "student_category")
-	private String category;
+	public String category;
 
 	@Column(name = "student_economically_weakersection")
-	private boolean economicallyWeakerSection;
+	public String economicallyWeakerSection;
 
 	@Column(name = "student_aadharno")
-	private String aadharNo;
+	public String aadharNo;
 
 	@Column(name = "student_emailid")
-	private String emailId;
+	public String emailId;
 
 	@Column(name = "student_mobileno")
-	private String mobileNo;
+	public String mobileNo;
 
 	@Column(name = "student_alternatemobileno")
-	private String alternateMobileNo;
+	public String alternateMobileNo;
 
 	@Column(name = "student_maritalstatus")
-	private String maritalStatus;
+	public String maritalStatus;
 
 	@Column(name = "student_father_lastname")
-	private String fatherlastName;
+	public String fatherlastName;
 
 	@Column(name = "student_father_middlename")
-	private String fathermiddleName;
+	public String fathermiddleName;
 
 	@Column(name = "student_mother_middlename")
-	private String mothermiddleName;
+	public String mothermiddleName;
 
 	@Column(name = "student_mother_lastname")
-	private String motherlastName;
+	public String motherlastName;
+
+	
+	
+	@Column(name = "created_date")
+	public LocalDateTime createdDate;
+	
+	@Column(name="workflowstatus")
+	public String admissionWorkflowId;
+	
+	
+	public String getAdmissionWorkflowId() {
+		return admissionWorkflowId;
+	}
+
+	public void setAdmissionWorkflowId(String admissionWorkflowId) {
+		this.admissionWorkflowId = admissionWorkflowId;
+	}
 
 	public DashboardStudentFormData() {
 	}
 
 	public DashboardStudentFormData(Long applicationnumber, String studentid, String studentName, String studentmiddleName,
 			String studentlastName, String fatherName, String motherName, LocalDate dateOfBirth, String age,
-			String gender, String minorityCategory, String category, boolean economicallyWeakerSection, String aadharNo,
+			String gender, String minorityCategory, String category, String economicallyWeakerSection, String aadharNo,
 			String emailId, String mobileNo, String alternateMobileNo, String maritalStatus, String fatherlastName,
-			String fathermiddleName, String mothermiddleName, String motherlastName) {
+			String fathermiddleName, String mothermiddleName, String motherlastName,LocalDateTime createdDate,String admissionWorkflowId) {
 		super();
 		this.applicationnumber = applicationnumber;
 		this.studentid = studentid;
@@ -126,6 +152,8 @@ public class DashboardStudentFormData {
 		this.fathermiddleName = fathermiddleName;
 		this.mothermiddleName = mothermiddleName;
 		this.motherlastName = motherlastName;
+		this.createdDate=createdDate;
+		this.admissionWorkflowId=admissionWorkflowId;
 	}
 
 	public String getstudentid() {
@@ -216,11 +244,11 @@ public class DashboardStudentFormData {
 		this.category = category;
 	}
 
-	public boolean isEconomicallyWeakerSection() {
+	public String isEconomicallyWeakerSection() {
 		return economicallyWeakerSection;
 	}
 
-	public void setEconomicallyWeakerSection(boolean economicallyWeakerSection) {
+	public void setEconomicallyWeakerSection(String economicallyWeakerSection) {
 		this.economicallyWeakerSection = economicallyWeakerSection;
 	}
 

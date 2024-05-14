@@ -20,13 +20,6 @@ public class DashboardStudentAdress {
 	@Column(name = "registration_number")
 	private String id;
 
-	public int getapplicationnumber() {
-		return applicationnumber;
-	}
-
-	public void setapplicationnumber(int applicationnumber) {
-		this.applicationnumber = applicationnumber;
-	}
 	
 	
 	@Column(name = "student_correspondencevillage")
@@ -92,42 +85,13 @@ public class DashboardStudentAdress {
 	
 	@Column(name="student_subdivision")
 	private String correspondencesubdivision;
-	
 
-	public DashboardStudentAdress(int applicationnumber, String id, String correspondenceVillage, String correspondenceStreet,
-			String correspondenceArea, String correspondencePostOffice, String correspondencePinCode,
-			String correspondenceState, String correspondenceDistrict, String correspondenceBlock,
-			String correspondencePoliceStation, String permanentVillage, String permanentStreet, String permanentArea,
-			String permanentPostOffice, String permanentPinCode, String permanentState, String permanentDistrict,
-			String permanentBlock, String permanentPoliceStation, boolean isaddressissame,String permanentsubdivision,String correspondencesubdivision) {
-		super();
-		this.applicationnumber = applicationnumber;
-		this.id = id;
-		this.correspondenceVillage = correspondenceVillage;
-		this.correspondenceStreet = correspondenceStreet;
-		this.correspondenceArea = correspondenceArea;
-		this.correspondencePostOffice = correspondencePostOffice;
-		this.correspondencePinCode = correspondencePinCode;
-		this.correspondenceState = correspondenceState;
-		this.correspondenceDistrict = correspondenceDistrict;
-		this.correspondenceBlock = correspondenceBlock;
-		this.correspondencePoliceStation = correspondencePoliceStation;
-		this.permanentVillage = permanentVillage;
-		this.permanentStreet = permanentStreet;
-		this.permanentArea = permanentArea;
-		this.permanentPostOffice = permanentPostOffice;
-		this.permanentPinCode = permanentPinCode;
-		this.permanentState = permanentState;
-		this.permanentDistrict = permanentDistrict;
-		this.permanentBlock = permanentBlock;
-		this.permanentPoliceStation = permanentPoliceStation;
-		this.isaddressissame=isaddressissame;
-		this.permanentsubdivision=permanentsubdivision;
-		this.correspondencesubdivision=correspondencesubdivision;
+	public int getApplicationnumber() {
+		return applicationnumber;
 	}
 
-	public DashboardStudentAdress() {
-	
+	public void setApplicationnumber(int applicationnumber) {
+		this.applicationnumber = applicationnumber;
 	}
 
 	public String getId() {
@@ -290,14 +254,6 @@ public class DashboardStudentAdress {
 		this.permanentPoliceStation = permanentPoliceStation;
 	}
 
-	public int getApplicationnumber() {
-		return applicationnumber;
-	}
-
-	public void setApplicationnumber(int applicationnumber) {
-		this.applicationnumber = applicationnumber;
-	}
-
 	public String getPermanentsubdivision() {
 		return permanentsubdivision;
 	}
@@ -313,6 +269,45 @@ public class DashboardStudentAdress {
 	public void setCorrespondencesubdivision(String correspondencesubdivision) {
 		this.correspondencesubdivision = correspondencesubdivision;
 	}
+
+	public DashboardStudentAdress(int applicationnumber, String id, String correspondenceVillage,
+			String correspondenceStreet, String correspondenceArea, String correspondencePostOffice,
+			String correspondencePinCode, String correspondenceState, String correspondenceDistrict,
+			String correspondenceBlock, String correspondencePoliceStation, boolean isaddressissame,
+			String permanentVillage, String permanentStreet, String permanentArea, String permanentPostOffice,
+			String permanentPinCode, String permanentState, String permanentDistrict, String permanentBlock,
+			String permanentPoliceStation, String permanentsubdivision, String correspondencesubdivision) {
+		super();
+		this.applicationnumber = applicationnumber;
+		this.id = id;
+		this.correspondenceVillage = correspondenceVillage;
+		this.correspondenceStreet = correspondenceStreet;
+		this.correspondenceArea = correspondenceArea;
+		this.correspondencePostOffice = correspondencePostOffice;
+		this.correspondencePinCode = correspondencePinCode;
+		this.correspondenceState = correspondenceState;
+		this.correspondenceDistrict = correspondenceDistrict;
+		this.correspondenceBlock = correspondenceBlock;
+		this.correspondencePoliceStation = correspondencePoliceStation;
+		this.isaddressissame = isaddressissame;
+		this.permanentVillage = permanentVillage;
+		this.permanentStreet = permanentStreet;
+		this.permanentArea = permanentArea;
+		this.permanentPostOffice = permanentPostOffice;
+		this.permanentPinCode = permanentPinCode;
+		this.permanentState = permanentState;
+		this.permanentDistrict = permanentDistrict;
+		this.permanentBlock = permanentBlock;
+		this.permanentPoliceStation = permanentPoliceStation;
+		this.permanentsubdivision = permanentsubdivision;
+		this.correspondencesubdivision = correspondencesubdivision;
+	}
+
+	public DashboardStudentAdress() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
 
 	
 

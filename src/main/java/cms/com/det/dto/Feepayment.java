@@ -15,7 +15,7 @@ public class Feepayment {
 	private Long applicationnumber;
 
 	@Column(name = "registration_number")
-	private String studentid;
+	public String studentid;
 
 	@Column(name = "RegistrationFees")
 	private String RegistrationFees;
