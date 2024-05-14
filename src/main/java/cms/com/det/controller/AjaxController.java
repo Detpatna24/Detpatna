@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import cms.com.det.dto.ITIdto;
 import cms.com.det.model.Block;
 import cms.com.det.service.BlockService;
+import cms.com.det.service.ITIservice;
 //import cms.com.det.service.DashboardService;
 import jakarta.servlet.http.HttpSession;
 
@@ -22,6 +24,10 @@ public class AjaxController {
 	
 	@Autowired
     private BlockService blockService;
+	
+	
+	@Autowired
+	ITIservice itiservice;
 
 	@GetMapping("/generateOtp")
 	@ResponseBody
@@ -64,5 +70,11 @@ public class AjaxController {
     }
 
 
-	
+    @GetMapping("/findmis/{ITI}")
+    @ResponseBody
+    public List<String> Getmiscodebymisname(@PathVariable String ITI) {
+        // Your logic to fetch blocks by district name
+        List<String> blocks = itiservice.findByITIName(ITI);
+        return blocks;
+    }
 }
