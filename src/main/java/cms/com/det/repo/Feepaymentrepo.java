@@ -1,13 +1,38 @@
 package cms.com.det.repo;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import cms.com.det.dto.Feepayment;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 
+@Transactional
 @Repository
-public interface Feepaymentrepo extends JpaRepository<Feepayment, Integer>{
+public class Feepaymentrepo {
 
-	
-	Feepayment save(Feepayment feepayment);
+	@PersistenceContext
+	private EntityManager entityManager;
+
+	public void save(Feepayment feepayment) {
+		entityManager.persist(feepayment);
+		entityManager.flush();
+
+	}
+
+	public Feepayment getFormDataByApplicationNumber(Integer applicationnumber) {
+		return entityManager.find(Feepayment.class, applicationnumber);
+
+	}
+
+	public void update(Feepayment feepayment) {
+		Feepayment managedEntity = entityManager.find(Feepayment.class, feepayment.getApplicationnumber());
+		if (managedEntity == null) {
+			entityManager.persist(feepayment);
+		} else {
+			entityManager.merge(feepayment);
+		}
+		entityManager.flush();
+	}
+
 }
