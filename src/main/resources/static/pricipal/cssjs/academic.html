@@ -1,0 +1,483 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard</title>
+<link rel="stylesheet" href="cssjs/bootstrap.min.css">
+<link href="cssjs/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="cssjs/customcss.css" rel="stylesheet" type="text/css">
+<style class="cp-pen-styles">
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700&subset=latin-ext");
+</style>
+</head>
+<!-- <div class="top-header">
+   <div class="container">
+    <div class="row">
+        <div class="col-md-5 " style="padding-top: 5px;">
+            <i class="fa fa-phone" aria-hidden="true"></i>
+            <span class="helplineclass">HELPLINE NUMBER:</span>
+            <a href="tel:+91-1824-521360">+91-1824-521360</a>
+            
+        </div>
+        <div class="col-md-7 text-right pr-2 pt-1">
+            <ul class="top-bar-links">
+                <li><a href="#">RMS</a></li>
+                <li><a href="#">Calendar</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Feedback</a></li>
+                <li><a href="#">My Class</a></li>
+                <li><a href="#">e-library</a></li>
+                <li><a href="#">Induction</a></li>
+            </ul>
+        </div>
+    </div>
+   </div>
+</div> -->
+<!-- <div class="bottom-header">
+       
+    <div class="container">
+      <div class="row">
+       <div class="col-md-4">
+          <div class="btm-img">
+              <img src="images/ITI-logo.png" class="logo">
+              <img src="images/logo-text.png" class="logo-txt">
+          </div>
+       </div>
+       <div class="col-md-8">
+          
+       </div>
+       </div>
+    </div>
+  </nav>
+  </div> -->
+  <!-- bottom header css end -->
+<div class="sidebar-is-reduced">
+
+
+  <header class="l-header">
+  
+    <div class="l-header__inner clearfix">
+    
+      <div class="c-header-icon js-hamburger">
+        <div class="hamburger-toggle"><span class="bar-top"></span><span class="bar-mid"></span><span class="bar-bot"></span></div>
+      </div>
+      <div class="logo-txt">
+        <h6>Directorate Of Employment & Training</h6>
+        <span>Labour Resources Department Govt. Of Bihar</span>
+        <span>(Govt. Of Bihar Undertaking)</span>
+     </div>
+      <!-- <div class="c-header-icon has-dropdown"><span class="c-badge c-badge--header-icon animated shake">87</span><i class="fa fa-bell"></i>
+        <div class="c-dropdown c-dropdown--notifications">
+          <div class="c-dropdown__header"></div>
+          <div class="c-dropdown__content"></div>
+        </div>
+      </div> -->
+      <!-- <div class="c-search">
+        <input class="c-search__input u-input" placeholder="Search..." type="text"/>
+      </div> -->
+      <!-- <div class="header-icons-group">
+        <div class="c-header-icon basket"><span class="c-badge c-badge--header-icon animated shake">12</span><i class="fa fa-shopping-basket"></i></div>
+        <div class="c-header-icon logout"><i class="fa fa-power-off"></i></div>
+      </div> -->
+     <div class="user-img">
+      <img src="images/avatar.png">
+     </div>
+    </div>
+  </header>
+  <div class="l-sidebar">
+ 
+    <div class="l-sidebar__content">
+      <div class="logo">
+        <div class="logo__txt">
+          <img src="images/ITI-logo.png" style="width: 70px;">
+        </div>
+      </div>
+      <nav class="c-menu js-menu">
+        <ul class="u-list">
+          <li class="c-menu__item is-active" data-toggle="tooltip" title="Dashboard">
+            <a href="dashboard.html"> <div class="c-menu__item__inner"><i class="fa fa-line-chart"
+              aria-hidden="true"></i>
+            <div class="c-menu-item__title"><span>Dashboard</span></div>
+          </div></a>
+          </li>
+          <li class="c-menu__item" data-toggle="tooltip" title="Dashboard">
+          <a href="institutional.html">
+            <div class="c-menu__item__inner"><i class="fa fa-university" aria-hidden="true"></i>
+              <div class="c-menu-item__title"><span class="Profile">Institutional Profile</span></div>
+            </div>
+            </a>
+          </li>
+          <li class="c-menu__item" data-toggle="tooltip" title="Dashboard">
+            <a href="personaldetails.html">
+              <div class="c-menu__item__inner"><i class="fa fa-university" aria-hidden="true"></i>
+                <div class="c-menu-item__title"><span class="Profile">Personal Details</span></div>
+              </div>
+              </a>
+          </li>
+          <!-- <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Student Section">
+            <div class="c-menu__item__inner"> <i class="fa fa-graduation-cap" aria-hidden="true"></i> 
+              <div class="c-menu-item__title"><span>Student Section</span></div>
+              <div class="c-menu-item__expand js-expand-submenu"><i class="fa fa-angle-down"></i></div>
+            </div>
+            <ul class="c-menu__submenu u-list">
+              <li>Student Admission Registration</li>
+              <li>Bulk Student Registration</li>
+              <li>Registered Student List</li>
+            </ul>
+          </li> -->
+          <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Student Section">
+            <div class="c-menu__item__inner">  <i class="fa fa-money" aria-hidden="true"></i>
+              <div class="c-menu-item__title"><span>Fee Details</span></div>
+              <div class="c-menu-item__expand js-expand-submenu"><i class="fa fa-angle-down"></i></div>
+            </div>
+            <ul class="c-menu__submenu u-list">
+              <li>Registration Fees</li>
+              <li>Examination Fees</li>
+            </ul>
+          </li>
+          <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Student Section">
+            <div class="c-menu__item__inner">   <i class="fa fa-table fa-lg"></i>
+              <div class="c-menu-item__title"><span>Examination</span></div>
+              <div class="c-menu-item__expand js-expand-submenu"><i class="fa fa-angle-down"></i></div>
+            </div>
+            <ul class="c-menu__submenu u-list">
+              <li>Create Admit Card</li>
+              <li>Download Admit Card</li>
+            </ul>
+          </li>
+          <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Student Section">
+            <div class="c-menu__item__inner"><i class="fa fa-check-square-o" aria-hidden="true"></i>
+              <div class="c-menu-item__title"><span>C-Form</span></div>
+              <div class="c-menu-item__expand js-expand-submenu"><i class="fa fa-angle-down"></i></div>
+            </div>
+            <ul class="c-menu__submenu u-list">
+              <li>Creat C-Form</li>
+              <li>Edit & View C-Form</li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+<main class="l-main">
+  <div class="content-wrapper content-wrapper--with-bg">
+    <div class="page-content">
+<!-- <div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">Placeholder content for the Home tab</div>
+  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">Placeholder content</div>
+  <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">Placeholder </div>
+</div> -->
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active " id="home-tab" data-toggle="tab" href="details.html" role="tab"
+          aria-controls="home" aria-selected="true">Personal Details</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#academic" role="tab"
+          aria-controls="profile" aria-selected="false">Academic Details</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#domicile" role="tab"
+          aria-controls="contact" aria-selected="false">Domicile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#upload" role="tab"
+          aria-controls="contact" aria-selected="false">Upload</a>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="details" role="tabpanel" >
+        <div class="frms">
+        <div class="form-ui">
+          <div class="row">
+            <div class="col-md-12">
+              <h4 class="principal"></h4>
+              <form class="needs-validation" Novalidate>
+                <div class="row abc">
+                  <div class="col-md-4">
+                    <label for="validationCustom01">Student Name</label>
+                    <input type="text" class="form-control" id="validationCustom01" placeholder="" value=""
+                      required>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="validationCustom02">Middle Name</label>
+                    <input type="text" class="form-control" id="validationCustom02" placeholder="" value=""
+                      required>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="validationCustom01">Last Name</label>
+                    <input type="email" class="form-control" id="validationCustom01" placeholder="" value=""
+                      required>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="validationCustom01">Father's Name</label>
+                    <input type="text" class="form-control" id="validationCustom01" placeholder="" value=""
+                      required>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="validationCustom01">Middle Name</label>
+                    <input type="text" class="form-control" id="validationCustom01" placeholder="" value="" required>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="validationCustom01">Last Name</label>
+                    <input type="text" class="form-control" id="validationCustom01" placeholder="" value="" required>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="validationCustom01">Mother's Name</label>
+                    <input type="text" class="form-control" id="validationCustom01" placeholder="" value="" required>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="validationCustom01">Middle Name</label>
+                    <input type="text" class="form-control" id="validationCustom01" placeholder="" value="" required>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="validationCustom01">Last Name</label>
+                    <input type="text" class="form-control" id="validationCustom01" placeholder="" value="" required>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="validationCustom01">Date Of Birth</label>
+                    <input type="text" class="form-control" id="validationCustom01" placeholder="" value="" required>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="validationCustom01">Age</label>
+                    <input type="text" class="form-control" id="validationCustom01" placeholder="" value="" required>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="validationCustom01">Gender</label>
+                    <input type="text" class="form-control" id="validationCustom01" placeholder="" value="" required>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="validationCustom01">Minority Category</label>
+                    <input type="text" class="form-control" id="validationCustom01" placeholder="" value="" required>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="validationCustom01">Category</label>
+                    <input type="text" class="form-control" id="validationCustom01" placeholder="" value="" required>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="validationCustom01">Economically Weaker Section</label>
+                    <input type="text" class="form-control" id="validationCustom01" placeholder="" value="" required>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="validationCustom01">Aadhaar No.</label>
+                    <input type="text" class="form-control" id="validationCustom01" placeholder="" value="" required>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="validationCustom01">E-mail Id</label>
+                    <input type="text" class="form-control" id="validationCustom01" placeholder="" value="" required>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="validationCustom01">Mobile No</label>
+                    <input type="text" class="form-control" id="validationCustom01" placeholder="" value="" required>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="validationCustom01">Alternate Mobile No.</label>
+                    <input type="text" class="form-control" id="validationCustom01" placeholder="" value="" required>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="validationCustom01">Marital Status</label>
+                    <input type="text" class="form-control" id="validationCustom01" placeholder="" value="" required>
+                  </div>
+                </div>
+              </form>
+        <div class="row">
+          <div class="col-md-12">
+            <h4 class="principals">Address For Correspondance</h4>
+            <form class="needs-validation" Novalidate>
+              <div class="row abc">
+                <div class="col-md-4">
+                  <label for="validationCustom01">Village/Town/City</label>
+                  <input type="text" class="form-control" id="validationCustom01" placeholder="" value=""
+                    required>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustom02">Street Name</label>
+                  <input type="text" class="form-control" id="validationCustom02" placeholder="" value=""
+                    required>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustom01">Area</label>
+                  <input type="email" class="form-control" id="validationCustom01" placeholder="" value=""
+                    required>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustom01">Post Office</label>
+                  <input type="text" class="form-control" id="validationCustom01" placeholder="" value=""
+                    required>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustom01">Pin Code</label>
+                  <input type="text" class="form-control" id="validationCustom01" placeholder="" value=""
+                    required>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustom01">State</label>
+                  <input type="text" class="form-control" id="validationCustom01" placeholder="" value=""
+                    required>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustom01">District</label>
+                  <input type="text" class="form-control" id="validationCustom01" placeholder="" value=""
+                    required>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustom01">Block</label>
+                  <input type="text" class="form-control" id="validationCustom01" placeholder="" value=""
+                    required>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustom01">Police Station</label>
+                  <input type="text" class="form-control" id="validationCustom01" placeholder="" value=""
+                    required>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <h4 class="principals">Permanent A)</h4>
+            <form class="needs-validation" Novalidate>
+              <div class="row abc">
+                <div class="col-md-4">
+                  <label for="validationCustom01"></label>
+                  <input type="text" class="form-control" id="validationCustom01" placeholder="" value=""
+                    required>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustom02">Street Name</label>
+                  <input type="text" class="form-control" id="validationCustom02" placeholder="" value=""
+                    required>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustom01">Area</label>
+                  <input type="email" class="form-control" id="validationCustom01" placeholder="" value=""
+                    required>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustom01">Post Office</label>
+                  <input type="text" class="form-control" id="validationCustom01" placeholder="" value=""
+                    required>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustom01">Pin Code</label>
+                  <input type="text" class="form-control" id="validationCustom01" placeholder="" value=""
+                    required>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustom01">State</label>
+                  <input type="text" class="form-control" id="validationCustom01" placeholder="" value=""
+                    required>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustom01">District</label>
+                  <input type="text" class="form-control" id="validationCustom01" placeholder="" value=""
+                    required>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustom01">Block</label>
+                  <input type="text" class="form-control" id="validationCustom01" placeholder="" value=""
+                    required>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustom01">Police Station</label>
+                  <input type="text" class="form-control" id="validationCustom01" placeholder="" value=""
+                    required>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary update">Update</button>
+  </div>
+      </div>
+    </div>
+    </div>
+    </div>
+      </div>
+    </div>
+    
+    
+    
+    
+    
+    </div>
+  </div>
+</main>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script >
+
+var Dashboard = function () {
+	var global = {
+		tooltipOptions: {
+			placement: "right"
+		},
+		menuClass: ".c-menu"
+	};
+
+	var menuChangeActive = function menuChangeActive(el) {
+		var hasSubmenu = $(el).hasClass("has-submenu");
+		$(global.menuClass + " .is-active").removeClass("is-active");
+		$(el).addClass("is-active");
+
+		// if (hasSubmenu) {
+		// 	$(el).find("ul").slideDown();
+		// }
+	};
+
+	var sidebarChangeWidth = function sidebarChangeWidth() {
+		var $menuItemsTitle = $("li .menu-item__title");
+
+		$("div").toggleClass("sidebar-is-reduced sidebar-is-expanded");
+		$(".hamburger-toggle").toggleClass("is-opened");
+
+		if ($("div").hasClass("sidebar-is-expanded")) {
+			$('[data-toggle="tooltip"]').tooltip("destroy");
+		} else {
+			$('[data-toggle="tooltip"]').tooltip(global.tooltipOptions);
+		}
+	};
+
+	return {
+		init: function init() {
+			$(".js-hamburger").on("click", sidebarChangeWidth);
+
+			$(".js-menu li").on("click", function (e) {
+				menuChangeActive(e.currentTarget);
+			});
+
+			$('[data-toggle="tooltip"]').tooltip(global.tooltipOptions);
+		}
+	};
+}();
+Dashboard.init();
+// document.querySelector(".c-menu__item.has-submenu").addEventListener("mouseover", (e) => {
+//   let submenu = document.querySelector(".c-menu__submenu.u-list");
+//   if (submenu.style.display === "block") {
+//     submenu.style.display = "none";
+//   } else {
+//     submenu.style.display = "block";
+//   }
+// });
+let menus = document.getElementsByClassName("c-menu__item has-submenu");
+
+// Loop through each element in menus and add event listener
+for (let i = 0; i < menus.length; i++) {
+    menus[i].addEventListener("click", (e) => {
+        let menubar = menus[i].getElementsByClassName("c-menu__submenu u-list")[0];
+        if (menubar.style.display === "block" || menubar.style.display === "") {
+            menubar.style.display = "none";
+        } else {
+            menubar.style.display = "block";
+        }
+    });
+}
+
+//# sourceURL=pen.js
+</script>
+</body>
+</html>
