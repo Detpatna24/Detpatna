@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Dashboard</title>
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/customcss.css" rel="stylesheet" type="text/css">
+	<style class="cp-pen-styles">
+		@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700&subset=latin-ext");
+	</style>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/popper.min.js"></script>
+
+</head>
+
+<body>
+	<div class="sidebar-is-reduced">
+		<header class="l-header">
+			<div class="l-header__inner clearfix">
+				<div class="logo-txt">
+					<h6>Directorate Of Employment & Training</h6>
+					<span>Labour Resources Department Govt. Of Bihar</span>
+					<span>(Govt. Of Bihar Undertaking)</span>
+				</div>
+				<div class="user-img">
+					<img src="images/avatar.png">
+				</div>
+			</div>
+		</header>
+		<div class="l-sidebar">
+			<div class="l-sidebar__content">
+				<nav class="c-menu js-menu">
+					<div class="c-header-icon js-hamburger">
+						<div class="hamburger-toggle"><span class="bar-top"></span><span class="bar-mid"></span><span
+								class="bar-bot"></span></div>
+					</div>
+					<ul class="u-list">
+						<li class="c-menu__item is-active" th:data-toggle="tooltip" th:title="Dashboard">
+							<a th:href="@{/admissioninchargedashboard}">
+								<div class="c-menu__item__inner">
+									<i class="fa fa-line-chart" aria-hidden="true"></i>
+									<div class="c-menu-item__title"><span>Dashboard</span></div>
+								</div>
+							</a>
+						</li>
+						<li class="c-menu__item" th:data-toggle="tooltip" title="Institutional Profile">
+							<a th:href="@{/admissioninchargeadmissiondetail}">
+								<div class="c-menu__item__inner">
+									<i class="fa fa-university" aria-hidden="true"></i>
+									<div class="c-menu-item__title">
+										<span class="Profile">Institutional Profile</span>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li class="c-menu__item" th:data-toggle="tooltip" th:title="Admission">
+							<a th:href="@{/personaldetails}">
+								<div class="c-menu__item__inner">
+									<i class="fa fa-user-circle-o" aria-hidden="true"></i></i>
+									<div class="c-menu-item__title"><span class="Profile">Admission</span></div>
+								</div>
+							</a>
+						</li>
+						<li class="c-menu__item has-submenu" th:data-toggle="tooltip" title="Student Section">
+							<div class="c-menu__item__inner">
+								<i class="fa fa-money" aria-hidden="true"></i>
+								<div class="c-menu-item__title"><span>Fee Details</span></div>
+								<div class="c-menu-item__expand js-expand-submenu"><i class="fa fa-angle-down"></i>
+								</div>
+							</div>
+							<ul class="c-menu__submenu u-list">
+								<li>Registration Fees</li>
+								<li>Examination Fees</li>
+							</ul>
+						</li>
+						<li class="c-menu__item has-submenu" th:data-toggle="tooltip" title="Student Section">
+							<div class="c-menu__item__inner">
+								<i class="fa fa-table fa-lg"></i>
+								<div class="c-menu-item__title"><span>Examination</span></div>
+								<div class="c-menu-item__expand js-expand-submenu"><i class="fa fa-angle-down"></i>
+								</div>
+							</div>
+							<ul class="c-menu__submenu u-list">
+								<li>Create Admit Card</li>
+								<li>Download Admit Card</li>
+							</ul>
+						</li>
+						<li class="c-menu__item has-submenu" th:data-toggle="tooltip" title="Student Section">
+							<div class="c-menu__item__inner">
+								<i class="fa fa-check-square-o" aria-hidden="true"></i>
+								<div class="c-menu-item__title"><span>C-Form</span></div>
+								<div class="c-menu-item__expand js-expand-submenu"><i class="fa fa-angle-down"></i>
+								</div>
+							</div>
+							<ul class="c-menu__submenu u-list">
+								<li>Creat C-Form</li>
+								<li>Edit & View C-Form</li>
+							</ul>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+	<main class="l-main">
+		<div class="content-wrapper content-wrapper--with-bg">
+			<div class="page-content">
+				<nav class="tgl">
+					<ul class="tgl-list">
+						<li class="tgl-menu__item " data-toggle="tooltip" title="Dashboard">
+							<a href="#" onclick="redirectToPersonalDetails()">
+								<div class="c-menu__item__inner">
+									<div class="c-menu-item__title"><span>Personal Details</span></div>
+								</div>
+							</a>
+						</li>
+						<li class="tgl-menu__item" data-toggle="tooltip" title="">
+
+							<a href="#" onclick="redirectToAcademicDetails()">
+								<div class="c-menu__item__inner">
+									<div class="c-menu-item__title"><span>Academic Details</span></div>
+								</div>
+							</a>
+						</li>
+						<li class="tgl-menu__item is-active" data-toggle="tooltip" title="Dashboard">
+							<a href="#" onclick="redirectToAdmissionDetails()">
+								<div class="c-menu__item__inner">
+									<div class="c-menu-item__title"><span>Admission Details</span></div>
+								</div>
+							</a>
+						</li>
+						<li class="tgl-menu__item" data-toggle="tooltip" title="">
+							<a th:href="@{/upload}">
+								<div class="c-menu__item__inner">
+									<div class="c-menu-item__title"><span>Documents</span></div>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</nav>
+				<!-- personal details tabs start here -->
+				<div class="tab-content" id="myTabContent">
+					<div class="tab-pane fade show active" id="details" role="tabpanel">
+						<div class="accordian-st">
+							<div class="accordion" id="accordionExample">
+								<div class="accordion-item">
+									<h2 class="accordion-header" id="headingOne">
+										<button class="accordion-button" type="button" data-toggle="collapse"
+											data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+											Admission Details
+										</button>
+									</h2>
+									<div id="collapseOne" class="accordion-collapse collapse show"
+										aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+										<div class="accordion-body">
+											<div class="form-box">
+												<form id="academicdetailsForm" class="needs-validation"
+													th:action="@{/viewadmissiondetalissave}" method="post" novalidate>
+													<input type="hidden" id="applicationNumber" name="applicationNumber"
+														th:value="${param.applicationNumber}" />
+													<input type="hidden" id="registrationnumber"
+														name="registrationnumber"
+														th:value="${param.registrationnumber}" />
+
+													<div class="row abcde">
+														<div class="col-md-4">
+															<label for="validationCustom01">Academic Session</label>
+															<select class="form-control" id="validationCustom01"
+																required th:field="*{formData.academicsession}">
+																<option th:each="type : ${academicsession}"
+																	th:value="${type.session_name}" th:text="${type.session_name}"
+																	th:selected="${type == formData.academicsession}">
+																</option>
+															</select>
+														</div>
+														<div class="col-md-4">
+															<label for="validationCustom0">Trade Offered By</label>
+															<select class="form-control" id="validationCustom01"
+																required th:field="*{formData.traineetype}">
+																<option th:each="type : ${tradeOfferedby}"
+																	th:value="${type}" th:text="${type}"
+																	th:selected="${type == formData.tradeOfferedby}">
+																</option>
+															</select>
+
+														</div>
+														<div class="col-md-4">
+															<label for="validationCustom01">Trade Name</label>
+															<select class="form-control" id="validationCustom01"
+																required th:field="*{formData.tradename}">
+																<option th:each="type : ${tradename}"
+																	th:value="${type.trade_name}" th:text="${type.trade_name}"
+																	th:selected="${type == formData.tradename}">
+																</option>
+															</select>
+														</div>
+														<div class="col-md-4 mt-1">
+															<label for="validationCustom01">Shift</label>
+															<input type="text" class="form-control"
+																id="validationCustom01" placeholder="" value="" required
+																th:field="*{formData.shift}"
+																th:value="${formData.shift}">
+														</div>
+														<div class="col-md-4 mt-1">
+															<label for="validationCustom01">
+																Unit</label>
+															<input type="text" class="form-control"
+																id="validationCustom01" placeholder="" value="" required
+																th:field="*{formData.unit}"
+																th:value="${formData.shift}">
+														</div>
+														<div class="col-md-4 mt-1">
+															<label for="validationCustom01">Is Trainee Dual</label>
+															<select class="form-control" id="validationCustom01"
+																required th:field="*{formData.istraineedual}">
+																<option th:each="type : ${istraineedual}"
+																	th:value="${type}" th:text="${type}"
+																	th:selected="${type == formData.istraineedual}">
+																</option>
+															</select>
+														</div>
+														<div class="col-md-4  mt-1">
+															<label for="validationCustom01">ITI Name</label>
+															<select class="form-control" id="validationCustom01"
+																required th:field="*{formData.itiname}">
+																<option th:each="type : ${itiname}"
+																	th:value="${type.ITI}" th:text="${type.ITI}"
+																	th:selected="${type == formData.itiname}">
+																</option>
+															</select>
+														</div>
+														<div class="col-md-4  mt-1">
+															<label for="validationCustom01">ITI State Code</label>
+															<input type="text" class="form-control"
+																id="validationCustom01" placeholder="" value="" required
+																th:field="*{formData.itistatecode}"
+																th:value="${formData.itistatecode}">
+														</div>
+														<div class="col-md-4  mt-1">
+															<label for="validationCustom01">ITI MIS Code</label>
+															<input type="text" class="form-control"
+																id="validationCustom01" placeholder="" value="" required
+																th:field="*{formData.itimiscode}"
+																th:value="${formData.itimiscode}">
+														</div>
+														<div class="col-md-4  mt-1">
+															<label for="validationCustom01">District</label>
+															<select class="form-control" id="validationCustom01"
+																required th:field="*{formData.district}">
+																<option th:each="type : ${districts}"
+																	th:value="${type.distt_name}" th:text="${type.distt_name}"
+																	th:selected="${type == formData.district}">
+																</option>
+															</select>
+														</div>
+														<div class="col-md-4 mt-1">
+															<label for="validationCustom01">Trainee Type</label>
+															<select class="form-control" id="validationCustom01"
+																required th:field="*{formData.traineetype}">
+																<option th:each="type : ${traineetypes}"
+																	th:value="${type}" th:text="${type}"
+																	th:selected="${type == formData.traineetype}">
+																</option>
+															</select>
+														</div>
+
+
+													</div>
+
+											</div>
+
+										</div>
+
+										<div class="accordian-st">
+											<div class="accordion" id="accordionExample">
+												<div class="accordion-item">
+													<h2 class="accordion-header" id="headingOne">
+														<button class="accordion-button" type="button"
+															data-toggle="collapse" data-target="#collapseTwo"
+															aria-expanded="true" aria-controls="collapseOne">
+															Fee Payment
+														</button>
+													</h2>
+													<div id="collapseTwo" class="accordion-collapse collapse show"
+														aria-labelledby="headingOne" data-bs-parent="#accordionExample"
+														style="display: flex;">
+														<div class="accordion-body">
+															<div class="form-box">
+																<form class="needs-validation" Novalidate>
+																	<!-- <h4 class="principal">Personal Details</h4> -->
+																	<div class="row abcde">
+																		<div class="col-md-4">
+																			<label for="registrationFees">Registration
+																				Fees</label>
+																			<input type="text" class="form-control"
+																				id="registrationFees"
+																				th:field="*{feepaymentdata.registrationFees}"
+																				th:value="${feepaymentdata.registrationFees}"
+																				required>
+																		</div>
+																		<div class="col-md-4">
+																			<label for="tuitionFees">Tuition
+																				Fees</label>
+																			<input type="text" class="form-control"
+																				id="tuitionFees" required
+																				th:field="*{feepaymentdata.tuitionFees}"
+																				th:value="${feepaymentdata.tuitionFees}">
+																		</div>
+																		<div class="col-md-4">
+																			<label for="cautionFees">Caution
+																				Fees</label>
+																			<input type="text" class="form-control"
+																				id="cautionFees"
+																				th:field="*{feepaymentdata.cautionFees}"
+																				th:value="${feepaymentdata.cautionFees}">
+																		</div>
+																		<div class="col-md-4 mt-1">
+																			<label for="totalFees">Total</label>
+																			<input type="text" class="form-control"
+																				id="totalFees"
+																				th:field="*{feepaymentdata.Total}"
+																				th:value="${feepaymentdata.Total}"
+																				required>
+																		</div>
+																		<div class="col-md-4 mt-1">
+																			<button type="button"
+																				class="btn btn-primary paids">
+																				<input class="form-check-input"
+																					type="checkbox" value=""
+																					id="flexCheckDefault"
+																					style="margin-right: 8px;">Paid
+																			</button>
+																		</div>
+																		<div class="col-md-4 mt-1">
+																		</div>
+																		<div class="col-md-4 mt-1">
+																			<label
+																				for="challanReceiptNo">Challan/Receipt
+																				No.</label>
+																			<input type="text" class="form-control"
+																				id="challanReceiptNo"
+																				th:field="*{feepaymentdata.challanReceiptNo}"
+																				th:value="${feepaymentdata.challanReceiptNo}"
+																				required>
+																		</div>
+																		<div class="col-md-4 mt-1">
+																			<label
+																				for="challanReceiptDate">Challan/Receipt
+																				Date</label>
+																			<input type="text" class="form-control"
+																				id="challanReceiptDate"
+																				th:field="*{feepaymentdata.challanReceiptDate}"
+																				th:value="${feepaymentdata.challanReceiptDate}"
+																				required>
+																		</div>
+																		<div class="col-md-4 mt-1">
+																			<label for="uploadChallanReceipt">Upload
+																				Challan/Receipt</label>
+																			<input type="file" class="form-control"
+																				id="uploadChallanReceipt" required>
+																			<!--th:field="*{feepaymentdata.uploadChallanReceipt}"
+																				th:value="${feepaymentdata.uploadChallanReceipt}"-->
+
+																		</div>
+																	</div>
+																</form>
+																<span class="note"
+																	style="color: red; margin-top: 4px;display: inline-block;">Note
+																	:-</span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<input type="hidden" id="formAction" name="formAction" value="">
+
+								<div class="details-btn-sub">
+									<button type="submit" class="btn btn-primary draft" id="saveAsDraftButton"
+										onclick="setFormAction('draft')">Save as Draft</button>
+
+									<button type="button" class="btn btn-primary next" id="nextButton"
+										onclick="redirectToDocument('next')">Next</button>
+
+									<button type="button" class="btn btn-primary drafts" id="prevButton" disabled
+										onclick="redirectToAcademicDetails('previous')">Previous</button>
+
+								</div>
+								</form>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</main>
+	<div class="footer fixed-bottom">
+		<p>Copyright maintained by CMS Computers Limited</p>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script>
+		var Dashboard = function () {
+			var global = {
+				tooltipOptions: {
+					placement: "right"
+				},
+				menuClass: ".c-menu"
+			};
+
+			var menuChangeActive = function menuChangeActive(el) {
+				var hasSubmenu = $(el).hasClass("has-submenu");
+				$(global.menuClass + " .is-active").removeClass("is-active");
+				$(el).addClass("is-active");
+			};
+
+			var sidebarChangeWidth = function sidebarChangeWidth() {
+				var $menuItemsTitle = $("li .menu-item__title");
+
+				$("div").toggleClass("sidebar-is-reduced sidebar-is-expanded");
+				$(".hamburger-toggle").toggleClass("is-opened");
+
+				if ($("div").hasClass("sidebar-is-expanded")) {
+					$('[data-toggle="tooltip"]').tooltip("destroy");
+				} else {
+					$('[data-toggle="tooltip"]').tooltip(global.tooltipOptions);
+				}
+			};
+
+			return {
+				init: function init() {
+					$(".js-hamburger").on("click", sidebarChangeWidth);
+
+					$(".js-menu li").on("click", function (e) {
+						menuChangeActive(e.currentTarget);
+					});
+
+					$('[data-toggle="tooltip"]').tooltip(global.tooltipOptions);
+				}
+			};
+		}();
+		Dashboard.init();
+		let menus = document.getElementsByClassName("c-menu__item has-submenu");
+
+		// Loop through each element in menus and add event listener
+		for (let i = 0; i < menus.length; i++) {
+			menus[i].addEventListener("click", (e) => {
+				let menubar = menus[i].getElementsByClassName("c-menu__submenu u-list")[0];
+				if (menubar.style.display === "block" || menubar.style.display === "") {
+					menubar.style.display = "none";
+				} else {
+					menubar.style.display = "block";
+				}
+			});
+		}
+
+
+
+		function setFormAction(action) {
+			alert(action);
+
+			document.getElementById("formAction").value = action;
+			document.getElementById("academicdetailsForm").submit();
+		}
+
+		function redirectToAdmissionDetails(action) {
+			var value = document.getElementById("applicationNumber").value;
+			//	alert(value);
+			var registrationnumber = document.getElementById("registrationnumber").value;
+
+			if (value !== "") {
+				window.location.href = '/admissiondetails?applicationNumber=' + value + '&registrationnumber=' + registrationnumber;
+			}
+
+			else {
+				window.location.href = '/admissiondetails';
+			}
+		}
+
+
+
+
+		function setFormActionAndRedirect(action) {
+			// Set the form action
+
+			var value = document.getElementById("applicationNumber").value;
+			var registrationnumber = document.getElementById("registrationnumber").value;
+
+			alert(registrationnumber);
+
+			if (value !== "") {
+				window.location.href = '/academicdetails?applicationNumber=' + value + '&registrationnumber=' + registrationnumber;
+			}
+			else {
+				window.location.href = '/academicdetails';
+			}
+
+
+
+		}
+
+		function redirectToAdmissionDetails() {
+			var value = document.getElementById("applicationNumber").value;
+			var registrationnumber = document.getElementById("registrationnumber").value;
+
+			//	alert(value);
+			if (value !== "") {
+				window.location.href = '/viewadmissiondetailsdetails?applicationNumber=' + value + '&registrationnumber=' + registrationnumber;
+			}
+
+			else {
+				window.location.href = '/admissiondetails';
+			}
+		}
+
+
+
+
+		function redirectToAcademicDetails() {
+			var value = document.getElementById("applicationNumber").value;
+			var registrationnumber = document.getElementById("registrationnumber").value;
+
+			//	alert(value);
+			if (value !== "") {
+				window.location.href = '/viewacademicdetails?applicationNumber=' + value + '&registrationnumber=' + registrationnumber;
+			}
+
+			else {
+				window.location.href = '/academicdetails';
+			}
+		}
+		function redirectToPersonalDetails() {
+			var value = document.getElementById("applicationNumber").value;
+
+			var registrationnumber = document.getElementById("registrationnumber").value;
+
+			if (value !== "") {
+				window.location.href = '/viewpersonaldetails?applicationNumber=' + value + '&registrationnumber=' + registrationnumber;
+			}
+
+			else {
+				window.location.href = '/personaldetails';
+			}
+
+
+
+		}
+
+		function redirectToDocument(action) {
+
+			var value = document.getElementById("applicationNumber").value;
+			var registrationnumber = document.getElementById("registrationnumber").value;
+			alert(registrationnumber);
+			if (value !== "") {
+
+				window.location.href = '/upload?applicationNumber=' + value + '&registrationnumber=' + registrationnumber;
+			}
+			else {
+
+				window.location.href = '/upload';
+			}
+
+		}
+	</script>
+</body>
+
+</html>

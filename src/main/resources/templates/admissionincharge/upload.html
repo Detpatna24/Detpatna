@@ -1,0 +1,794 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" th:href="@{/preview/cssjs/bootstrap.min.css}" />
+  <link rel="stylesheet" th:href="@{/preview/cssjs/font-awesome.min.css}"  />
+  <link rel="stylesheet" th:href="@{/preview/cssjs/customcss.css}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <script th:src="@{/preview/bs4/jquery.min.js}"></script>
+  <script th:src="@{/preview/bs4/bootstrap.min.js}"></script>
+  <script th:src="@{/preview/cssjs/popper.min.js}"></script>
+</head>
+<body>
+<div class="sidebar-is-reduced">
+  <header class="l-header">
+    <div class="l-header__inner clearfix">
+      <!-- <div class="c-header-icon js-hamburger">
+        <div class="hamburger-toggle"><span class="bar-top"></span><span class="bar-mid"></span><span
+            class="bar-bot"></span></div>
+      </div> -->
+      <div class="logo-txt">
+        <h6>Directorate Of Employment & Training</h6>
+        <span class="labour">Labour Resources Department Govt. Of Bihar</span>
+        <span class="labours">(Govt. Of Bihar Undertaking)</span>
+      </div>
+      <div class="user-img">
+        <img src="images/avatar.png">
+      </div>
+    </div>
+  </header>
+  <div class="l-sidebar">
+
+    <div class="l-sidebar__content">
+        	<nav class="c-menu js-menu">
+					<div class="c-header-icon js-hamburger">
+						<div class="hamburger-toggle"><span class="bar-top"></span><span class="bar-mid"></span><span
+								class="bar-bot"></span></div>
+					</div>
+					<ul class="u-list">
+						<li class="c-menu__item is-active" th:data-toggle="tooltip" th:title="Dashboard">
+							<a th:href="@{/admissioninchargedashboard}">
+								<div class="c-menu__item__inner">
+									<i class="fa fa-line-chart" aria-hidden="true"></i>
+									<div class="c-menu-item__title"><span>Dashboard</span></div>
+								</div>
+							</a>
+						</li>
+						<li class="c-menu__item" th:data-toggle="tooltip" title="Institutional Profile">
+							<a th:href="@{/admissioninchargeadmissiondetail}">
+								<div class="c-menu__item__inner">
+									<i class="fa fa-university" aria-hidden="true"></i>
+									<div class="c-menu-item__title">
+										<span class="Profile">Institutional Profile</span>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li class="c-menu__item" th:data-toggle="tooltip" th:title="Admission">
+							<a th:href="@{/personaldetails}">
+								<div class="c-menu__item__inner">
+									<i class="fa fa-user-circle-o" aria-hidden="true"></i></i>
+									<div class="c-menu-item__title"><span class="Profile">Admission</span></div>
+								</div>
+							</a>
+						</li>
+							<li class="c-menu__item has-submenu" th:data-toggle="tooltip" title="Student Section">
+							<div class="c-menu__item__inner">
+								<i class="fa fa-money" aria-hidden="true"></i>
+								<div class="c-menu-item__title"><span>Fee Details</span></div>
+								<div class="c-menu-item__expand js-expand-submenu"><i class="fa fa-angle-down"></i>
+								</div>
+							</div>
+							<ul class="c-menu__submenu u-list">
+								<li>Registration Fees</li>
+								<li>Examination Fees</li>
+							</ul>
+						</li>
+						<li class="c-menu__item has-submenu" th:data-toggle="tooltip" title="Student Section">
+							<div class="c-menu__item__inner">
+								<i class="fa fa-table fa-lg"></i>
+								<div class="c-menu-item__title"><span>Examination</span></div>
+								<div class="c-menu-item__expand js-expand-submenu"><i class="fa fa-angle-down"></i>
+								</div>
+							</div>
+							<ul class="c-menu__submenu u-list">
+								<li>Create Admit Card</li>
+								<li>Download Admit Card</li>
+							</ul>
+						</li>
+						<li class="c-menu__item has-submenu" th:data-toggle="tooltip" title="Student Section">
+							<div class="c-menu__item__inner">
+								<i class="fa fa-check-square-o" aria-hidden="true"></i>
+								<div class="c-menu-item__title"><span>C-Form</span></div>
+								<div class="c-menu-item__expand js-expand-submenu"><i class="fa fa-angle-down"></i>
+								</div>
+							</div>
+							<ul class="c-menu__submenu u-list">
+								<li>Creat C-Form</li>
+								<li>Edit & View C-Form</li>
+							</ul>
+						</li>
+						 <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Logout"><a th:href="@{/auth/logout}"><div class="c-menu__item__inner"><i class="fa fa-user-circle-o"
+										aria-hidden="true"></i></i>
+									<div class="c-menu-item__title"><span class="Profile">Logout</span></div>
+								</div></a></li>
+						
+					</ul>
+				</nav>
+    </div>
+</div>
+       <main class="l-main">
+			<div class="content-wrapper content-wrapper--with-bg">
+				<div class="page-content">
+					<nav class="tgl">
+						<ul class="tgl-list">
+							<li class="tgl-menu__item" data-toggle="tooltip" title="">
+								<a href="#" onclick="redirectToPersonalDetails()">
+									<div class="c-menu__item__inner">
+										<div class="c-menu-item__title"><span>Personal Details</span></div>
+									</div>
+								</a>
+							</li>
+							<li class="tgl-menu__item" data-toggle="tooltip" title="">
+								<a href="#" onclick="redirectToAcademicDetails()">
+									<div class="c-menu__item__inner">
+										<div class="c-menu-item__title"><span>Academic Details</span></div>
+									</div>
+								</a>
+							</li>
+
+							<li class="tgl-menu__item" data-toggle="tooltip" title="">
+								<a href="#" onclick="redirectToAdmissionDetails()">
+									<div class="c-menu__item__inner">
+										<div class="c-menu-item__title"><span>Admission Details</span></div>
+									</div>
+								</a>
+							</li>
+							<li class="tgl-menu__item is-active" data-toggle="tooltip" title="">
+								<a href="#" onclick="redirectToDocument()">
+									<div class="c-menu__item__inner">
+										<div class="c-menu-item__title"><span>Documents</span></div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</nav>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="details" role="tabpanel" >
+            <div class="accordian-st">
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                   Educational Certificates
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <div class="row">
+                      <div class="col-md-10">
+                        <div class="upload-cde">
+                        <div class="form-box">
+                          <form class="needs-validation" Novalidate>
+                            <!-- <h4 class="principal">Personal Details</h4> -->
+                            <input type="hidden" id="applicationNumber" name="applicationNumber"
+										th:value="${param.applicationNumber}" />
+										
+										<input type="hidden" id="registrationnumber" name="registrationnumber"
+										th:value="${param.registrationnumber}" />
+                            <div class="row abcde">
+                              <div class="col-md-6">
+                                <label for="validationCustom0">8th Certificate</label>
+                                <div class="input-group custom-file-button">
+                                  <label class="input-group-text" for="inputGroupFile">Browse</label>
+                                  <input type="file" class="form-control" id="inputGroupFile">
+                                </div>
+                                <div class="preview-btns">
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-cloud-upload" aria-hidden="true" data-bs-toggle="tooltip"data-bs-placement="top" title="upload"></i></button>
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true" data-bs-toggle="tooltip"data-bs-placement="top" title="view"></i></button>
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true" data-bs-toggle="tooltip"data-bs-placement="top" title="Delete"></i>
+                                  </button>
+                                </div>
+                                <div class="progress">
+                                  <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <label for="validationCustom0">10th Certificate</label>
+                                <div class="input-group custom-file-button">
+                                  <label class="input-group-text" for="inputGroupFile">Browse</label>
+                                  <input type="file" class="form-control" id="inputGroupFile">
+                                </div>
+                                <div class="preview-btns">
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-cloud-upload" aria-hidden="true" data-bs-toggle="tooltip" data-bs-placement="top" title="upload"></i></button>
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true" data-bs-toggle="tooltip"data-bs-placement="top" title="view"></i></i></button>
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true" data-bs-toggle="tooltip"data-bs-placement="top" title="Delete"></i>
+                                  </button>
+                                </div>
+                                <div class="progress">
+                                  <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <label for="validationCustom0">12th Certificate</label>
+                                <div class="input-group custom-file-button">
+                                  <label class="input-group-text" for="inputGroupFile">Browse</label>
+                                  <input type="file" class="form-control" id="inputGroupFile">
+                                </div>
+                                <div class="preview-btns">
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-cloud-upload" aria-hidden="true" data-bs-toggle="tooltip" data-bs-placement="top" title="upload"></i></button>
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true" data-bs-toggle="tooltip"data-bs-placement="top" title="view"></i></button>
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true" data-bs-toggle="tooltip"data-bs-placement="top" title="Delete"></i>
+                                  </button>
+                                </div>
+                                <div class="progress">
+                                  <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <label for="validationCustom0">Upload Signature</label>
+                                <div class="input-group custom-file-button">
+                                  <label class="input-group-text" for="inputGroupFile">Browse</label>
+                                  <input type="file" class="form-control" id="inputGroupFile">
+                                </div>
+                                <div class="preview-btns">
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-cloud-upload" aria-hidden="true" data-bs-toggle="tooltip" data-bs-placement="top" title="upload"></i></button>
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true" data-bs-toggle="tooltip"data-bs-placement="top" title="view"></i></button>
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true" data-bs-toggle="tooltip"data-bs-placement="top" title="Delete"></i>
+                                  </button>
+                                </div>
+                                <div class="progress">
+                                  <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                              </div>
+                             </div>
+                             <span class="note-text">Note :- Document type allowed is pdf, jpg & jpeg.
+                              Maximum Size is 200KB for uploading documents.</span>
+                          </form>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="col-md-2">
+                          <div class="upload-photo">
+                            <img src="images/avatar3_small.jpg" class="img-fluid">
+                          </div>
+                          <button type="button" class="btn btn-primary upload">Upload Photo</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+             </div>
+            </div>
+        </div>
+        </div>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="details" role="tabpanel" >
+            <div class="accordian-st mt-2">
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapsTwo">
+                   Domicile & Reservations
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="upload-cde">
+                        <div class="form-box">
+                          <form class="needs-validation" Novalidate>
+                            <!-- <h4 class="principal">Personal Details</h4> -->
+                            <div class="row abcde">
+                              <div class="col-md-6">
+                                <label for="validationCustom0">Are you Bihar State applicant ?</label>  <div class="domicile-row">
+                                  <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault"> Yes</label>
+                                  </div>
+                                  <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">No</label>
+                                  </div>
+                                </div>
+                                <div class="input-group custom-file-button">
+                                  <label class="input-group-text" for="inputGroupFile">Browse</label>
+                                  <input type="file" class="form-control" id="inputGroupFile">
+                                </div>
+                                <div class="preview-btns">
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-cloud-upload" aria-hidden="true"  data-bs-toggle="tooltip" data-bs-placement="top" title="upload"></i></button>
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"  data-bs-toggle="tooltip"data-bs-placement="top" title="view"></i></button>
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true" data-bs-toggle="tooltip"data-bs-placement="top" title="Delete"></i>
+                                  </button>
+                                </div>
+                                <div class="progress">
+                                  <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <label for="validationCustom0">Are You Outside Bihar State Applicant ?</label>
+                                <div class="domicile-row-second">
+                                  <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault"> <span>Yes</span></label>
+                                  </div>
+                                  <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">No</label>
+                                  </div>
+                                </div>
+                                <div class="input-group custom-file-button">
+                                  <label class="input-group-text" for="inputGroupFile">Browse</label>
+                                  <input type="file" class="form-control" id="inputGroupFile">
+                                </div>
+                                <div class="preview-btns">
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-cloud-upload" aria-hidden="true"  data-bs-toggle="tooltip" data-bs-placement="top" title="upload"></i></button>
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"  data-bs-toggle="tooltip"data-bs-placement="top" title="view"></i></button>
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true" data-bs-toggle="tooltip"data-bs-placement="top" title="Delete"></i>
+                                  </button>
+                                </div>
+                                <div class="progress">
+                                  <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <label for="validationCustom0">Do you want to claim any of these PWD?</label>
+                                <div class="domicile-row">
+                                  <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault"> Yes</label>
+                                  </div>
+                                  <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">No</label>
+                                  </div>
+                                </div>
+                                <div class="input-group custom-file-button">
+                                  <label class="input-group-text" for="inputGroupFile">Browse</label>
+                                  <input type="file" class="form-control" id="inputGroupFile">
+                                </div>
+                                <div class="preview-btns">
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-cloud-upload" aria-hidden="true" data-bs-toggle="tooltip" data-bs-placement="top" title="upload"></i></button>
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true" data-bs-toggle="tooltip"data-bs-placement="top" title="view"></i></button>
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true" data-bs-toggle="tooltip"data-bs-placement="top" title="Delete"></i>
+                                  </button>
+                                </div>
+                                <div class="progress">
+                                  <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <label for="validationCustom0">Wheather Ex-Servicemen?</label>
+                                <div class="domicile-row-third">
+                                  <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault"> <span>Yes</span></label>
+                                  </div>
+                                  <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">No</label>
+                                  </div>
+                                </div>
+                                <div class="input-group custom-file-button">
+                                  <label class="input-group-text" for="inputGroupFile">Browse</label>
+                                  <input type="file" class="form-control" id="inputGroupFile">
+                                </div>
+                                <div class="preview-btns">
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-cloud-upload" aria-hidden="true"  data-bs-toggle="tooltip" data-bs-placement="top" title="upload"></i></button>
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"  data-bs-toggle="tooltip"data-bs-placement="top" title="view"></i></button>
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true" data-bs-toggle="tooltip"data-bs-placement="top" title="Delete"></i>
+                                  </button>
+                                </div>
+                                <div class="progress">
+                                  <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <label for="validationCustom0">PWD Category ?</label>
+                                <div class="domicile-row">
+                                  <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault"> Yes</label>
+                                  </div>
+                                  <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">No</label>
+                                  </div>
+                                </div>
+                                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                                  <option selected>-Select-</option>
+                                  <option value="1">Blind</option>
+                                  <option value="2">Deaf</option>
+                                  <option value="3">Motor Disability</option>
+                                  <option value="4">Mental Disability</option>
+                                </select>
+                                <div class="preview-btns">
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-cloud-upload" aria-hidden="true"  data-bs-toggle="tooltip" data-bs-placement="top" title="upload"></i></button>
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true" data-bs-toggle="tooltip"data-bs-placement="top" title="view"></i></button>
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true"  data-bs-toggle="tooltip"data-bs-placement="top" title="Delete"></i>
+                                  </button>
+                                </div>
+                                <div class="progress">
+                                  <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                              </div>
+                             </div>
+                             <span class="note-text">Note :- Document type allowed is pdf, jpg & jpeg.
+                              Maximum Size is 200KB for uploading documents.</span>
+                          </form>
+                          </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+             </div>
+            </div>
+        </div>
+        </div>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="details" role="tabpanel" >
+            <div class="accordian-st mt-2">
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                   Other Details
+                  </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="upload-cde">
+                        <div class="form-box">
+                          <form class="needs-validation" Novalidate>
+                            <!-- <h4 class="principal">Personal Details</h4> -->
+                            <div class="row abcde">
+                              <div class="col-md-6">
+                                <label for="validationCustom0">Community Certificate</label>
+                                <div class="input-group custom-file-button">
+                                  <label class="input-group-text" for="inputGroupFile">Browse</label>
+                                  <input type="file" class="form-control" id="inputGroupFile">
+                                </div>
+                                <div class="preview-btns">
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-cloud-upload" aria-hidden="true"  data-bs-toggle="tooltip" data-bs-placement="top" title="upload"></i></button>
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"  data-bs-toggle="tooltip"data-bs-placement="top" title="view"></i></button>
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true" data-bs-toggle="tooltip"data-bs-placement="top" title="Delete"></i>
+                                  </button>
+                                </div>
+                                <div class="progress">
+                                  <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <label for="validationCustom0">Transfer Certificate</label>
+                                <div class="input-group custom-file-button">
+                                  <label class="input-group-text" for="inputGroupFile">Browse</label>
+                                  <input type="file" class="form-control" id="inputGroupFile">
+                                </div>
+                                <div class="preview-btns">
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-cloud-upload" aria-hidden="true"  data-bs-toggle="tooltip" data-bs-placement="top" title="upload"></i></button>
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"  data-bs-toggle="tooltip"data-bs-placement="top" title="view"></i></button>
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true" data-bs-toggle="tooltip"data-bs-placement="top" title="Delete"></i>
+                                  </button>
+                                </div>
+                                <div class="progress">
+                                  <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <label for="validationCustom0">EWS Certificate</label>
+                                <div class="input-group custom-file-button">
+                                  <label class="input-group-text" for="inputGroupFile">Browse</label>
+                                  <input type="file" class="form-control" id="inputGroupFile">
+                                </div>
+                                <div class="preview-btns">
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-cloud-upload" aria-hidden="true" data-bs-toggle="tooltip" data-bs-placement="top" title="upload"></i></button>
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true" data-bs-toggle="tooltip"data-bs-placement="top" title="view"></i></button>
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true" data-bs-toggle="tooltip"data-bs-placement="top" title="Delete"></i>
+                                  </button>
+                                </div>
+                                <div class="progress">
+                                  <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <label for="validationCustom0">Ex-Servicemen Certificate</label>
+                                <div class="input-group custom-file-button">
+                                  <label class="input-group-text" for="inputGroupFile">Browse</label>
+                                  <input type="file" class="form-control" id="inputGroupFile">
+                                </div>
+                                <div class="preview-btns">
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-cloud-upload" aria-hidden="true"  data-bs-toggle="tooltip" data-bs-placement="top" title="upload"></i></button>
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"  data-bs-toggle="tooltip"data-bs-placement="top" title="view"></i></button>
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true" data-bs-toggle="tooltip"data-bs-placement="top" title="Delete"></i>
+                                  </button>
+                                </div>
+                                <div class="progress">
+                                  <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <label for="validationCustom0">PWD Certificate*(PWD Quota)</label>
+                                <div class="input-group custom-file-button">
+                                  <label class="input-group-text" for="inputGroupFile">Browse</label>
+                                  <input type="file" class="form-control" id="inputGroupFile">
+                                </div>
+                                <div class="preview-btns">
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-cloud-upload" aria-hidden="true"  data-bs-toggle="tooltip" data-bs-placement="top" title="upload"></i></button>
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true" data-bs-toggle="tooltip"data-bs-placement="top" title="view"></i></button>
+                                  <button type="button" class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true"  data-bs-toggle="tooltip"data-bs-placement="top" title="Delete"></i>
+                                  </button>
+                                </div>
+                                <div class="progress">
+                                  <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                              </div>
+                             </div>
+                             <span class="note-text">Note :- Document type allowed is pdf, jpg & jpeg.
+                              Maximum Size is 200KB for uploading documents.</span>
+                          </form>
+                          </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+             </div>
+            </div>
+        </div>
+        </div>
+    <div class="details-btn-subs">
+    <button type="button" class="btn btn-primary Previous">Previous</button>
+    <button type="button" class="btn btn-primary draftse">Save as Draft</button>
+    <a href="#" class="btn btn-primary draftse" onclick="redirectToPreview()">
+								Preview	
+								</a>
+    </div>
+    </div>
+    </div>
+  </div>
+  <div class="footer fixed-bottom">
+    <p>Copyright maintained by CMS Computers Limited</p>
+  </div>
+</main>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  var Dashboard = function () {
+      var global = {
+          tooltipOptions: {
+              placement: "right"
+          },
+          menuClass: ".c-menu"
+      };
+
+      var menuChangeActive = function menuChangeActive(el) {
+          var hasSubmenu = $(el).hasClass("has-submenu");
+          $(global.menuClass + " .is-active").removeClass("is-active");
+          $(el).addClass("is-active");
+
+          if (hasSubmenu) {
+              $(el).find(".c-menu__submenu").slideToggle();
+          }
+      };
+
+      var sidebarChangeWidth = function sidebarChangeWidth() {
+          var $menuItemsTitle = $("li .menu-item__title");
+
+          $("div").toggleClass("sidebar-is-reduced sidebar-is-expanded");
+          $(".hamburger-toggle").toggleClass("is-opened");
+
+          if ($("div").hasClass("sidebar-is-expanded")) {
+              $('[data-toggle="tooltip"]').tooltip("destroy");
+          } else {
+              $('[data-toggle="tooltip"]').tooltip(global.tooltipOptions);
+          }
+      };
+
+      return {
+          init: function init() {
+              $(".js-hamburger").on("click", sidebarChangeWidth);
+
+              $(".js-menu li").on("click", function (e) {
+                  menuChangeActive(e.currentTarget);
+              });
+
+              $('[data-toggle="tooltip"]').tooltip(global.tooltipOptions);
+          }
+      };
+  }();
+
+  Dashboard.init();
+  let menus = document.getElementsByClassName(".c-menu__item .has-submenu");
+  for (let i = 0; i < menus.length; i++) {
+      menus[i].addEventListener("click", (e) => {
+          let menubar = menus[i].getElementsByClassName(".c-menu__submenu .u-list")[0];
+          if (menubar.style.display === "block" || menubar.style.display === "") {
+              menubar.style.display = "none";
+          } else {
+              menubar.style.display = "block";
+          }
+      });
+  }
+  // number count for stats, using jQuery animate
+  
+
+  function flip() {
+let cardElements = document.querySelectorAll(".cards");
+cardElements.forEach(cardElement => {
+cardElement.classList.toggle("flipped");
+});
+}
+
+function flips() {
+let cardElements = document.querySelectorAll(".cards");
+cardElements.forEach(cardElement => {
+cardElement.classList.toggle("flipped");
+});
+}
+
+
+function startTime() {
+
+var weekday = new Array();
+weekday[0] =  "Sunday";
+weekday[1] = "Monday";
+weekday[2] = "Tuesday";
+weekday[3] = "Wednesday";
+weekday[4] = "Thursday";
+weekday[5] = "Friday";
+weekday[6] = "Saturday";
+var month = new Array();
+month[0] = "January";
+month[1] = "February";
+month[2] = "March";
+month[3] = "April";
+month[4] = "May";
+month[5] = "June";
+month[6] = "July";
+month[7] = "August";
+month[8] = "September";
+month[9] = "October";
+month[10] = "November";
+month[11] = "December";
+var today = new Date();
+var h = today.getHours();
+var m = today.getMinutes();
+var s = today.getSeconds();
+var d = today.getDate();
+var y = today.getFullYear();
+var wd = weekday[today.getDay()];
+var mt = month[today.getMonth()];
+
+m = checkTime(m);
+s = checkTime(s);
+              document.getElementById('date').innerHTML =
+d;
+document.getElementById('day').innerHTML =
+wd;
+document.getElementById('month').innerHTML =
+mt + "/" + y;
+
+var t = setTimeout(startTime, 500);
+
+}
+function checkTime(i) {
+if (i < 10) {i = "0" + i};
+return i;
+}
+
+function setFormAction(action) {
+	
+	document.getElementById("formAction").value = action;
+	document.getElementById("academicdetailsForm").submit();
+}
+
+
+
+
+
+
+
+
+
+function setFormActionAndRedirect(action) {
+	// Set the form action
+
+	var value = document.getElementById("applicationNumber").value;
+	var registrationnumber = document.getElementById("registrationnumber").value;
+
+	//alert(registrationnumber);
+
+	if (value !== "") {
+		window.location.href = '/academicdetails?applicationNumber=' + value + '&registrationnumber=' + registrationnumber;
+	}
+	else {
+		window.location.href = '/academicdetails';
+	}
+
+
+
+}
+
+function redirectToAdmissionDetails() {
+	alert()
+	var value = document.getElementById("applicationNumber").value;
+	var registrationnumber = document.getElementById("registrationnumber").value;
+
+	//	alert(value);
+	if (value !== "") {
+		window.location.href = '/admissiondetails?applicationNumber=' + value + '&registrationnumber=' + registrationnumber;
+	}
+
+	else {
+		window.location.href = '/admissiondetails';
+	}
+}
+
+function redirectToDocument()
+{
+	var value = document.getElementById("applicationNumber").value;
+	var registrationnumber = document.getElementById("registrationnumber").value;
+	//alert(registrationnumber);
+	if (value !== "") {
+		
+		window.location.href = '/upload?applicationNumber=' + value + '&registrationnumber=' + registrationnumber;
+	}
+	else {
+		
+		window.location.href = '/upload';
+	}
+
+}
+
+
+
+function redirectToAcademicDetails() {
+	var value = document.getElementById("applicationNumber").value;
+	var registrationnumber = document.getElementById("registrationnumber").value;
+
+	//	alert(value);
+	if (value !== "") {
+		window.location.href = '/academicdetails?applicationNumber=' + value + '&registrationnumber=' + registrationnumber;
+	}
+
+	else {
+		window.location.href = '/academicdetails';
+	}
+}
+
+function redirectToPersonalDetails() {
+	var value = document.getElementById("applicationNumber").value;
+	
+	var registrationnumber = document.getElementById("registrationnumber").value;
+	
+	if (value !== "") {
+		window.location.href = '/personaldetails?applicationNumber=' + value + '&registrationnumber=' + registrationnumber;
+	}
+
+	else {
+		window.location.href = '/personaldetails';
+	}
+
+
+
+}
+
+function redirectToPreview() {
+	var value = document.getElementById("applicationNumber").value;
+	
+	var registrationnumber = document.getElementById("registrationnumber").value;
+	
+	if (value !== "") {
+		window.location.href = '/preview?applicationNumber=' + value + '&registrationnumber=' + registrationnumber;
+	}
+
+	else {
+		window.location.href = '/preview';
+	}
+
+
+
+}
+
+</script>
+</body>
+</html>

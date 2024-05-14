@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Dashboard</title>
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/customcss.css" rel="stylesheet" type="text/css">
+	<style class="cp-pen-styles">
+		@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700&subset=latin-ext");
+	</style>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/popper.min.js"></script>
+	<script src="assets/js/instituteprofile.js"></script>
+	<!--<script src=/assets/js/formSubmit.js></script>-->
+
+</head>
+
+<body>
+	<div class="sidebar-is-reduced">
+		<header class="l-header">
+			<div class="l-header__inner clearfix">
+				<div class="logo-txt">
+					<h6>Directorate Of Employment & Training</h6>
+					<span>Labour Resources Department Govt. Of Bihar</span>
+					<span>(Govt. Of Bihar Undertaking)</span>
+				</div>
+				<div class="user-img">
+					<img th:src="@{/images/avatar.png}">
+				</div>
+			</div>
+		</header>
+		<div class="l-sidebar">
+			<div class="l-sidebar__content">
+				<nav class="c-menu js-menu">
+					<div class="c-header-icon js-hamburger">
+						<div class="hamburger-toggle"><span class="bar-top"></span><span class="bar-mid"></span><span
+								class="bar-bot"></span></div>
+					</div>
+					<ul class="u-list">
+						<li class="c-menu__item is-active" th:data-toggle="tooltip" th:title="Dashboard">
+							<a th:href="@{/admissioninchargedashboard}">
+								<div class="c-menu__item__inner">
+									<i class="fa fa-line-chart" aria-hidden="true"></i>
+									<div class="c-menu-item__title"><span>Dashboard</span></div>
+								</div>
+							</a>
+						</li>
+						<li class="c-menu__item" th:data-toggle="tooltip" title="Institutional Profile">
+							<a th:href="@{/admissioninchargeadmissiondetail}">
+								<div class="c-menu__item__inner">
+									<i class="fa fa-university" aria-hidden="true"></i>
+									<div class="c-menu-item__title">
+										<span class="Profile">Institutional Profile</span>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li class="c-menu__item" th:data-toggle="tooltip" th:title="Admission">
+							<a th:href="@{/admissiondetails}">
+								<div class="c-menu__item__inner">
+									<i class="fa fa-user-circle-o" aria-hidden="true"></i></i>
+									<div class="c-menu-item__title"><span class="Profile">Admission</span></div>
+								</div>
+							</a>
+						</li>
+						<li class="c-menu__item has-submenu" th:data-toggle="tooltip" title="Student Section">
+							<div class="c-menu__item__inner">
+								<i class="fa fa-money" aria-hidden="true"></i>
+								<div class="c-menu-item__title"><span>Fee Details</span></div>
+								<div class="c-menu-item__expand js-expand-submenu"><i class="fa fa-angle-down"></i>
+								</div>
+							</div>
+							<ul class="c-menu__submenu u-list">
+								<li>Registration Fees</li>
+								<li>Examination Fees</li>
+							</ul>
+						</li>
+						<li class="c-menu__item has-submenu" th:data-toggle="tooltip" title="Student Section">
+							<div class="c-menu__item__inner">
+								<i class="fa fa-table fa-lg"></i>
+								<div class="c-menu-item__title"><span>Examination</span></div>
+								<div class="c-menu-item__expand js-expand-submenu"><i class="fa fa-angle-down"></i>
+								</div>
+							</div>
+							<ul class="c-menu__submenu u-list">
+								<li>Create Admit Card</li>
+								<li>Download Admit Card</li>
+							</ul>
+						</li>
+						<li class="c-menu__item has-submenu" th:data-toggle="tooltip" title="Student Section">
+							<div class="c-menu__item__inner">
+								<i class="fa fa-check-square-o" aria-hidden="true"></i>
+								<div class="c-menu-item__title"><span>C-Form</span></div>
+								<div class="c-menu-item__expand js-expand-submenu"><i class="fa fa-angle-down"></i>
+								</div>
+							</div>
+							<ul class="c-menu__submenu u-list">
+								<li>Creat C-Form</li>
+								<li>Edit & View C-Form</li>
+							</ul>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<main class="l-main">
+			<div class="content-wrapper content-wrapper--with-bg">
+				<div class="page-content">
+					<nav class="tgl">
+						<ul class="tgl-list">
+							<li class="tgl-menu__item is-active" data-toggle="tooltip" title="">
+								<a href="#" onclick="redirectToPersonalDetails()">
+									<div class="c-menu__item__inner">
+										<div class="c-menu-item__title"><span>Personal Details</span></div>
+									</div>
+								</a>
+							</li>
+							<li class="tgl-menu__item" data-toggle="tooltip" title="">
+								<a href="#" onclick="redirectToAcademicDetails()">
+									<div class="c-menu__item__inner">
+										<div class="c-menu-item__title"><span>Academic Details</span></div>
+									</div>
+								</a>
+							</li>
+
+							<li class="tgl-menu__item" data-toggle="tooltip" title="">
+								<a href="#" onclick="redirectToAdmissionDetails()">
+									<div class="c-menu__item__inner">
+										<div class="c-menu-item__title"><span>Admission Details</span></div>
+									</div>
+								</a>
+							</li>
+							<li class="tgl-menu__item" data-toggle="tooltip" title="">
+								<a th:href="@{/upload}">
+									<div class="c-menu__item__inner">
+										<div class="c-menu-item__title"><span>Documents</span></div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</nav>
+					<!-- Personal details tabs start here -->
+					<div class="tab-content" id="myTabContent">
+						<div class="tab-pane fade show active" id="details" role="tabpanel">
+							<div class="accordian-st">
+								<form id="personalDetailsForm" class="needs-validation" novalidate="novalidate"
+									th:action="@{/viewdetalissave}" method="post">
+
+
+									<input type="hidden" id="applicationNumber" name="applicationNumber"
+										th:value="${param.applicationNumber}" />
+
+									<input type="hidden" id="registrationnumber" name="registrationnumber"
+										th:value="${param.registrationnumber}" />
+
+									<div class="accordion" id="accordionExample">
+										<div class="accordion-item">
+											<h2 class="accordion-header" id="headingOne">
+												<button class="accordion-button" type="button" data-toggle="collapse"
+													data-target="#collapseOne" aria-expanded="true"
+													aria-controls="collapseOne">
+													Personal Details
+												</button>
+											</h2>
+											<div id="collapseOne" class="accordion-collapse collapse show"
+												aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+												<div class="accordion-body">
+													<div class="form-box">
+
+
+														<!-- Your form fields -->
+														<div class="row abcdef">
+															<div class="col-md-4">
+																<label for="validationCustom01">Student's First
+																	Name<span class="mandatory">*</span></label>
+																<input type="text" class="form-control"
+																	id="validationCustom01" placeholder="" value=""
+																	required th:field="*{formData.studentName}"
+																	th:value="${formData.studentName}">
+															</div>
+															<div class="col-md-4">
+																<label for="validationCustom0">Student's Middle
+																	Name</label>
+																<input type="text" class="form-control"
+																	id="validationCustom02" placeholder="" value=""
+																	required th:field="*{formData.studentmiddleName}"
+																	th:value="${formData.studentmiddleName}">
+															</div>
+															<div class="col-md-4">
+																<label for="validationCustom01">Student's Last Name<span
+																		class="mandatory">*</span></label>
+																<input type="email" class="form-control"
+																	id="validationCustom01" placeholder="" value=""
+																	required th:field="*{formData.studentlastName}"
+																	th:value="${formData.studentlastName}">
+															</div>
+															<div class="col-md-4 mt-1">
+																<label for="validationCustom01">Father's First Name<span
+																		class="mandatory">*</span></label>
+																<input type="text" class="form-control"
+																	id="validationCustom01" placeholder="" value=""
+																	required th:field="*{formData.fatherName}"
+																	th:value="${formData.fatherName}">
+															</div>
+															<div class="col-md-4 mt-1">
+																<label for="validationCustom01">Father's Middle
+																	Name</label>
+																<input type="text" class="form-control"
+																	id="validationCustom01" placeholder="" value=""
+																	required th:field="*{formData.fathermiddleName}"
+																	th:value="${formData.fathermiddleName}">
+															</div>
+															<div class="col-md-4 mt-1">
+																<label for="validationCustom01">Father's Last
+																	Name</label>
+																<input type="text" class="form-control"
+																	id="validationCustom01" placeholder="" value=""
+																	required th:field="*{formData.fatherlastName}"
+																	th:value="${formData.fatherlastName}">
+															</div>
+															<div class="col-md-4  mt-1">
+																<label for="validationCustom01">Mother's First
+																	Name</label>
+																<input type="text" class="form-control"
+																	id="validationCustom01" placeholder="" value=""
+																	required th:field="*{formData.motherName}"
+																	th:value="${formData.motherName}">
+															</div>
+															<div class="col-md-4  mt-1">
+																<label for="validationCustom01">Mother's Middle
+																	Name</label>
+																<input type="text" class="form-control"
+																	id="validationCustom01" placeholder="" value=""
+																	required th:field="*{formData.mothermiddleName}"
+																	th:value="${formData.mothermiddleName}">
+															</div>
+															<div class="col-md-4  mt-1">
+																<label for="validationCustom01">Mother's Last
+																	Name</label>
+																<input type="text" class="form-control"
+																	id="validationCustom01" placeholder="" value=""
+																	required th:field="*{formData.motherlastName}"
+																	th:value="${formData.motherlastName}">
+															</div>
+															<div class="col-md-4  mt-1">
+																<label for="validationCustom01">Date Of Birth</label>
+																<input type="date" class="form-control"
+																	id="validationCustom01" placeholder="" value=""
+																	required th:field="*{formData.dateOfBirth}"
+																	th:value="${formData.dateOfBirth}">
+															</div>
+															<div class="col-md-4  mt-1">
+																<label for="validationCustom01">Age</label>
+																<input type="text" class="form-control"
+																	id="validationCustom01" placeholder="" value=""
+																	required th:field="*{formData.age}"
+																	th:value="${formData.age}">
+															</div>
+															<div class="col-md-4 mt-1">
+																<label for="validationCustom01"
+																	style="display: block;">Gender</label>
+																<div class="form-check-inline">
+																	<label class="form-check-label">
+																		<input type="radio" class="form-check-input"
+																			name="optradio" th:value="Male"
+																			th:checked="${formData.gender eq 'Male'}"><span
+																			class="gender">Male</span>
+																	</label>
+																</div>
+																<div class="form-check-inline">
+																	<label class="form-check-label">
+																		<input type="radio" class="form-check-input"
+																			name="optradio" th:value="Female"
+																			th:checked="${formData.gender eq 'Female'}"><span
+																			class="gender">Female</span>
+																	</label>
+																</div>
+																<div class="form-check-inline">
+																	<label class="form-check-label">
+																		<input type="radio" class="form-check-input"
+																			name="optradio" th:value="Transgender"
+																			th:checked="${formData.gender eq 'Transgender'}"><span
+																			class="gender">Transgender</span>
+																	</label>
+																</div>
+															</div>
+
+															<div class="col-md-4 mt-1">
+																<label for="validationCustom01">Minority
+																	Category</label>
+																<select class="form-select form-select-lg mb-3"
+																	aria-label=".form-select-lg example"
+																	th:name="minorityCategory"
+																	th:value="${formData.minorityCategory}">
+																	<option value="">-Select-</option>
+																	<option value="Muslim">Muslim</option>
+																	<option value="Jain">Jain</option>
+																	<option value="Sikh">Sikh</option>
+																	<option value="Buddhist">Buddhist</option>
+																	<option value="Parsi">Parsi</option>
+																	<option value="Others">Others</option>
+																</select>
+															</div>
+
+															<div class="col-md-4 mt-1">
+																<label for="validationCustom01">Category</label>
+																<select class="form-select form-select-lg mb-3"
+																	aria-label=".form-select-lg example"
+																	th:name="category"
+																	th:value="${formData.category}">
+																	<option value="">-Select-</option>
+																	<option value="General">
+																		General
+																	</option>
+																	<option value="SC">
+																		SC
+																	</option>
+																	<option value="ST">ST
+																	</option>
+																	<option value="OBC">OBC
+																	</option>
+																</select>
+															</div>
+															<div class="col-md-4 mt-1">
+																<label for="validationCustom01">Economically Weaker
+																	Section</label>
+																<select class="form-select form-select-lg mb-3"
+																	aria-label=".form-select-lg example"
+																	th:name="economicallyWeakerSection"
+																	>
+																	<option value="">-Select-</option>
+																	<option value="Yes">
+																		Yes
+																	</option>
+																	<option value="No">
+																		No
+																	</option>
+																</select>
+															</div>
+															<div class="col-md-4  mt-1">
+																<label for="validationCustom01">Alternate Mobile
+																	No.</label>
+																<input type="text" class="form-control"
+																	id="validationCustom01" placeholder="" value=""
+																	required th:field="*{formData.alternateMobileNo}"
+																	th:value="${formData.alternateMobileNo}">
+															</div>
+															<div class="col-md-4 mt-1">
+																<label for="validationCustom01">Marital Status</label>
+																<select class="form-select form-select-lg mb-3"
+																	aria-label=".form-select-lg example"
+																	th:name="maritalStatus"
+																	>
+																	<option value="">-Select-</option>
+																	<option value="Married">
+																		Married
+																	</option>
+																	<option value="Unmarried">
+																		Unmarried
+																	</option>
+																</select>
+															</div>
+															<div class="validation mt-3">
+																<div class="row">
+																	<div class="col-md-2">
+																		<h6>Aadhaar No</h6>
+																	</div>
+																	<div class="col-md-2">
+																		<div class="txt-vld">
+																			<input type="text" class="form-control"
+																				id="validationCustom01" placeholder=""
+																				value="" required
+																				th:field="*{formData.aadharNo}"
+																				th:value="${formData.aadharNo}">
+																		</div>
+																	</div>
+																	<div class="col-md-2">
+																		<div class="valid">
+																			<button type="button"
+																				class="btn btn-primary">Generate
+																				OTP</button>
+																		</div>
+																	</div>
+																	<div class="col-md-2">
+																		<div class="resend">
+																			<button type="button"
+																				class="btn btn-primary">Resend</button>
+																		</div>
+																	</div>
+																	<div class="col-md-2">
+																		<div class="txt-vlds">
+																			<input type="text" class="form-control"
+																				id="validationCustom01"
+																				placeholder="Enter OTP" value=""
+																				required>
+																		</div>
+																	</div>
+																	<div class="col-md-2">
+																		<div class="valid-tp">
+																			<button type="button"
+																				class="btn btn-primary">Verify</button>
+																		</div>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-md-2">
+																		<h6>Mobile No</h6>
+																	</div>
+																	<div class="col-md-2">
+																		<div class="txt-vld">
+																			<input type="text" class="form-control"
+																				id="validationCustom01" placeholder=""
+																				value="" required
+																				th:field="*{formData.mobileNo}"
+																				th:value="${formData.mobileNo}">
+																		</div>
+																	</div>
+																	<div class="col-md-2">
+																		<div class="valid">
+																			<button type="button"
+																				class="btn btn-primary">Generate
+																				OTP</button>
+																		</div>
+																	</div>
+																	<div class="col-md-2">
+																		<div class="resend">
+																			<button type="button"
+																				class="btn btn-primary">Resend</button>
+																		</div>
+																	</div>
+																	<div class="col-md-2">
+																		<div class="txt-vlds">
+																			<input type="text" class="form-control"
+																				id="validationCustom01"
+																				placeholder="Enter OTP" value=""
+																				required>
+																		</div>
+																	</div>
+																	<div class="col-md-2">
+																		<div class="valid-tp">
+																			<button type="button"
+																				class="btn btn-primary">Verify</button>
+																		</div>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-md-2">
+																		<h6>E-mail No</h6>
+																	</div>
+																	<div class="col-md-2">
+																		<div class="txt-vld">
+																			<input type="text" class="form-control"
+																				id="validationCustom01" placeholder=""
+																				value="" required
+																				th:field="*{formData.emailId}"
+																				th:value="${formData.emailId}">
+																		</div>
+																	</div>
+																	<div class="col-md-2">
+																		<div class="valid">
+																			<button type="button"
+																				class="btn btn-primary">Validate
+																				Aadhaar</button>
+																		</div>
+																	</div>
+																	<div class="col-md-2">
+																		<div class="resend">
+																			<button type="button"
+																				class="btn btn-primary">Resend</button>
+																		</div>
+																	</div>
+																	<div class="col-md-2">
+																		<div class="txt-vlds">
+																			<input type="text" class="form-control"
+																				id="validationCustom01"
+																				placeholder="Enter OTP" value=""
+																				required>
+																		</div>
+																	</div>
+																	<div class="col-md-2">
+																		<div class="valid-tp">
+																			<button type="button"
+																				class="btn btn-primary">Verify</button>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="details">
+											<div class="accordion-item">
+												<h2 class="accordion-header" id="headingTwo">
+													<button class="accordion-button collapsed" type="button"
+														data-toggle="collapse" data-target="#collapseTwo"
+														aria-expanded="false" aria-controls="collapseTwo">
+														Address For Correspondence
+													</button>
+												</h2>
+												<div id="collapseTwo" class="accordion-collapse collapse show"
+													aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+													<div class="accordion-body">
+														<div class="form-boxs">
+															<div class="row frm">
+																<div class="col-md-12">
+																	<div class="row abc">
+																		<div class="col-md-4 mt-2">
+																			<label
+																				for="validationCustom01">Village/Town/City</label>
+																			<input type="text" class="form-control"
+																				id="validationCustom01" placeholder=""
+																				
+																				th:field="*{dashboardStudentAddress.correspondenceVillage}"
+																				th:value="${dashboardStudentAddress.correspondenceVillage}">
+																		</div>
+																		<div class="col-md-4 mt-2">
+																			<label for="validationCustom02">Street
+																				Name</label>
+																			<input type="text" class="form-control"
+																				id="validationCustom02" placeholder=""
+																				value="" required
+																				th:field="*{dashboardStudentAddress.correspondenceStreet}"
+																				th:value="${dashboardStudentAddress.correspondenceStreet}">
+																		</div>
+																		<div class="col-md-4 mt-2">
+																			<label for="validationCustom01">Area</label>
+																			<input type="email" class="form-control"
+																				id="validationCustom01" placeholder=""
+																				value="" required
+																				th:field="*{dashboardStudentAddress.correspondenceArea}"
+																				th:value="${dashboardStudentAddress.correspondenceArea}">
+																		</div>
+																		<div class="col-md-4">
+																			<label for="validationCustom01">Post
+																				Office</label>
+																			<input type="text" class="form-control"
+																				id="validationCustom01" placeholder=""
+																				value="" required
+																				th:field="*{dashboardStudentAddress.correspondencePostOffice}"
+																				th:value="${dashboardStudentAddress.correspondencePostOffice}">
+																		</div>
+																		<div class="col-md-4">
+																			<label for="validationCustom01">Pin
+																				Code</label>
+																			<input type="text" class="form-control"
+																				id="validationCustom01" placeholder=""
+																				value="" required
+																				th:field="*{dashboardStudentAddress.correspondencePinCode}"
+																				th:value="${dashboardStudentAddress.correspondencePinCode}">
+																		</div>
+																		<div class="col-md-4">
+																			<label
+																				for="validationCustom01">State</label>
+																			<select
+																				class="form-select form-select-lg mb-3"
+																				aria-label=".form-select-lg example"
+																				name="permanentState">
+																				<option selected>-Select-</option>
+																				<option value="Bihar"
+																					th:selected="${dashboardStudentAddress.correspondenceState == 'Bihar'}">
+																					Bihar</option>
+																				<option value="Delhi"
+																					th:selected="${dashboardStudentAddress.correspondenceState == 'Delhi'}">
+																					Delhi</option>
+																				<!-- Add more options as needed -->
+																			</select>
+																		</div>
+																		<div class="col-md-4 expand">
+																			<label
+																				for="validationCustom01">District</label>
+																			<select id="districtDropdown"
+																				class="form-select form-select-lg mb-3"
+																				aria-label=".form-select-lg example"
+																				th:name="correspondenceDistrict">
+																				<option value="0">Select</option>
+																				<option
+																					th:each="district : ${districts}"
+																					th:value="${district.distt_name}"
+																					th:text="${district.distt_name}">
+																				</option>
+																				<!-- <option value="2">No</option> -->
+																			</select>
+																		</div>
+
+
+																		<div class="col-md-4">
+																			<label
+																				for="validationCustom01">Subdivision</label>
+																			<input type="text" class="form-control"
+																				id="validationCustom01" placeholder=""
+																				value="" required
+																				th:field="*{dashboardStudentAddress.correspondencesubdivision}"
+																				th:value="${dashboardStudentAddress.correspondencesubdivision}">
+																		</div>
+
+
+
+
+																		<div class="col-md-4 expand">
+																			<label for="blockDropdown">Block</label>
+																			<select id="blockDropdown"
+																				class="form-select form-select-lg mb-3"
+																				aria-label=".form-select-lg example"
+																				th:name="correspondenceBlock">
+																				<option selected>-Select-</option>
+																				<!-- <option value="2">No</option> -->
+																			</select>
+																		</div>
+
+
+																		<div class="col-md-4 expand">
+																			<label for="validationCustom01">Police
+																				Station</label>
+																			<input type="text" class="form-control"
+																				id="validationCustom01" placeholder=""
+																				value="" required
+																				th:field="*{dashboardStudentAddress.correspondencePoliceStation}"
+																				th:value="${dashboardStudentAddress.correspondencePoliceStation}">
+																		</div>
+																	</div>
+																	<div class="details">
+																		<div class="accordion-item">
+																			<h2 class="accordion-header"
+																				id="headingThree">
+																				<button
+																					class="accordion-button collapse show"
+																					type="button" data-toggle="collapse"
+																					data-target="#collapseThree"
+																					aria-expanded="false"
+																					aria-controls="collapseThree">
+																					Permanent Address (Same as above)
+																					<input class="form-check-input ml-2"
+																						type="checkbox" value=""
+																						id="flexCheckChecked" checked>
+																				</button>
+																			</h2>
+																			<div id="collapseThree"
+																				class="accordion-collapse collapse show"
+																				aria-labelledby="headingThree"
+																				data-parent="#accordionExample">
+																				<div class="accordion-body">
+																					<div class="form-boxss">
+																						<div class="row ">
+																							<div class="col-md-12">
+
+																								<div class="row abcd">
+																									<div
+																										class="col-md-4">
+																										<label
+																											for="validationCustom01">Village/Town/City</label>
+																										<input
+																											type="text"
+																											class="form-control"
+																											id="validationCustom01"
+																											placeholder=""
+																											value=""
+																											required
+																											th:field="*{dashboardStudentAddress.permanentVillage}"
+																											th:value="${dashboardStudentAddress.permanentVillage}">
+																									</div>
+																									<div
+																										class="col-md-4">
+																										<label
+																											for="validationCustom02">Street
+																											Name</label>
+																										<input
+																											type="text"
+																											class="form-control"
+																											id="validationCustom02"
+																											placeholder=""
+																											value=""
+																											required
+																											th:field="*{dashboardStudentAddress.permanentStreet}"
+																											th:value="${dashboardStudentAddress.permanentStreet}">
+																									</div>
+																									<div
+																										class="col-md-4">
+																										<label
+																											for="validationCustom01">Area</label>
+																										<input
+																											type="email"
+																											class="form-control"
+																											id="validationCustom01"
+																											placeholder=""
+																											value=""
+																											required
+																											th:field="*{dashboardStudentAddress.permanentArea}"
+																											th:value="${dashboardStudentAddress.permanentArea}">
+																									</div>
+																									<div
+																										class="col-md-4">
+																										<label
+																											for="validationCustom01">Post
+																											Office</label>
+																										<input
+																											type="text"
+																											class="form-control"
+																											id="validationCustom01"
+																											placeholder=""
+																											value=""
+																											required
+																											th:field="*{dashboardStudentAddress.permanentPostOffice}"
+																											th:value="${dashboardStudentAddress.permanentPostOffice}">
+																									</div>
+																									<div
+																										class="col-md-4">
+																										<label
+																											for="validationCustom01">Pin
+																											Code</label>
+																										<input
+																											type="text"
+																											class="form-control"
+																											id="validationCustom01"
+																											placeholder=""
+																											value=""
+																											required
+																											th:field="*{dashboardStudentAddress.permanentPinCode}"
+																											th:value="${dashboardStudentAddress.permanentPinCode}">
+																									</div>
+																									<div
+																										class="col-md-4">
+																										<label
+																											for="validationCustom01">State</label>
+																										<select
+																											class="form-select form-select-lg mb-3"
+																											aria-label=".form-select-lg example"
+																											name="permanentState">
+																											<option
+																												selected>
+																												-Select-
+																											</option>
+																											<option
+																												value="Bihar"
+																												th:selected="${dashboardStudentAddress.permanentState == 'Bihar'}">
+																												Bihar
+																											</option>
+																											<option
+																												value="Delhi"
+																												th:selected="${dashboardStudentAddress.permanentState == 'Delhi'}">
+																												Delhi
+																											</option>
+																											<!-- Add more options as needed -->
+																										</select>
+																									</div>
+																									<div
+																										class="col-md-4 expand">
+																										<label
+																											for="validationCustom01">District</label>
+																										<select
+																											id="districtDropdown1"
+																											class="form-select form-select-lg mb-3"
+																											aria-label=".form-select-lg example"
+																											th:name="permanentDistrict">
+																											<option
+																												value="0">
+																												Select
+																											</option>
+																											<option
+																												th:each="district : ${districts}"
+																												th:value="${district.distt_name}"
+																												th:text="${district.distt_name}">
+																											</option>
+																											<!-- <option value="2">No</option> -->
+																										</select>
+																									</div>
+																									<div
+																										class="col-md-4">
+																										<label
+																											for="validationCustom01">Subdivision</label>
+																										<input
+																											type="text"
+																											class="form-control"
+																											id="validationCustom01"
+																											placeholder=""
+																											value=""
+																											required
+																											th:field="*{dashboardStudentAddress.correspondencesubdivision}"
+																											th:value="${dashboardStudentAddress.correspondencesubdivision}">
+																									</div>
+
+
+
+
+
+																									<div
+																										class="col-md-4 expand">
+																										<label
+																											for="blockDropdown">Block</label>
+																										<select
+																											id="blockDropdown1"
+																											class="form-select form-select-lg mb-3"
+																											aria-label=".form-select-lg example"
+																											th:name="permanentBlock">
+																											<option
+																												selected>
+																												-Select-
+																											</option>
+																											<!-- <option value="2">No</option> -->
+																										</select>
+																									</div>
+																									<div
+																										class="col-md-4 expand">
+																										<label
+																											for="validationCustom01">Police
+																											Station</label>
+																										<input
+																											type="text"
+																											class="form-control"
+																											id="validationCustom01"
+																											placeholder=""
+																											value=""
+																											required
+																											th:field="*{dashboardStudentAddress.permanentPoliceStation}"
+																											th:value="${dashboardStudentAddress.permanentPoliceStation}">
+																									</div>
+																								</div>
+
+																							</div>
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+
+
+
+
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<input type="hidden" id="formAction" name="formAction" value="">
+
+											<div class="details-btn-sub">
+												<button type="submit" class="btn btn-primary draft"
+													id="saveAsDraftButton" onclick="setFormAction('draft')">Save as
+													Draft</button>
+
+												<button type="button" class="btn btn-primary next" id="nextButton"
+													onclick="setFormActionAndRedirect('next')">Next</button>
+
+
+											</div>
+
+
+										</div>
+
+
+								</form>
+
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+	</div>
+	</div>
+	<div class="footer fixed-bottom">
+		<p>Copyright maintained by CMS Computers Limited</p>
+	</div>
+	</main>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<script>
+
+		var Dashboard = function () {
+			var global = {
+				tooltipOptions: {
+					placement: "right"
+				},
+				menuClass: ".c-menu"
+			};
+
+			var menuChangeActive = function menuChangeActive(el) {
+				var hasSubmenu = $(el).hasClass("has-submenu");
+				$(global.menuClass + " .is-active").removeClass("is-active");
+				$(el).addClass("is-active");
+
+				// if (hasSubmenu) {
+				// 	$(el).find("ul").slideDown();
+				// }
+			};
+
+			var sidebarChangeWidth = function sidebarChangeWidth() {
+				var $menuItemsTitle = $("li .menu-item__title");
+
+				$("div").toggleClass("sidebar-is-reduced sidebar-is-expanded");
+				$(".hamburger-toggle").toggleClass("is-opened");
+
+				if ($("div").hasClass("sidebar-is-expanded")) {
+					$('[data-toggle="tooltip"]').tooltip("destroy");
+				} else {
+					$('[data-toggle="tooltip"]').tooltip(global.tooltipOptions);
+				}
+			};
+
+			return {
+				init: function init() {
+					$(".js-hamburger").on("click", sidebarChangeWidth);
+
+					$(".js-menu li").on("click", function (e) {
+						menuChangeActive(e.currentTarget);
+					});
+
+					$('[data-toggle="tooltip"]').tooltip(global.tooltipOptions);
+				}
+			};
+		}();
+		Dashboard.init();
+		// document.querySelector(".c-menu__item.has-submenu").addEventListener("mouseover", (e) => {
+		//   let submenu = document.querySelector(".c-menu__submenu.u-list");
+		//   if (submenu.style.display === "block") {
+		//     submenu.style.display = "none";
+		//   } else {
+		//     submenu.style.display = "block";
+		//   }
+		// });
+		let menus = document.getElementsByClassName("c-menu__item has-submenu");
+
+		// Loop through each element in menus and add event listener
+		for (let i = 0; i < menus.length; i++) {
+			menus[i].addEventListener("click", (e) => {
+				let menubar = menus[i].getElementsByClassName("c-menu__submenu u-list")[0];
+				if (menubar.style.display === "block" || menubar.style.display === "") {
+					menubar.style.display = "none";
+				} else {
+					menubar.style.display = "block";
+				}
+			});
+		}
+
+		//# sourceURL=pen.js
+
+		//document.getElementById("nextButton").addEventListener("click", function () {
+		//document.getElementById("personalDetailsForm").submit();
+		//window.location.href = "/academicdetails"; // Redirect to the academicdetails page
+		//	});
+
+
+
+		function setFormAction(action) {
+			document.getElementById("formAction").value = action;
+			document.getElementById("personalDetailsForm").submit();
+			//document.getElementById('nextButton').disabled = false;
+
+		}
+
+
+		function setFormActionAndRedirect(action) {
+			// Set the form action
+
+			var value = document.getElementById("applicationNumber").value;
+			var registrationnumber = document.getElementById("registrationnumber").value;
+
+			alert(registrationnumber);
+
+			if (value !== "") {
+				window.location.href = '/academicdetails?applicationNumber=' + value + '&registrationnumber=' + registrationnumber;
+			}
+			else {
+				window.location.href = '/academicdetails';
+			}
+
+
+
+		}
+
+		function redirectToAdmissionDetails() {
+			var value = document.getElementById("applicationNumber").value;
+			var registrationnumber = document.getElementById("registrationnumber").value;
+
+			//	alert(value);
+			if (value !== "") {
+				window.location.href = '/admissiondetails?applicationNumber=' + value + '&registrationnumber=' + registrationnumber;
+			}
+
+			else {
+				window.location.href = '/admissiondetails';
+			}
+		}
+
+
+
+
+		function redirectToAcademicDetails() {
+			var value = document.getElementById("applicationNumber").value;
+			var registrationnumber = document.getElementById("registrationnumber").value;
+
+			//	alert(value);
+			if (value !== "") {
+				window.location.href = '/academicdetails?applicationNumber=' + value + '&registrationnumber=' + registrationnumber;
+			}
+
+			else {
+				window.location.href = '/academicdetails';
+			}
+		}
+		function redirectToPersonalDetails() {
+			var value = document.getElementById("applicationNumber").value;
+
+			var registrationnumber = document.getElementById("registrationnumber").value;
+
+			if (value !== "") {
+				window.location.href = '/personaldetails?applicationNumber=' + value + '&registrationnumber=' + registrationnumber;
+			}
+
+			else {
+				window.location.href = '/personaldetails';
+			}
+
+
+
+		}
+
+
+		function fetchBlocksForDropdown1() {
+			var districtName1 = document.getElementById('districtDropdown1').value;
+
+			var blockDropdown1 = document.getElementById('blockDropdown1');
+
+			// Clear existing options
+			blockDropdown1.innerHTML = '<option selected>-Select-</option>';
+
+			// Make AJAX request to fetch blocks based on selected district name
+			fetch('/blocks/' + districtName1)
+				.then(response => response.json())
+				.then(data => {
+					// Populate block dropdown with received block data
+					data.forEach(block => {
+						var option = document.createElement('option');
+						option.value = block.block_name;
+						option.text = block.block_name;
+						blockDropdown1.appendChild(option);
+					});
+				})
+				.catch(error => console.error('Error fetching blocks for dropdown1:', error));
+		}
+
+		function fetchBlocksForDropdown() {
+			var districtName = document.getElementById('districtDropdown').value;
+
+			var blockDropdown = document.getElementById('blockDropdown');
+
+			// Clear existing options
+			blockDropdown.innerHTML = '<option selected>-Select-</option>';
+
+			// Make AJAX request to fetch blocks based on selected district name
+			fetch('/blocks/' + districtName)
+				.then(response => response.json())
+				.then(data => {
+					// Populate block dropdown with received block data
+					data.forEach(block => {
+						var option = document.createElement('option');
+						option.value = block.block_name;
+						option.text = block.block_name;
+						blockDropdown.appendChild(option);
+					});
+				})
+				.catch(error => console.error('Error fetching blocks for dropdown:', error));
+		}
+
+		// Attach onchange event listener to district dropdown1
+		document.getElementById('districtDropdown1').addEventListener('change', fetchBlocksForDropdown1);
+
+		// Attach onchange event listener to district dropdown
+		document.getElementById('districtDropdown').addEventListener('change', fetchBlocksForDropdown);
+
+
+
+
+
+
+
+	</script>
+</body>
+
+</html>

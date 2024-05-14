@@ -1,0 +1,615 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Admission Detail</title>
+	<link th:href="@{/pricipal/cssjs/bootstrap.min.css}" rel="stylesheet" />
+	<link th:href="@{/pricipal/cssjs/font-awesome.min.css}" rel="stylesheet" type="text/css" />
+	<link th:href="@{/pricipal/cssjs/customcss.css}" rel="stylesheet" type="text/css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		th:href="@{https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&amp;family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap}"
+		rel="stylesheet" />
+
+
+
+
+
+</head>
+<div class="sidebar-is-reduced">
+	<header class="l-header">
+		<div class="l-header__inner clearfix">
+			<div class="logo-txt">
+				<h6>Directorate Of Employment & Training</h6>
+				<span class="labour">Labour Resources Department Govt. Of Bihar</span>
+				<span class="labours">(Govt. Of Bihar Undertaking)</span>
+			</div>
+			<!-- <div class="user-img">
+        <img src="images/avatar.png">
+      </div> -->
+		</div>
+	</header>
+	<div class="l-sidebar">
+
+		<div class="l-sidebar__content">
+			<nav class="c-menu js-menu">
+				<div class="c-header-icon js-hamburger">
+					<div class="hamburger-toggle mt-3">
+						<span class="bar-top"></span><span class="bar-mid"></span><span class="bar-bot"></span>
+					</div>
+				</div>
+				<ul class="u-list mt-4">
+					<li class="c-menu__item is-active" data-toggle="tooltip" title="Dashboard">
+						<a href="/principaladmissiondetail">
+							<div class="c-menu__item__inner">
+								<i class="fa fa-line-chart" aria-hidden="true"></i>
+								<div class="c-menu-item__title"><span>Dashboard</span></div>
+							</div>
+						</a>
+					</li>
+					<li class="c-menu__item" data-toggle="tooltip" title="Dashboard">
+
+						<div class="c-menu__item__inner">
+							<i class="fa fa-user" aria-hidden="true"></i>
+							<div class="c-menu-item__title"><span>Personal Info</span></div>
+						</div>
+
+					</li>
+					<li class="c-menu__item" data-toggle="tooltip" title="Dashboard">
+
+						<div class="c-menu__item__inner">
+							<i class="fa fa-unlock-alt" aria-hidden="true"></i>
+							<div class="c-menu-item__title"><span>Change Password</span></div>
+						</div>
+
+					</li>
+					<li class="c-menu__item" data-toggle="tooltip" title="Dashboard">
+						<a href="admissiondetail.html">
+							<div class="c-menu__item__inner">
+								<i class="fa fa-address-book-o" aria-hidden="true"></i>
+								<div class="c-menu-item__title"><span>Admission Detail</span></div>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+	<main class="l-main">
+		<div class="content-wrapper content-wrapper--with-bg">
+			<div class="page-content">
+				<!-- personal details tabs start here -->
+				<div class="tab-content" id="myTabContent">
+					<div class="tab-pane fade show active" id="details" role="tabpanel">
+						<div class="accordian-st">
+							<div class="accordion" id="accordionExample">
+								<div class="accordion-item">
+									<h2 class="accordion-header" id="headingOne">
+										<button class="accordion-button" type="button" data-toggle="collapse"
+											data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+											Admission Request
+										</button>
+									</h2>
+									<div id="collapseOne" class="accordion-collapse collapse show"
+										aria-labelledby="headingOne" data-bs-parent="#accordionExample"
+										style="display: flex;">
+										<div class="accordion-body">
+											<div class="payment-box">
+												<div class="lists">
+													<div class="product-list">
+														<div class="product">From Date:
+															<input type="date" class="form-control"
+																id="validationCustom01">
+														</div>
+														<tr></tr>
+														<div class="product">Academic Session:
+															<select th:name="academicsession" class="form-control">
+																<option selected>-Select-</option>
+
+																<option th:each="option : ${academicsession}"
+																	th:value="${option.session_name}"
+																	th:text="${option.session_name}"></option>
+															</select>
+														</div>
+														<div>Trade Name
+															<select th:name="tradename" <option selected>-Select-
+																</option>
+
+																<option th:each="trade : ${tradename}"
+																	th:value="${trade.trade_name}"
+																	th:text="${trade.trade_name}">
+																</option>
+
+															</select>
+														</div>
+
+														<div class="product">Admission Date:
+															<input type="date" id="validationCustom01">
+														</div>
+
+
+
+
+
+														<div class="product">Status:<select class="form-control"
+																aria-label="Default select example">
+																<option selected>Select</option>
+																<option value="1">Pending</option>
+
+															</select></div>
+
+													</div>
+													<button type="button" class="btn btn-primary">Search</button>
+												</div>
+
+											</div>
+
+										</div>
+										<div class="accordion-body">
+											<div class="payment-box">
+												<div class="lists">
+													<div class="product-list">
+														<div class="product">To Date:
+															<input type="date" class="form-control"
+																id="validationCustom01">
+														</div>
+														<div class="product">Reg.No:
+
+															<input type="text" class="form-control">
+
+														</div>
+
+														<div>
+															<label for="validationCustom0">Trade Offered By</label>
+															<select th:name="tradeOfferedby">
+
+																<option selected>-Select-</option>
+
+																<option th:each="option : ${tradeOfferedby}"
+																	th:value="${option}" th:text="${option}"></option>
+															</select>
+
+														</div>
+
+														<div class="product">Status:<span><select class="form-select"
+																	aria-label="Default select example">
+																	<option value="1">Pending</option>
+																</select></span></div>
+													</div>
+
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+							<div class="details">
+								<div class="accordion-item">
+									<h2 class="accordion-header" id="headingTwo">
+										<button class="accordion-button collapsed" type="button" data-toggle="collapse"
+											data-target="#collapseTwo" aria-expanded="false"
+											aria-controls="collapseTwo">
+											Admission Session (show academic session)
+										</button>
+									</h2>
+									<div id="collapseTwo" class="accordion-collapse collapse show"
+										aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+										<div class="accordion-body">
+											<div class="form-boxs">
+												<div class="row frm">
+													<div class="col-md-12">
+														<form action="/Detadmissiondetailsubmit" method="post"
+															id="checkboxForm" class="needs-validation" novalidate>
+
+															<input type="hidden" id="sendSelectedValuesInput"
+																name="sendSelectedValues" value="">
+
+															<!--<input type="hidden" th:value="${param.applicationnumber}" id="applicationNumber">
+															<input type="hidden" th:value="${param.studentid}" id="studentid">
+			-->
+
+
+
+
+
+
+															<div class="table-data">
+																<table class="table mt-4">
+																	<thead>
+																		<tr>
+																			<th scope="col"> <input
+																					class="form-check-input"
+																					type="checkbox"
+																					id="selectAllCheckbox">
+																			</th>
+
+																			<!-- <th scope="col">Academic Session</th> -->
+																			<!-- <th scope="col">Trade</th> -->
+																			<th scope="col">Reg No</th>
+																			<th scope="col">Photo</th>
+																			<th scope="col">Student Name</th>
+																			<th scope="col">Trade Offered by</th>
+																			<th scope="col">Date Of Admission</th>
+																			<th scope="col">Admission Fee</th>
+																			<th scope="col">Status</th>
+																			<th scope="col">Action</th>
+																		</tr>
+																	</thead>
+																	<tr th:each="student : ${dashboardStudentformdata}">
+																		<input type="hidden" th:id="applicationNumber"
+																			th:value="${student.applicationnumber}" />
+																		<input type="hidden" th:id="studentId"
+																			th:value="${student.studentid}" />
+
+																		<td><span
+																				th:if="${student.admissionWorkflowId == '7'}">
+																				<input class="form-check-input"
+																					th:name="checkboxid[]"
+																					type="checkbox"
+																					id="flexCheckDefault"
+																					th:value="${student.studentid}"></span>
+																		</td>
+
+																		<td>
+																			<input type="text"
+																				th:value="${student.studentid}"
+																				readonly>
+
+																		</td>
+
+
+
+
+																		<!--<input type="hidden" id="applicationNumber"
+																			th:value="${student.applicationnumber}" />
+																		<input type="hidden" id="studentId"
+																			th:value="${student.studentid}" />-->
+
+
+
+																		<td></td>
+
+
+																		<td>
+
+
+																			<input type="text"
+																				th:value="${student.studentName}"
+																				th:name="registrationid[]" readonly>
+
+																		</td>
+
+																		<td>
+																			<input type="text"
+																				th:value="${student.tradeOfferedby}"
+																				th:name="${student[5]}" readonly>
+																		</td>
+
+																		<td>
+																			<input type="text"
+																				th:value="${student.createdDate}"
+																				th:name="${student[6]}" readonly>
+																		</td>
+
+																		<td>
+																			<input type="text"
+																				th:value="${student.Total}"
+																				th:name="${student[7]}" readonly>
+																		</td>
+
+
+																		<td>
+
+																			<input type="text"
+																				th:value="${student.workflowdescription}"
+																				readonly>
+
+
+
+																		</td>
+
+																		<td>
+																			<span
+																				th:if="${student.admissionWorkflowId == '7'}">
+
+
+																				<button type="button"
+																					class="btn btn-primary forwards"
+																					onclick="sendAction('APPROVED')">
+																					<i class="fa fa-check-circle"
+																						aria-hidden="true"></i>
+
+																				</button>
+																				<button type="button"
+																					class="btn btn-primary backward"
+																					onclick="sendAction('SENDBACK_TO_NODAL_OFFICER_BY_DETHQ')">
+																					<i class="fa fa-share backward"
+																						aria-hidden="true"
+																						style="transform: rotate(187deg);"></i>
+																				</button>
+
+																				<button type="button"
+																					class="btn btn-primary delete"
+																					onclick="sendAction('reject')">
+																					<i class="fa fa-trash delete"
+																						aria-hidden="true"></i>
+																				</button>
+
+																			</span>
+																			<span>
+																				<button type="button"
+																					class="btn btn-primary"
+																					th:onclick="openUrl([[${student.applicationnumber}]],[[${student.studentid}]])">
+																					<i class="fa fa-eye"
+																						aria-hidden="true"
+																						data-bs-toggle="tooltip"
+																						data-bs-placement="top"
+																						title="view"></i>
+																				</button>
+
+
+
+
+
+																			</span>
+
+																		</td>
+
+																		</td>
+																	</tr>
+																	<tbody>
+
+																	</tbody>
+																</table>
+															</div>
+
+
+
+
+															<div class="mb-3">
+																<label for="remarks" class="form-label"
+																	style="color: red;">Remarks</label>
+																<textarea class="form-control" id="remarks"
+																	name="remarks" rows="3"
+																	th:value="${remarks}"></textarea>
+															</div>
+
+
+
+
+
+														</form>
+
+
+
+														<button type="button" class="btn btn-primary forwards"
+															onclick="sendAction('APPROVED')">
+															<i class="fa fa-check-circle" aria-hidden="true"></i>
+
+														</button>
+
+														<button type="button" id="backwardButton"
+															class="btn btn-primary btn-action"
+															onclick="sendAction('SENDBACK_TO_NODAL_OFFICER_BY_DETHQ')">
+															<i class="fa fa-share backward" aria-hidden="true"
+																style="transform: rotate(187deg);"></i>
+														</button>
+
+														<button type="button" id="deleteButton"
+															class="btn btn-primary btn-action"
+															onclick="sendAction('reject')">
+															<i class="fa fa-trash delete" aria-hidden="true"></i>
+														</button>
+
+
+
+
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+</div>
+</div>
+<div class="footer fixed-bottom">
+	<p>Copyright maintained by CMS Computers Limited</p>
+</div>
+</main>
+<script th:inline="javascript">
+	function sendSelectedValues(value) {
+		// Set the value of sendSelectedValues to the hidden input field
+		//	alert(value);
+		document.getElementById("sendSelectedValuesInput").value = value;
+		document.getElementById('checkboxForm').submit();
+
+	}
+
+
+	function sendAction(action) {
+		//alert(action);
+		document.getElementById("sendSelectedValuesInput").value = action;
+		document.getElementById('checkboxForm').submit();
+
+
+	}
+
+
+
+
+	document.addEventListener("DOMContentLoaded", function () {
+		var selectAllCheckbox = document.getElementById("selectAllCheckbox");
+		selectAllCheckbox.addEventListener("change", function () {
+			var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+			checkboxes.forEach(function (checkbox) {
+				checkbox.checked = selectAllCheckbox.checked;
+			});
+		});
+	});
+
+
+
+
+	var Dashboard = function () {
+		var global = {
+			tooltipOptions: {
+				placement: "right"
+			},
+			menuClass: ".c-menu"
+		};
+		var menuChangeActive = function menuChangeActive(el) {
+			var hasSubmenu = $(el).hasClass("has-submenu");
+			$(global.menuClass + " .is-active").removeClass("is-active");
+			$(el).addClass("is-active");
+
+			if (hasSubmenu) {
+				$(el).find(".c-menu__submenu").slideToggle();
+			}
+		};
+
+		var sidebarChangeWidth = function sidebarChangeWidth() {
+			var $menuItemsTitle = $("li .menu-item__title");
+
+			$("div").toggleClass("sidebar-is-reduced sidebar-is-expanded");
+			$(".hamburger-toggle").toggleClass("is-opened");
+
+			if ($("div").hasClass("sidebar-is-expanded")) {
+				$('[data-toggle="tooltip"]').tooltip("destroy");
+			} else {
+				$('[data-toggle="tooltip"]').tooltip(global.tooltipOptions);
+			}
+		};
+
+		return {
+			init: function init() {
+				$(".js-hamburger").on("click", sidebarChangeWidth);
+
+				$(".js-menu li").on("click", function (e) {
+					menuChangeActive(e.currentTarget);
+				});
+
+				$('[data-toggle="tooltip"]').tooltip(global.tooltipOptions);
+			}
+		};
+	}();
+
+	Dashboard.init();
+	let menus = document.getElementsByClassName(".c-menu__item .has-submenu");
+	for (let i = 0; i < menus.length; i++) {
+		menus[i].addEventListener("click", (e) => {
+			let menubar = menus[i].getElementsByClassName(".c-menu__submenu .u-list")[0];
+			if (menubar.style.display === "block" || menubar.style.display === "") {
+				menubar.style.display = "none";
+			} else {
+				menubar.style.display = "block";
+			}
+		});
+	}
+	// number count for stats, using jQuery animate
+
+
+	function flip() {
+		let cardElements = document.querySelectorAll(".cards");
+		cardElements.forEach(cardElement => {
+			cardElement.classList.toggle("flipped");
+		});
+	}
+
+	function flips() {
+		let cardElements = document.querySelectorAll(".cards");
+		cardElements.forEach(cardElement => {
+			cardElement.classList.toggle("flipped");
+		});
+	}
+
+
+	function startTime() {
+
+		var weekday = new Array();
+		weekday[0] = "Sunday";
+		weekday[1] = "Monday";
+		weekday[2] = "Tuesday";
+		weekday[3] = "Wednesday";
+		weekday[4] = "Thursday";
+		weekday[5] = "Friday";
+		weekday[6] = "Saturday";
+		var month = new Array();
+		month[0] = "January";
+		month[1] = "February";
+		month[2] = "March";
+		month[3] = "April";
+		month[4] = "May";
+		month[5] = "June";
+		month[6] = "July";
+		month[7] = "August";
+		month[8] = "September";
+		month[9] = "October";
+		month[10] = "November";
+		month[11] = "December";
+		var today = new Date();
+		var h = today.getHours();
+		var m = today.getMinutes();
+		var s = today.getSeconds();
+		var d = today.getDate();
+		var y = today.getFullYear();
+		var wd = weekday[today.getDay()];
+		var mt = month[today.getMonth()];
+
+		m = checkTime(m);
+		s = checkTime(s);
+		document.getElementById('date').innerHTML =
+			d;
+		document.getElementById('day').innerHTML =
+			wd;
+		document.getElementById('month').innerHTML =
+			mt + "/" + y;
+
+		var t = setTimeout(startTime, 500);
+
+	}
+	function checkTime(i) {
+		if (i < 10) {i = "0" + i};
+		return i;
+	}
+
+	function openUrl(applicationNumber, studentId) {
+
+
+		// Check if the values are not null or undefined
+		if (applicationNumber && studentId) {
+			var url = "/preview?applicationNumber=" + applicationNumber + "&registrationnumber=" + studentId;
+			// Redirect the user to the constructed URL
+			//var url = "http://localhost:8055/viewpersonaldetails?applicationNumber=156&registrationnumber=BR2324PAT46941;
+			window.location.href = url;
+		} else {
+			console.error("Application number or student ID is null or undefined");
+		}
+	}
+
+
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+
+</html>
