@@ -11,4 +11,5 @@ public interface Academicdetailsservice {
 	AcademicDetailsForm getFormDataByApplicationNumber(Integer applicationnumber);
 	
 	//AcademicDetailsForm getFormDataByApplicationNumber(Integer applicationnumber);
-}
+	void update(AcademicDetailsForm academicdetailsform);
+	}

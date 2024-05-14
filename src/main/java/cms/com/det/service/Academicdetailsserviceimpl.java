@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cms.com.det.dto.AcademicDetailsForm;
+import cms.com.det.dto.DashboardStudentFormData;
 import cms.com.det.repo.Academicdetailsrepo;
 
 @Service
@@ -22,6 +23,12 @@ public class Academicdetailsserviceimpl implements Academicdetailsservice{
 	public AcademicDetailsForm getFormDataByApplicationNumber(Integer applicationnumber) {
 		// TODO Auto-generated method stub
 		return repo.getFormDataByApplicationNumber(applicationnumber);
+	}
+
+	@Override
+	public void update(AcademicDetailsForm academicdetailsorm) {
+		repo.update(academicdetailsorm);
+		
 	}
 
 	

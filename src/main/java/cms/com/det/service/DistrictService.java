@@ -7,4 +7,7 @@ import cms.com.det.model.District;
 public interface DistrictService {
 
 	public List<District> findDistrictAll();
+	
+	
+
 }

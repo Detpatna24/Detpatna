@@ -21,9 +21,9 @@ public class DashboardStudentAdresServiceimpl implements DashboardStudentAdresSe
 
 	
 	@Override
-	public DashboardStudentAdress save(DashboardStudentAdress dashboardstudentaddress) {
+	public void save(DashboardStudentAdress dashboardstudentaddress) {
 		// TODO Auto-generated method stub
-		return repo.save(dashboardstudentaddress);
+		 repo.save(dashboardstudentaddress);
 	}
 
 	
@@ -31,9 +31,19 @@ public class DashboardStudentAdresServiceimpl implements DashboardStudentAdresSe
 
 
 	@Override
-	public DashboardStudentAdress getAddressByApplicationNumber(Integer applicationnumber) {
+	public DashboardStudentAdress getAddressByApplicationNumber(String registrationNumber) {
 		// TODO Auto-generated method stub
-		return repo.getAddressByApplicationNumber(applicationnumber);
+		return repo.getFormDataByApplicationNumber(registrationNumber);
+	}
+
+
+
+
+
+	@Override
+	public void update(DashboardStudentAdress formData) {
+		repo.update(formData);
+		
 	}
 	
 

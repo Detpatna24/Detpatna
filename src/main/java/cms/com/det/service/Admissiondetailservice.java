@@ -7,5 +7,7 @@ import cms.com.det.dto.Admissiondetailsform;
 @Component
 public interface Admissiondetailservice {
 
-	Admissiondetailsform save(Admissiondetailsform admissiondetailsform);
+	public void save(Admissiondetailsform admissiondetailsform);
+	void update(Admissiondetailsform admissiondetailsform);
+	Admissiondetailsform getFormDataByApplicationNumber(Integer applicationnumber);
 }
